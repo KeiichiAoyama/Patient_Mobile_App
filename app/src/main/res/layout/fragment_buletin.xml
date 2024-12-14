@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/abu"
+    android:paddingHorizontal="25dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constrainttop_toTopOf="parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buletin"
+            android:textColor="@color/biruTua"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+        <SearchView
+            android:id="@+id/search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/search_bar"
+            tools:layout_editor_absoluteX="25dp" />
+        <TextView
+            android:layout_marginTop="20dp"
+            android:id="@+id/artikelhangat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Artikel Hangat"
+            android:textColor="@color/biruTua"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_marginTop="20dp"
+            android:id="@+id/topikhangat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Topik Hangat"
+            android:textColor="@color/biruTua"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_marginTop="20dp"
+            android:id="@+id/artikelterbaru"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Artikel Terbaru"
+            android:textColor="@color/biruTua"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
