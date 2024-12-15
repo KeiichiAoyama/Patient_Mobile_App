@@ -5,15 +5,17 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/abuTua"
     tools:context=".LoginActivity">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Selamat Datang"
-        tools:layout_editor_absoluteX="53dp"
-        tools:layout_editor_absoluteY="74dp" />
+        android:text="Login"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="172dp"
+        tools:layout_editor_absoluteY="230dp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -24,12 +26,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email" />
+
         <EditText
             android:id="@+id/editTextTextEmailAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textEmailAddress" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Password" />
 
         <EditText
             android:id="@+id/editTextTextPassword"
@@ -43,5 +57,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Login" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Forgot Password?" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SATUSEHAT"
+        android:textSize="34sp"
+        tools:layout_editor_absoluteX="112dp"
+        tools:layout_editor_absoluteY="69dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
