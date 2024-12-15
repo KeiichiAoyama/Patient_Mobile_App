@@ -5,5 +5,9 @@
     <color name="abu">#F0F4F8</color>
     <color name="abuTua">#DCE1E7</color>
     <color name="biruTua">#252F4A</color>
+<<<<<<< Updated upstream
     <color name="abuMuda">#8B8B8B</color>
+=======
+    <color name="biruMuda">#CFE1FF</color>
+>>>>>>> Stashed changes
 </resources>
