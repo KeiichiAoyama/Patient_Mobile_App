@@ -28,7 +28,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginBottom="35dp"
-            android:text="<  Diari Kesehatan"
+            android:text="&lt;  Diari Kesehatan"
             android:textSize="20sp"
             android:textStyle="bold" />
 
