@@ -32,7 +32,6 @@
         app:layout_constraintTop_toBottomOf="@+id/cariobat">
 
         <TextView
-            android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="SIRANAP"
@@ -41,7 +40,6 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="25dp"
@@ -50,7 +48,6 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
@@ -58,7 +55,6 @@
             android:text="Pilih Tempat Tidur" />
 
         <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fragmentContainerView5"
             android:name="com.example.patientmobileapp.FragmentbtnCovid"
             android:layout_width="match_parent"
             android:layout_height="37dp"
@@ -67,7 +63,6 @@
             android:layout_marginRight="30dp" />
 
         <TextView
-            android:id="@+id/textView17"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
@@ -76,7 +71,6 @@
             android:text="Pilih Provinsi" />
 
         <Spinner
-            android:id="@+id/spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
@@ -84,7 +78,6 @@
             android:layout_marginRight="30dp" />
 
         <TextView
-            android:id="@+id/textView18"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
@@ -93,7 +86,6 @@
             android:text="Pilih Kabupaten/Kota" />
 
         <Spinner
-            android:id="@+id/spinner2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
@@ -101,7 +93,6 @@
             android:layout_marginRight="30dp" />
 
         <Button
-            android:id="@+id/button4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"

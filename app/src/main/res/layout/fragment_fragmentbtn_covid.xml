@@ -12,15 +12,13 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/buttoncovid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="#2AD756"
+            android:background="#FFFFFF"
             android:text="COVID-19" />
 
         <Button
-            android:id="@+id/buttonnoncovid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
