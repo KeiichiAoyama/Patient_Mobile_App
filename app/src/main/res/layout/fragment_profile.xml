@@ -2,269 +2,347 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
-    android:paddingHorizontal="25dp"
     android:background="@color/abu"
     android:layout_height="match_parent"
     tools:context=".ProfileFragment">
-
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical"
+    <ScrollView
+        android:scrollbars="none"
+        android:paddingHorizontal="25dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Profile"
-            android:textColor="@color/biruTua"
-            android:textSize="32sp"
-            android:textStyle="bold" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <LinearLayout
-            android:layout_marginTop="20dp"
-            android:background="@drawable/profile_bg"
-            android:orientation="vertical"
+            android:id="@+id/linearLayout3"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profile"
+                android:textColor="@color/biruTua"
+                android:textSize="32sp"
+                android:textStyle="bold" />
             <LinearLayout
-                android:layout_marginVertical="10dp"
-                android:layout_marginHorizontal="10dp"
-                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/profile_bg"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_marginRight="15dp"
-                    android:background="@drawable/profile_circle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                <LinearLayout
+                    android:layout_marginVertical="10dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_marginRight="15dp"
+                        android:background="@drawable/profile_circle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:text="Muhammad Ilham Kurniawan"
+                            android:textSize="18sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <LinearLayout
+                            android:gravity="center_vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:background="@drawable/ic_round_call"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                            <TextView
+                                android:text="Muhammad Ilham Kurniawan"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:gravity="center_vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:background="@drawable/icon_park_solid_id_card__1_"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                            <TextView
+                                android:text="Muhammad Ilham Kurniawan"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                    <ImageView
+                        android:layout_marginStart="10dp"
+                        android:background="@drawable/tabler_edit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="10dp"
+                    android:background="@drawable/profile_identitas"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_weight="0"
+                        android:background="@drawable/barcode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_weight="2"
+                        android:layout_marginStart="20dp"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/biruTua"
+                        android:text="Kode Identitas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <ImageView
+                        android:layout_weight="0"
+                        android:rotation="180"
+                        android:background="@drawable/ion_chevron_back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical"
+                android:padding="20dp"
+                android:orientation="horizontal"
+                android:background="@drawable/profile_bg2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
                 <LinearLayout
                     android:layout_weight="1"
                     android:orientation="vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
                     <TextView
-                        android:text="Muhammad Ilham Kurniawan"
+                        android:text="Kartu Status Vaksin dan Hasil Tes COVID-19"
+                        android:layout_width="wrap_content"
                         android:textSize="18sp"
+                        android:textColor="@color/white"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:fontFamily="@font/Quantico_Regular"
+                        android:layout_marginTop="20dp"
+                        android:textSize="18sp"
+                        android:textColor="@color/white"
+                        android:text="MUHAMMAD ILHAM KURNIAWAN"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
-                    <LinearLayout
-                        android:gravity="center_vertical"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                        <ImageView
-                            android:background="@drawable/ic_round_call"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-                        <TextView
-                            android:text="Muhammad Ilham Kurniawan"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:gravity="center_vertical"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                        <ImageView
-                            android:background="@drawable/icon_park_solid_id_card__1_"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-                        <TextView
-                            android:text="Muhammad Ilham Kurniawan"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-                    </LinearLayout>
-
                 </LinearLayout>
                 <ImageView
-                    android:layout_marginStart="10dp"
-                    android:background="@drawable/tabler_edit"
+                    android:rotation="180"
+                    android:src="@drawable/ion_chevron_back_white"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
+
             </LinearLayout>
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/informasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Informasi Umum"
+                android:textColor="@color/biruTua"
+                android:textSize="16sp"
+                android:textStyle="bold" />
             <LinearLayout
-                android:gravity="center_vertical"
+                android:paddingVertical="15dp"
                 android:paddingHorizontal="20dp"
-                android:paddingVertical="10dp"
-                android:background="@drawable/profile_identitas"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_weight="0"
-                    android:background="@drawable/barcode"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:layout_weight="2"
-                    android:layout_marginStart="20dp"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/biruTua"
-                    android:text="Kode Identitas"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <ImageView
-                    android:layout_weight="0"
-                    android:rotation="180"
-                    android:background="@drawable/ion_chevron_back"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginTop="20dp"
-            android:gravity="center_vertical"
-            android:padding="20dp"
-            android:orientation="horizontal"
-            android:background="@drawable/profile_bg2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:layout_weight="1"
                 android:orientation="vertical"
-                android:layout_width="wrap_content"
+                android:background="@drawable/profile_bg"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <TextView
-                    android:text="Kartu Status Vaksin dan Hasil Tes COVID-19"
-                    android:layout_width="wrap_content"
-                    android:textSize="18sp"
-                    android:textColor="@color/white"
+                <LinearLayout
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/mdi_comment_help_outline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_weight="1"
+                        android:textColor="@color/biruTua"
+                        android:layout_width="wrap_content"
+                        android:text="Pusat Bantuan"
+                        android:layout_height="wrap_content"/>
+                    <ImageView
+                        android:rotation="180"
+                        android:src="@drawable/ion_chevron_back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <ImageView
+                    android:paddingVertical="10dp"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/separator"
                     android:layout_height="wrap_content"/>
-                <TextView
-                    android:fontFamily="@font/Quantico_Regular"
-                    android:layout_marginTop="20dp"
-                    android:textSize="18sp"
-                    android:textColor="@color/white"
-                    android:text="MUHAMMAD ILHAM KURNIAWAN"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/mdi_comment_help_outline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_weight="1"
+                        android:textColor="@color/biruTua"
+                        android:layout_width="wrap_content"
+                        android:text="Pusat Bantuan"
+                        android:layout_height="wrap_content"/>
+                    <ImageView
+                        android:rotation="180"
+                        android:src="@drawable/ion_chevron_back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <ImageView
+                    android:paddingVertical="10dp"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/separator"
                     android:layout_height="wrap_content"/>
-            </LinearLayout>
-            <ImageView
-                android:rotation="180"
-                android:src="@drawable/ion_chevron_back_white"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                <LinearLayout
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/mdi_comment_help_outline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_weight="1"
+                        android:textColor="@color/biruTua"
+                        android:layout_width="wrap_content"
+                        android:text="Pusat Bantuan"
+                        android:layout_height="wrap_content"/>
+                    <ImageView
+                        android:rotation="180"
+                        android:src="@drawable/ion_chevron_back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
 
+            </LinearLayout>
+            <TextView
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="20dp"
+                android:id="@+id/topikhangat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pengaturan"
+                android:textColor="@color/biruTua"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+            <LinearLayout
+                android:paddingVertical="15dp"
+                android:paddingHorizontal="20dp"
+                android:orientation="vertical"
+                android:background="@drawable/profile_bg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/mdi_comment_help_outline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_weight="1"
+                        android:textColor="@color/biruTua"
+                        android:layout_width="wrap_content"
+                        android:text="Pusat Bantuan"
+                        android:layout_height="wrap_content"/>
+                    <ImageView
+                        android:rotation="180"
+                        android:src="@drawable/ion_chevron_back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <ImageView
+                    android:paddingVertical="10dp"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/separator"
+                    android:layout_height="wrap_content"/>
+                <LinearLayout
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/mdi_comment_help_outline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_weight="1"
+                        android:textColor="@color/biruTua"
+                        android:layout_width="wrap_content"
+                        android:text="Pusat Bantuan"
+                        android:layout_height="wrap_content"/>
+                    <ImageView
+                        android:rotation="180"
+                        android:src="@drawable/ion_chevron_back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <ImageView
+                    android:paddingVertical="10dp"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/separator"
+                    android:layout_height="wrap_content"/>
+                <LinearLayout
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/mdi_comment_help_outline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_weight="1"
+                        android:textColor="@color/biruTua"
+                        android:layout_width="wrap_content"
+                        android:text="Pusat Bantuan"
+                        android:layout_height="wrap_content"/>
+                    <ImageView
+                        android:rotation="180"
+                        android:src="@drawable/ion_chevron_back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+            </LinearLayout>
         </LinearLayout>
-        <TextView
-            android:layout_marginTop="20dp"
-            android:id="@+id/informasi"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Informasi Umum"
-            android:textColor="@color/biruTua"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-        <LinearLayout
-            android:paddingVertical="10dp"
-            android:paddingHorizontal="20dp"
-            android:orientation="vertical"
-            android:background="@drawable/profile_bg"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:src="@drawable/mdi_comment_help_outline"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:layout_weight="1"
-                    android:textColor="@color/biruTua"
-                    android:layout_width="wrap_content"
-                    android:text="Pusat Bantuan"
-                    android:layout_height="wrap_content"/>
-                <ImageView
-                    android:rotation="180"
-                    android:src="@drawable/ion_chevron_back"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-            <ImageView
-                android:paddingVertical="10dp"
-                android:layout_width="match_parent"
-                android:background="@drawable/separator"
-                android:layout_height="wrap_content"/>
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:src="@drawable/mdi_comment_help_outline"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:textColor="@color/biruTua"
-                    android:layout_width="wrap_content"
-                    android:text="Pusat Bantuan"
-                    android:layout_height="wrap_content"/>
-                <ImageView
-                    android:rotation="180"
-                    android:src="@drawable/ion_chevron_back"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-            <ImageView
-                android:paddingVertical="10dp"
-                android:layout_width="match_parent"
-                android:background="@drawable/separator"
-                android:layout_height="wrap_content"/>
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:src="@drawable/mdi_comment_help_outline"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:textColor="@color/biruTua"
-                    android:layout_width="wrap_content"
-                    android:text="Pusat Bantuan"
-                    android:layout_height="wrap_content"/>
-                <ImageView
-                    android:rotation="180"
-                    android:src="@drawable/ion_chevron_back"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-
-        </LinearLayout>
-        <TextView
-            android:layout_marginTop="20dp"
-            android:id="@+id/topikhangat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Topik Hangat"
-            android:textColor="@color/biruTua"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:layout_marginTop="20dp"
-            android:id="@+id/artikelterbaru"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Artikel Terbaru"
-            android:textColor="@color/biruTua"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

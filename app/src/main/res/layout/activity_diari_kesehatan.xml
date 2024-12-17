@@ -7,216 +7,162 @@
     android:layout_height="match_parent"
     android:background="@color/abu"
     tools:context=".DiariKesehatan">
-
-    <LinearLayout
-        android:layout_width="407dp"
-        android:layout_height="712dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/diari"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/abu"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Diari Kesehatan"
+        app:navigationIcon="@drawable/ion_chevron_back" />
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="3"
+        android:paddingHorizontal="20dp"
+        android:useDefaultMargins="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/diari">
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginBottom="35dp"
-            android:text="&lt;  Diari Kesehatan"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
+        <!-- Item 1 -->
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="148dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginBottom="15dp"
-            android:orientation="horizontal">
+            android:padding="10dp"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/shape_perfitur"
+            android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="175dp"
-                android:layout_height="148dp"
-                android:layout_marginRight="15dp"
-                android:background="@color/white"
-                android:orientation="vertical">
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="end"
+                android:background="@drawable/shape_circle" />
 
-                <LinearLayout
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/shape_circle">
-
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/textView102"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="Indeks Masa Tubuh"
-                    android:textAlignment="center"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="147dp"
-                android:background="@color/white"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/shape_circle">
-
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/textView14"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="Aktivitas Fisik"
-                    android:textAlignment="center"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Index \nMassa Tubuh"
+                android:textSize="16sp"
+                android:textStyle="bold" />
         </LinearLayout>
-
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="162dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginBottom="15dp"
-            android:orientation="horizontal">
+            android:padding="10dp"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/shape_perfitur"
+            android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="175dp"
-                android:layout_height="159dp"
-                android:layout_marginRight="15dp"
-                android:background="@color/white"
-                android:orientation="vertical">
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="end"
+                android:background="@drawable/shape_circle" />
 
-                <LinearLayout
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/shape_circle">
-
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/textView20"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Kolesterol"
-                    android:textAlignment="center"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="161dp"
-                android:background="@color/white"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/shape_circle">
-
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/textView21"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Asam Urat"
-                    android:textAlignment="center"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Aktivitas \nFisik"
+                android:textSize="16sp"
+                android:textStyle="bold" />
         </LinearLayout>
-
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="184dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginBottom="15dp"
-            android:orientation="horizontal">
+            android:padding="10dp"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/shape_perfitur"
+            android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="175dp"
-                android:layout_height="match_parent"
-                android:layout_marginRight="15dp"
-                android:background="@color/white"
-                android:orientation="vertical">
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="end"
+                android:background="@drawable/shape_circle" />
 
-                <LinearLayout
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/shape_circle">
-
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/textView22"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Gula Darah"
-                    android:textAlignment="center"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/white"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/shape_circle">
-
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/textView23"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Tekanan Darah"
-                    android:textAlignment="center"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Kolestrol"
+                android:textSize="16sp"
+                android:textStyle="bold" />
         </LinearLayout>
+        <LinearLayout
+            android:padding="10dp"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/shape_perfitur"
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="end"
+                android:background="@drawable/shape_circle" />
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Asam Urat"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <LinearLayout
+            android:padding="10dp"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/shape_perfitur"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="end"
+                android:background="@drawable/shape_circle" />
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Gula Darah"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <LinearLayout
+            android:padding="10dp"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/shape_perfitur"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="end"
+                android:background="@drawable/shape_circle" />
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Tekanan Darah"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </GridLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

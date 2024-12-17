@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="Notification Button" />
 
-        </LinearLayout>,
+        </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
     <ScrollView
         app:layout_constraintTop_toBottomOf="@id/toolbar3"
