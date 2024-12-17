@@ -15,6 +15,18 @@
         android:theme="@style/Theme.PatientMobileApp"
         tools:targetApi="31">
         <activity
+            android:name=".CariRawatInap"
+            android:exported="false" />
+        <activity
+            android:name=".BuletinSearch"
+            android:exported="false" />
+        <activity
+            android:name=".BulletinSearch"
+            android:exported="false" />
+        <activity
+            android:name=".CariObat"
+            android:exported="false" />
+        <activity
             android:name=".CariNakesActivity"
             android:exported="false" />
         <activity
