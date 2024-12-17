@@ -8,7 +8,7 @@
     tools:context=".CariObat">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/cariobat"
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/abu"
@@ -37,7 +37,7 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cariobat">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
         <SearchView
             android:layout_width="match_parent"
