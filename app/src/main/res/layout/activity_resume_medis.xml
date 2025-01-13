@@ -21,55 +21,134 @@
         app:title="Resume Medis"/>
 
     <LinearLayout
+        android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar3">
+        android:layout_marginHorizontal="25dp"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar3"
+        tools:layout_editor_absoluteX="25dp">
 
         <LinearLayout
-            android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_home"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="30dp">
+
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
                 <ImageView
-                    android:layout_weight="1"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:background="@drawable/shape_circle" />
+
                 <LinearLayout
-                    android:layout_weight="2"
-                    android:orientation="vertical"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="2"
+                    android:orientation="vertical">
+
                     <TextView
-                        android:textSize="18sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="Muhammad Ilham Kurniawan"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:textSize="18sp" />
+
                     <TextView
-                        android:textSize="13sp"
-                        android:text="20 Tahun"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:text="20 Tahun"
+                        android:textSize="13sp" />
                 </LinearLayout>
 
             </LinearLayout>
+
             <LinearLayout
-                android:layout_marginHorizontal="20dp"
-                android:paddingHorizontal="10dp"
-                android:paddingVertical="20dp"
-                android:orientation="horizontal"
-                android:background="@drawable/shape_blue"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape_blue"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="10dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_weight="0"
+                    android:src="@drawable/bi_file_medical" />
+
                 <TextView
-                    android:text="1 Alergi Tercatat"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="2"
+                    android:text="1 Alergi Tercatat"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:rotation="180"
+                    android:src="@drawable/ion_chevron_back" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/resume_shape"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+        tools:layout_editor_absoluteX="25dp">
+
+        <!-- Button Rawat Jalan -->
+        <ToggleButton
+            android:id="@+id/button_rawat_jalan"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_switch"
+            android:gravity="center"
+            android:textColor="@color/text_color"
+            android:textOff="Rawat Jalan"
+            android:textOn="Rawat Jalan"
+            android:textStyle="bold" />
+
+        <!-- Button Tes Lab -->
+        <ToggleButton
+            android:id="@+id/button_tes_lab"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_switch"
+            android:gravity="center"
+            android:textColor="@color/text_color"
+            android:textOff="Tes Lab"
+            android:textOn="Tes Lab"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <fragment
+        android:id="@+id/frame_resume"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
