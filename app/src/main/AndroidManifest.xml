@@ -15,6 +15,9 @@
         android:theme="@style/Theme.PatientMobileApp"
         tools:targetApi="31">
         <activity
+            android:name=".TrackerMinumObat"
+            android:exported="false" />
+        <activity
             android:name=".CariRawatInap"
             android:exported="false" />
         <activity
