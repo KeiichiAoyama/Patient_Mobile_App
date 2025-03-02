@@ -113,105 +113,127 @@
                     android:orientation="horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
-                    <LinearLayout
-                        android:layout_marginRight="10dp"
-                        android:padding="10dp"
-                        android:orientation="vertical"
-                        android:background="@drawable/shape_fitur"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                        <LinearLayout
-                            android:layout_gravity="center_horizontal"
-                            android:background="@drawable/shape_circle"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
 
-                        </LinearLayout>
-                        <TextView
-                            android:layout_gravity="center_horizontal"
+                    <LinearLayout
+                        android:id="@+id/resume_medis"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/shape_fitur"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Resume"/>
-                        <TextView
                             android:layout_gravity="center_horizontal"
-                            android:text="Medis"
+                            android:background="@drawable/shape_circle">
+
+                        </LinearLayout>
+
+                        <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="Resume" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="Medis" />
                     </LinearLayout>
-                    <LinearLayout
-                        android:layout_marginRight="10dp"
-                        android:padding="10dp"
-                        android:orientation="vertical"
-                        android:background="@drawable/shape_fitur"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                        <LinearLayout
-                            android:layout_gravity="center_horizontal"
-                            android:background="@drawable/shape_circle"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
 
-                        </LinearLayout>
-                        <TextView
-                            android:layout_gravity="center_horizontal"
+                    <LinearLayout
+                        android:id="@+id/kesehatan_kehamilan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/shape_fitur"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Resume"/>
-                        <TextView
                             android:layout_gravity="center_horizontal"
-                            android:text="Medis"
+                            android:background="@drawable/shape_circle">
+
+                        </LinearLayout>
+
+                        <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="Kesehatan" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="Kehamilan" />
                     </LinearLayout>
-                    <LinearLayout
-                        android:layout_marginRight="10dp"
-                        android:padding="10dp"
-                        android:orientation="vertical"
-                        android:background="@drawable/shape_fitur"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                        <LinearLayout
-                            android:layout_gravity="center_horizontal"
-                            android:background="@drawable/shape_circle"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
 
-                        </LinearLayout>
-                        <TextView
-                            android:layout_gravity="center_horizontal"
+                    <LinearLayout
+                        android:id="@+id/pertumbuhan_anak"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/shape_fitur"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Resume"/>
-                        <TextView
                             android:layout_gravity="center_horizontal"
-                            android:text="Medis"
+                            android:background="@drawable/shape_circle">
+
+                        </LinearLayout>
+
+                        <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="Pertumbuhan"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="Anak"
+                            android:textSize="10sp" />
                     </LinearLayout>
-                    <LinearLayout
-                        android:layout_marginRight="10dp"
-                        android:padding="10dp"
-                        android:orientation="vertical"
-                        android:background="@drawable/shape_fitur"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                        <LinearLayout
-                            android:layout_gravity="center_horizontal"
-                            android:background="@drawable/shape_circle"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
 
-                        </LinearLayout>
-                        <TextView
-                            android:layout_gravity="center_horizontal"
+                    <LinearLayout
+                        android:id="@+id/rawat_inap"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/shape_fitur"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Resume"/>
-                        <TextView
                             android:layout_gravity="center_horizontal"
-                            android:text="Medis"
+                            android:background="@drawable/shape_circle">
+
+                        </LinearLayout>
+
+                        <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="Cari" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="Rawat Inap" />
                     </LinearLayout>
                 </LinearLayout>
                 <LinearLayout
@@ -220,105 +242,120 @@
                     android:orientation="horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
-                    <LinearLayout
-                        android:layout_marginRight="10dp"
-                        android:padding="10dp"
-                        android:orientation="vertical"
-                        android:background="@drawable/shape_fitur"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                        <LinearLayout
-                            android:layout_gravity="center_horizontal"
-                            android:background="@drawable/shape_circle"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
 
-                        </LinearLayout>
-                        <TextView
-                            android:layout_gravity="center_horizontal"
+                    <LinearLayout
+                        android:id="@+id/tracker_obat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/shape_fitur"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Resume"/>
-                        <TextView
                             android:layout_gravity="center_horizontal"
-                            android:text="Medis"
+                            android:background="@drawable/shape_circle">
+
+                        </LinearLayout>
+
+                        <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="Pengingat" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="Minum Obat" />
                     </LinearLayout>
-                    <LinearLayout
-                        android:layout_marginRight="10dp"
-                        android:padding="10dp"
-                        android:orientation="vertical"
-                        android:background="@drawable/shape_fitur"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                        <LinearLayout
-                            android:layout_gravity="center_horizontal"
-                            android:background="@drawable/shape_circle"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
 
-                        </LinearLayout>
-                        <TextView
-                            android:layout_gravity="center_horizontal"
+                    <LinearLayout
+                        android:id="@+id/cari_nakes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/shape_fitur"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Resume"/>
-                        <TextView
                             android:layout_gravity="center_horizontal"
-                            android:text="Medis"
+                            android:background="@drawable/shape_circle">
+
+                        </LinearLayout>
+
+                        <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="Cari" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="Nakes" />
                     </LinearLayout>
-                    <LinearLayout
-                        android:layout_marginRight="10dp"
-                        android:padding="10dp"
-                        android:orientation="vertical"
-                        android:background="@drawable/shape_fitur"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                        <LinearLayout
-                            android:layout_gravity="center_horizontal"
-                            android:background="@drawable/shape_circle"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
 
-                        </LinearLayout>
-                        <TextView
-                            android:layout_gravity="center_horizontal"
+                    <LinearLayout
+                        android:id="@+id/cari_obat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/shape_fitur"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Resume"/>
-                        <TextView
                             android:layout_gravity="center_horizontal"
-                            android:text="Medis"
+                            android:background="@drawable/shape_circle">
+
+                        </LinearLayout>
+
+                        <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="Cari" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="Obat" />
                     </LinearLayout>
-                    <LinearLayout
-                        android:layout_marginRight="10dp"
-                        android:padding="10dp"
-                        android:orientation="vertical"
-                        android:background="@drawable/shape_fitur"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                        <LinearLayout
-                            android:layout_gravity="center_horizontal"
-                            android:background="@drawable/shape_circle"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
 
-                        </LinearLayout>
-                        <TextView
-                            android:layout_gravity="center_horizontal"
+                    <LinearLayout
+                        android:id="@+id/lainnya"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/shape_fitur"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <LinearLayout
+                            android:id="@+id/lai"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Resume"/>
-                        <TextView
                             android:layout_gravity="center_horizontal"
-                            android:text="Medis"
+                            android:background="@drawable/shape_circle">
+
+                        </LinearLayout>
+
+                        <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="Lainnya" />
                     </LinearLayout>
                 </LinearLayout>
                 <LinearLayout

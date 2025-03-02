@@ -1,6 +1,7 @@
 package com.example.patientmobileapp;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ToggleButton;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -14,6 +15,8 @@ public class ResumeMedisActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resume_medis);
+
+        Log.d("ResumeMedisActivity", "Activity Started Successfully");
 
         buttonRawatJalan = findViewById(R.id.button_rawat_jalan);
         buttonTesLab = findViewById(R.id.button_tes_lab);
@@ -37,9 +40,9 @@ public class ResumeMedisActivity extends AppCompatActivity {
     }
 
     private void loadFragment(Fragment fragment) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.frame_resume, fragment)
-                .commit();
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+//        fragmentManager.beginTransaction()
+//                .replace(R.id.frame_resume, fragment)
+//                .commit();
     }
 }

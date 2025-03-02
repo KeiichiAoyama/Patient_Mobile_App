@@ -46,4 +46,28 @@ public class User {
 
         return user;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "nik='" + nik + '\'' +
+                ", nama='" + nama + '\'' +
+                ", tempat_lahir='" + tempat_lahir + '\'' +
+                ", tanggal_lahir='" + tanggal_lahir + '\'' +
+                ", bulan_lahir='" + bulan_lahir + '\'' +
+                ", tahun_lahir='" + tahun_lahir + '\'' +
+                ", jenis_kelamin='" + jenis_kelamin + '\'' +
+                ", golongan_darah='" + golongan_darah + '\'' +
+                ", alamat='" + alamat + '\'' +
+                ", rt='" + rt + '\'' +
+                ", rw='" + rw + '\'' +
+                ", kelurahan='" + kelurahan + '\'' +
+                ", kecamatan='" + kecamatan + '\'' +
+                ", agama='" + agama + '\'' +
+                ", pekerjaan='" + pekerjaan + '\'' +
+                ", no_telp='" + no_telp + '\'' +
+                ", foto_pasien='" + foto_pasien + '\'' +
+                '}';
+    }
+
 }

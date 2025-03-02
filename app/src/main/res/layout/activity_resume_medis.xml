@@ -142,13 +142,13 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-    <fragment
-        android:id="@+id/frame_resume"
-        android:layout_marginTop="20dp"
-        android:layout_marginHorizontal="25dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />
+<!--    <fragment-->
+<!--        android:id="@+id/frame_resume"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_marginHorizontal="25dp"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
