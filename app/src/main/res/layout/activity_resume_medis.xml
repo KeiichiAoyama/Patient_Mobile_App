@@ -94,14 +94,14 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
 
         <Button
-            android:id="@+id/rawat_jalan"
+            android:id="@+id/button_rawat_jalan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Rawat Jalan" />
 
         <Button
-            android:id="@+id/tes_lab"
+            android:id="@+id/button_tes_lab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

@@ -93,12 +93,13 @@
             android:layout_marginRight="30dp" />
 
         <Button
+            android:background="@drawable/button_submit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="15dp"
             android:layout_marginRight="30dp"
-            android:text="Button" />
+            android:text="Cari" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
