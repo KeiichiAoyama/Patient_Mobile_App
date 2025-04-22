@@ -53,11 +53,20 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                        <LinearLayout
+                            android:layout_width="52dp"
+                            android:layout_height="54dp"
                             android:layout_weight="0"
-                            android:background="@drawable/shape_circle" />
+                            android:background="@drawable/shape_circle"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/imageView25"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                app:srcCompat="@drawable/poli_gigi_putih" />
+                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -158,11 +167,20 @@
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
-                        <ImageView
+                        <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="54dp"
                             android:layout_weight="0"
-                            android:background="@drawable/shape_circle" />
+                            android:background="@drawable/shape_circle"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/imageView27"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                app:srcCompat="@drawable/stethoscope_putih" />
+                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -235,11 +253,20 @@
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                        <LinearLayout
+                            android:layout_width="50dp"
+                            android:layout_height="51dp"
                             android:layout_weight="0"
-                            android:background="@drawable/shape_circle" />
+                            android:background="@drawable/shape_circle"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/imageView28"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                app:srcCompat="@drawable/obat_putih" />
+                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="wrap_content"

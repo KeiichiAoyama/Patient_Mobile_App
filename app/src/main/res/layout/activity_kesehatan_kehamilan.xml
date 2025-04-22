@@ -43,6 +43,13 @@
                 android:layout_gravity="end"
                 android:background="@drawable/shape_circle">
 
+                <ImageView
+                    android:id="@+id/imageView24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/kesehatan_kehamilan_putih" />
             </LinearLayout>
 
             <TextView
@@ -67,6 +74,13 @@
                 android:layout_gravity="end"
                 android:background="@drawable/shape_circle">
 
+                <ImageView
+                    android:id="@+id/imageView29"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/sertifikat_imunisasi_putih" />
             </LinearLayout>
 
             <TextView

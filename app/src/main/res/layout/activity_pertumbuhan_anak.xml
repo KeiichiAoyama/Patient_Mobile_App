@@ -49,6 +49,13 @@
                     android:layout_height="75dp"
                     android:background="@drawable/shape_circle">
 
+                    <ImageView
+                        android:id="@+id/imageView30"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/user_outline_putih" />
                 </LinearLayout>
 
                 <TextView
@@ -85,6 +92,13 @@
                         android:layout_gravity="center_horizontal"
                         android:background="@drawable/shape_circle">
 
+                        <ImageView
+                            android:id="@+id/imageView31"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/tambah_putih" />
                     </LinearLayout>
 
                     <TextView

@@ -256,7 +256,14 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/shape_circle">
-                <!-- Tambahkan icon atau gambar di sini jika perlu -->
+
+                <ImageView
+                    android:id="@+id/imageView42"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/minum_obat_putih" />
             </LinearLayout>
 
             <!-- Deskripsi Obat -->
@@ -327,6 +334,13 @@
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/shape_circle">
                 <!-- Tambahkan icon atau gambar di sini jika perlu -->
+                <ImageView
+                    android:id="@+id/imageView43"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/minum_obat_putih" />
             </LinearLayout>
 
             <!-- Deskripsi Obat -->

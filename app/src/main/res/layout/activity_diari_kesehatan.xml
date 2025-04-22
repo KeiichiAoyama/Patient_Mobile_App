@@ -43,7 +43,16 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="end"
-                android:background="@drawable/shape_circle" />
+                android:background="@drawable/shape_circle" >
+
+                <ImageView
+                    android:id="@+id/imageView32"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/indeks_massa_tubuh_tubuh" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="120dp"
@@ -65,7 +74,16 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="end"
-                android:background="@drawable/shape_circle" />
+                android:background="@drawable/shape_circle" >
+
+                <ImageView
+                    android:id="@+id/imageView33"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/aktivitas_fisik_putih" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="120dp"
@@ -87,7 +105,16 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="end"
-                android:background="@drawable/shape_circle" />
+                android:background="@drawable/shape_circle" >
+
+                <ImageView
+                    android:id="@+id/imageView35"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/kolesterol_putih" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="120dp"
@@ -109,7 +136,16 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="end"
-                android:background="@drawable/shape_circle" />
+                android:background="@drawable/shape_circle" >
+
+                <ImageView
+                    android:id="@+id/imageView36"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/asam_urat_putih" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="120dp"
@@ -131,7 +167,16 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="end"
-                android:background="@drawable/shape_circle" />
+                android:background="@drawable/shape_circle" >
+
+                <ImageView
+                    android:id="@+id/imageView37"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/gula_darah_putih" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="120dp"
@@ -153,7 +198,16 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="end"
-                android:background="@drawable/shape_circle" />
+                android:background="@drawable/shape_circle" >
+
+                <ImageView
+                    android:id="@+id/imageView38"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/stethoscope_putih" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="120dp"

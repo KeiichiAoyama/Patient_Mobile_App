@@ -145,6 +145,13 @@
                             android:layout_gravity="center_horizontal"
                             android:background="@drawable/shape_circle">
 
+                            <ImageView
+                                android:id="@+id/imageView4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="1"
+                                android:src="@drawable/resume_medis_putih" />
                         </LinearLayout>
 
                         <TextView
@@ -175,6 +182,13 @@
                             android:layout_gravity="center_horizontal"
                             android:background="@drawable/shape_circle">
 
+                            <ImageView
+                                android:id="@+id/imageView3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="1"
+                                android:src="@drawable/kesehatan_kehamilan_putih" />
                         </LinearLayout>
 
                         <TextView
@@ -205,6 +219,13 @@
                             android:layout_gravity="center_horizontal"
                             android:background="@drawable/shape_circle">
 
+                            <ImageView
+                                android:id="@+id/imageView6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="1"
+                                android:src="@drawable/pertumbuhan_anak_putih" />
                         </LinearLayout>
 
                         <TextView
@@ -237,6 +258,13 @@
                             android:layout_gravity="center_horizontal"
                             android:background="@drawable/shape_circle">
 
+                            <ImageView
+                                android:id="@+id/imageView7"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="1"
+                                android:src="@drawable/diari_kesehatan_putih" />
                         </LinearLayout>
 
                         <TextView
@@ -274,6 +302,13 @@
                             android:layout_gravity="center_horizontal"
                             android:background="@drawable/shape_circle">
 
+                            <ImageView
+                                android:id="@+id/imageView8"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="1"
+                                android:src="@drawable/pengingat_minum_obat_putih" />
                         </LinearLayout>
 
                         <TextView
@@ -304,6 +339,13 @@
                             android:layout_gravity="center_horizontal"
                             android:background="@drawable/shape_circle">
 
+                            <ImageView
+                                android:id="@+id/imageView9"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="1"
+                                android:src="@drawable/cari_nakes_putih" />
                         </LinearLayout>
 
                         <TextView
@@ -334,6 +376,13 @@
                             android:layout_gravity="center_horizontal"
                             android:background="@drawable/shape_circle">
 
+                            <ImageView
+                                android:id="@+id/imageView10"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="1"
+                                android:src="@drawable/cari_obat_putih" />
                         </LinearLayout>
 
                         <TextView
@@ -365,6 +414,13 @@
                             android:layout_gravity="center_horizontal"
                             android:background="@drawable/shape_circle">
 
+                            <ImageView
+                                android:id="@+id/imageView11"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal|center_vertical"
+                                android:layout_weight="1"
+                                android:src="@drawable/lainnya_putih" />
                         </LinearLayout>
 
                         <TextView

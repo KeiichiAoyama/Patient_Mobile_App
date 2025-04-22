@@ -2,347 +2,476 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/abu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center_vertical"
+    android:background="@color/abu"
     tools:context=".FiturFragment">
 
     <LinearLayout
-        android:paddingHorizontal="25dp"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:paddingHorizontal="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <TextView
-            android:layout_marginBottom="30dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="32sp"
-            android:textStyle="bold"
+            android:layout_marginBottom="30dp"
             android:text="Fitur"
-            />
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
         <LinearLayout
-            android:layout_marginBottom="20dp"
-            android:layout_gravity="center_horizontal"
-            android:orientation="horizontal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:layout_marginEnd="10dp"
-                android:padding="10dp"
-                android:orientation="vertical"
-                android:background="@drawable/shape_fitur"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <LinearLayout
-                    android:layout_gravity="center_horizontal"
-                    android:background="@drawable/shape_circle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
 
-                </LinearLayout>
-                <TextView
-                    android:layout_gravity="center_horizontal"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/shape_fitur"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Resume"/>
-                <TextView
                     android:layout_gravity="center_horizontal"
-                    android:text="Medis"
+                    android:background="@drawable/shape_circle">
+
+                    <ImageView
+                        android:id="@+id/imageView12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:src="@drawable/resume_medis_putih" />
+                </LinearLayout>
+
+                <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Resume" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Medis" />
             </LinearLayout>
-            <LinearLayout
-                android:layout_marginEnd="10dp"
-                android:padding="10dp"
-                android:orientation="vertical"
-                android:background="@drawable/shape_fitur"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <LinearLayout
-                    android:layout_gravity="center_horizontal"
-                    android:background="@drawable/shape_circle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
 
-                </LinearLayout>
-                <TextView
-                    android:layout_gravity="center_horizontal"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/shape_fitur"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Resume"/>
-                <TextView
                     android:layout_gravity="center_horizontal"
-                    android:text="Medis"
+                    android:background="@drawable/shape_circle">
+
+                    <ImageView
+                        android:id="@+id/imageView13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:src="@drawable/kesehatan_kehamilan_putih" />
+                </LinearLayout>
+
+                <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Resume" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Medis" />
             </LinearLayout>
-            <LinearLayout
-                android:layout_marginEnd="10dp"
-                android:padding="10dp"
-                android:orientation="vertical"
-                android:background="@drawable/shape_fitur"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <LinearLayout
-                    android:layout_gravity="center_horizontal"
-                    android:background="@drawable/shape_circle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
 
-                </LinearLayout>
-                <TextView
-                    android:layout_gravity="center_horizontal"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/shape_fitur"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Resume"/>
-                <TextView
                     android:layout_gravity="center_horizontal"
-                    android:text="Medis"
+                    android:background="@drawable/shape_circle">
+
+                    <ImageView
+                        android:id="@+id/imageView14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:src="@drawable/pertumbuhan_anak_putih" />
+                </LinearLayout>
+
+                <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Resume" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Medis" />
             </LinearLayout>
-            <LinearLayout
-                android:layout_marginEnd="10dp"
-                android:padding="10dp"
-                android:orientation="vertical"
-                android:background="@drawable/shape_fitur"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <LinearLayout
-                    android:layout_gravity="center_horizontal"
-                    android:background="@drawable/shape_circle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
 
-                </LinearLayout>
-                <TextView
-                    android:layout_gravity="center_horizontal"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/shape_fitur"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Resume"/>
-                <TextView
                     android:layout_gravity="center_horizontal"
-                    android:text="Medis"
+                    android:background="@drawable/shape_circle">
+
+                    <ImageView
+                        android:id="@+id/imageView15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:src="@drawable/diari_kesehatan_putih" />
+                </LinearLayout>
+
+                <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Resume" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Medis" />
             </LinearLayout>
         </LinearLayout>
+
         <LinearLayout
-            android:layout_marginBottom="20dp"
-            android:layout_gravity="center_horizontal"
-            android:orientation="horizontal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:layout_marginEnd="10dp"
-                android:padding="10dp"
-                android:orientation="vertical"
-                android:background="@drawable/shape_fitur"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <LinearLayout
-                    android:layout_gravity="center_horizontal"
-                    android:background="@drawable/shape_circle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
 
-                </LinearLayout>
-                <TextView
-                    android:layout_gravity="center_horizontal"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/shape_fitur"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Resume"/>
-                <TextView
                     android:layout_gravity="center_horizontal"
-                    android:text="Medis"
+                    android:background="@drawable/shape_circle">
+
+                    <ImageView
+                        android:id="@+id/imageView16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:src="@drawable/pengingat_minum_obat_putih" />
+                </LinearLayout>
+
+                <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Resume" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Medis" />
             </LinearLayout>
-            <LinearLayout
-                android:layout_marginEnd="10dp"
-                android:padding="10dp"
-                android:orientation="vertical"
-                android:background="@drawable/shape_fitur"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <LinearLayout
-                    android:layout_gravity="center_horizontal"
-                    android:background="@drawable/shape_circle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
 
-                </LinearLayout>
-                <TextView
-                    android:layout_gravity="center_horizontal"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/shape_fitur"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Resume"/>
-                <TextView
                     android:layout_gravity="center_horizontal"
-                    android:text="Medis"
+                    android:background="@drawable/shape_circle">
+
+                    <ImageView
+                        android:id="@+id/imageView17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:src="@drawable/cari_nakes_putih" />
+                </LinearLayout>
+
+                <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Resume" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Medis" />
             </LinearLayout>
-            <LinearLayout
-                android:layout_marginEnd="10dp"
-                android:padding="10dp"
-                android:orientation="vertical"
-                android:background="@drawable/shape_fitur"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <LinearLayout
-                    android:layout_gravity="center_horizontal"
-                    android:background="@drawable/shape_circle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
 
-                </LinearLayout>
-                <TextView
-                    android:layout_gravity="center_horizontal"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/shape_fitur"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Resume"/>
-                <TextView
                     android:layout_gravity="center_horizontal"
-                    android:text="Medis"
+                    android:background="@drawable/shape_circle">
+
+                    <ImageView
+                        android:id="@+id/imageView18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:src="@drawable/cari_obat_putih" />
+                </LinearLayout>
+
+                <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Resume" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Medis" />
             </LinearLayout>
-            <LinearLayout
-                android:layout_marginEnd="10dp"
-                android:padding="10dp"
-                android:orientation="vertical"
-                android:background="@drawable/shape_fitur"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <LinearLayout
-                    android:layout_gravity="center_horizontal"
-                    android:background="@drawable/shape_circle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
 
-                </LinearLayout>
-                <TextView
-                    android:layout_gravity="center_horizontal"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/shape_fitur"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Resume"/>
-                <TextView
                     android:layout_gravity="center_horizontal"
-                    android:text="Medis"
+                    android:background="@drawable/shape_circle">
+
+                    <ImageView
+                        android:id="@+id/imageView19"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:src="@drawable/vaksin_imunisasi_putih" />
+                </LinearLayout>
+
+                <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Resume" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Medis" />
             </LinearLayout>
         </LinearLayout>
+
         <LinearLayout
-            android:layout_marginBottom="20dp"
-            android:layout_gravity="center_horizontal"
-            android:orientation="horizontal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:layout_marginEnd="10dp"
-                android:padding="10dp"
-                android:orientation="vertical"
-                android:background="@drawable/shape_fitur"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <LinearLayout
-                    android:layout_gravity="center_horizontal"
-                    android:background="@drawable/shape_circle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
 
-                </LinearLayout>
-                <TextView
-                    android:layout_gravity="center_horizontal"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/shape_fitur"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Resume"/>
-                <TextView
                     android:layout_gravity="center_horizontal"
-                    android:text="Medis"
+                    android:background="@drawable/shape_circle">
+
+                    <ImageView
+                        android:id="@+id/imageView20"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:src="@drawable/hasil_tes_covid_putih" />
+                </LinearLayout>
+
+                <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Resume" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Medis" />
             </LinearLayout>
-            <LinearLayout
-                android:layout_marginEnd="10dp"
-                android:padding="10dp"
-                android:orientation="vertical"
-                android:background="@drawable/shape_fitur"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <LinearLayout
-                    android:layout_gravity="center_horizontal"
-                    android:background="@drawable/shape_circle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
 
-                </LinearLayout>
-                <TextView
-                    android:layout_gravity="center_horizontal"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/shape_fitur"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Resume"/>
-                <TextView
                     android:layout_gravity="center_horizontal"
-                    android:text="Medis"
+                    android:background="@drawable/shape_circle">
+
+                    <ImageView
+                        android:id="@+id/imageView21"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:src="@drawable/cari_rawat_inap_putih" />
+                </LinearLayout>
+
+                <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Resume" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Medis" />
             </LinearLayout>
-            <LinearLayout
-                android:layout_marginEnd="10dp"
-                android:padding="10dp"
-                android:orientation="vertical"
-                android:background="@drawable/shape_fitur"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <LinearLayout
-                    android:layout_gravity="center_horizontal"
-                    android:background="@drawable/shape_circle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
 
-                </LinearLayout>
-                <TextView
-                    android:layout_gravity="center_horizontal"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/shape_fitur"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Resume"/>
-                <TextView
                     android:layout_gravity="center_horizontal"
-                    android:text="Medis"
+                    android:background="@drawable/shape_circle">
+
+                    <ImageView
+                        android:id="@+id/imageView22"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:src="@drawable/stethoscope_putih" />
+                </LinearLayout>
+
+                <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Resume" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Medis" />
             </LinearLayout>
-            <LinearLayout
-                android:layout_marginEnd="10dp"
-                android:padding="10dp"
-                android:orientation="vertical"
-                android:background="@drawable/shape_fitur"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <LinearLayout
-                    android:layout_gravity="center_horizontal"
-                    android:background="@drawable/shape_circle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
 
-                </LinearLayout>
-                <TextView
-                    android:layout_gravity="center_horizontal"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/shape_fitur"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Resume"/>
-                <TextView
                     android:layout_gravity="center_horizontal"
-                    android:text="Medis"
+                    android:background="@drawable/shape_circle">
+
+                </LinearLayout>
+
+                <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Resume" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Medis" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
