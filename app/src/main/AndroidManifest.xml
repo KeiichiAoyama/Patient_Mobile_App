@@ -17,12 +17,6 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".DetailResumeMedis"
-            android:exported="false" />
-        <activity
-            android:name=".detail_resume_medis"
-            android:exported="false" />
-        <activity
             android:name=".ResumeMedisDetailActivity"
             android:exported="false" />
         <activity
@@ -33,9 +27,6 @@
             android:exported="false" />
         <activity
             android:name=".BuletinSearch"
-            android:exported="false" />
-        <activity
-            android:name=".BulletinSearch"
             android:exported="false" />
         <activity
             android:name=".CariObat"
