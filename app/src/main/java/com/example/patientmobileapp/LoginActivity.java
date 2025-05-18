@@ -51,6 +51,7 @@ public class LoginActivity extends AppCompatActivity {
 
         Button loginButton = findViewById(R.id.button);
         TextView forgotPasswordButton = findViewById(R.id.textView15);
+        TextView registerButton = findViewById(R.id.regisdulu);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -152,7 +153,13 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        //Forgot Password Method
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void showAlertDialog(String title, String message) {

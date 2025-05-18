@@ -67,14 +67,16 @@ tools:context=".RegisFragment1">
             android:layout_marginRight="10dp"
             android:layout_marginBottom="15dp"
             android:inputType="textEmailAddress" />
+
         <EditText
-            android:layout_weight="1"
             android:id="@+id/inputtanggal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="1"
             android:background="@drawable/form_shape"
             android:ems="10"
-            android:layout_marginBottom="15dp"
+            android:hint="use dd/mm/yyyy"
             android:inputType="date" />
 
     </LinearLayout>

@@ -1,7 +1,25 @@
 package com.example.patientmobileapp;
 
+import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
+
+import androidx.annotation.NonNull;
+
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+
+import at.favre.lib.crypto.bcrypt.BCrypt;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 public class User {
     public String nik;
@@ -23,6 +41,25 @@ public class User {
     public String foto_pasien;
 
     public User() {}
+
+    public User(Map<String, Object> newUser) {
+        this.nik = (String) newUser.get("nik");
+        this.nama = (String) newUser.get("nama");
+        this.tempat_lahir = (String) newUser.get("tempat_lahir");
+        this.tanggal_lahir = (String) newUser.get("tanggal_lahir");
+        this.bulan_lahir = (String) newUser.get("bulan_lahir");
+        this.tahun_lahir = (String) newUser.get("tahun_lahir");
+        this.jenis_kelamin = (String) newUser.get("jenis_kelamin");
+        this.golongan_darah = (String) newUser.get("golongan_darah");
+        this.alamat = (String) newUser.get("alamat");
+        this.rt = (String) newUser.get("rt");
+        this.rw = (String) newUser.get("rw");
+        this.kelurahan = (String) newUser.get("kelurahan");
+        this.kecamatan = (String) newUser.get("kecamatan");
+        this.agama = (String) newUser.get("agama");
+        this.pekerjaan = (String) newUser.get("pekerjaan");
+        this.no_telp = (String) newUser.get("no_telp");
+    }
 
     public static User fromJSON(JSONObject json) throws JSONException {
         User user = new User();
@@ -70,4 +107,31 @@ public class User {
                 '}';
     }
 
+    public static String buildPublishPayload(Map<String, Object> newUser) throws JSONException {
+        JSONObject root = new JSONObject();
+
+        root.put("emr_stream", "patient-" + newUser.get("nik") + "-record");
+        root.put("identity_stream", newUser.get("email"));
+
+        JSONObject credentials = new JSONObject();
+        credentials.put("email", newUser.get("email"));
+
+        String hashedPassword = BCrypt.withDefaults().hashToString(10, newUser.get("password").toString().toCharArray());
+        credentials.put("password", hashedPassword);
+
+        root.put("credentials", credentials);
+
+        JSONObject patientData = new JSONObject();
+        for (String key : new String[]{
+                "nik", "nama", "tempat_lahir", "tanggal_lahir", "bulan_lahir", "tahun_lahir",
+                "jenis_kelamin", "golongan_darah", "alamat", "rt", "rw",
+                "kelurahan", "kecamatan", "agama", "pekerjaan", "no_telp"
+        }) {
+            patientData.put(key, newUser.get(key));
+        }
+
+        root.put("patient_data", patientData);
+
+        return root.toString();
+    }
 }

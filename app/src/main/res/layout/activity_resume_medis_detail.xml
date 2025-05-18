@@ -403,12 +403,6 @@
                                 android:layout_height="26dp"
                                 app:srcCompat="@drawable/sertifikat_imunisasi_putih" />
 
-                            <ImageView
-                                android:id="@+id/imageView30"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                app:srcCompat="@drawable/" />
                         </LinearLayout>
 
                         <LinearLayout
