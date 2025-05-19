@@ -11,6 +11,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -84,6 +86,8 @@ public class HomeFragment extends Fragment {
 
         namaPengguna.setText(user.nama);
 
+        Button resume_medis_header = view.findViewById(R.id.btnResumeMedisHeader);
+
         LinearLayout resume_medis = view.findViewById(R.id.resume_medis);
         LinearLayout kesehatan_kehamilan = view.findViewById(R.id.kesehatan_kehamilan);
         LinearLayout pertumbuhan_anak = view.findViewById(R.id.pertumbuhan_anak);
@@ -93,11 +97,63 @@ public class HomeFragment extends Fragment {
         LinearLayout cari_obat = view.findViewById(R.id.cari_obat);
         LinearLayout lainnya = view.findViewById(R.id.lainnya);
 
+        ImageButton qr_scan = view.findViewById(R.id.btnQR);
+        ImageButton notif_page = view.findViewById(R.id.btnNotif);
+
+        LinearLayout bulletinOne = view.findViewById(R.id.bulletinHomeOne);
+        LinearLayout bulletinTwo = view.findViewById(R.id.bulletinHomeTwo);
+
+        TextView bulletinHomePage = view.findViewById(R.id.btnBulletinHome);
+
+        qr_scan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // qr page
+            }
+        });
+
+        notif_page.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), NotificationActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        bulletinOne.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), BuletinDetail.class);
+                startActivity(intent);
+            }
+        });
+
+        bulletinTwo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), BuletinDetail.class);
+                startActivity(intent);
+            }
+        });
+
+        bulletinHomePage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // bulletin home page
+            }
+        });
+
+        resume_medis_header.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ResumeMedisActivity.class);
+                startActivity(intent);
+            }
+        });
+
         resume_medis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "Button clicked", Toast.LENGTH_SHORT).show();
-                Log.d("TESTING", "Button clicked!");
                 Intent intent = new Intent(getActivity(), ResumeMedisActivity.class);
                 startActivity(intent);
             }

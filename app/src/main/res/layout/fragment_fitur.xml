@@ -34,6 +34,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
+                android:id="@+id/btnResumemedisFitur"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
@@ -70,6 +71,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/btnKesehatanKehamilanFitur"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
@@ -96,17 +98,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Resume" />
+                    android:text="Kesehatan" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Medis" />
+                    android:text="Kehamilan" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:id="@+id/btnKesehatanAnakFitur"
+                android:layout_width="74dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/shape_fitur"
@@ -132,16 +135,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Resume" />
+                    android:text="Pertumbuhan"
+                    android:textSize="8sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Medis" />
+                    android:text="Anak"
+                    android:textSize="12sp" />
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/btnDiariKesehatanFitur"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
@@ -168,13 +174,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Resume" />
+                    android:text="Diari"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Medis" />
+                    android:text="Kesehatan"
+                    android:textSize="10sp" />
             </LinearLayout>
         </LinearLayout>
 
@@ -186,6 +194,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
+                android:id="@+id/btnMinumObatFitur"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
@@ -212,16 +221,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Resume" />
+                    android:text="Minum" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Medis" />
+                    android:text="Obat" />
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/btnCariNakesFitur"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
@@ -248,16 +258,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Resume" />
+                    android:text="Cari" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Medis" />
+                    android:text="Nakes" />
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/btnCariObatFitur"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
@@ -284,16 +295,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Resume" />
+                    android:text="Cari" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Medis" />
+                    android:text="Obat" />
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/btnVaksinImunFitur"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
@@ -320,13 +332,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Resume" />
+                    android:text="Vaksin dan"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Medis" />
+                    android:text="Imunisasi"
+                    android:textSize="12sp" />
             </LinearLayout>
         </LinearLayout>
 
@@ -338,6 +352,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
+                android:id="@+id/btnCovidFitur"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
@@ -364,16 +379,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Resume" />
+                    android:text="Hasil Tes" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Medis" />
+                    android:text="Covid-19" />
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/btnRawatInapFitur"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
@@ -400,16 +416,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Resume" />
+                    android:text="Rawat" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Medis" />
+                    android:text="Inap" />
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/btnPelayananKesehatanFitur"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
@@ -436,43 +453,22 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Resume" />
+                    android:text="Pelayanan" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Medis" />
+                    android:text="Kesehatan" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
                 android:layout_marginEnd="10dp"
-                android:background="@drawable/shape_fitur"
+                android:background="@android:color/transparent"
                 android:orientation="vertical"
-                android:padding="10dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:background="@drawable/shape_circle">
-
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="Resume" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="Medis" />
-            </LinearLayout>
+                android:padding="10dp" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

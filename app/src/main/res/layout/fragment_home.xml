@@ -42,16 +42,18 @@
                 android:layout_centerVertical="true">
 
                 <ImageButton
-                    android:background="@drawable/fluent_scan_table_20_regular"
+                    android:id="@+id/btnQR"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="Scan Button"
-                    android:layout_marginEnd="10dp"/>
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/fluent_scan_table_20_regular"
+                    android:contentDescription="Scan Button" />
 
                 <ImageButton
-                    android:background="@drawable/clarity_notification_line"
+                    android:id="@+id/btnNotif"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/clarity_notification_line"
                     android:contentDescription="Notification Button" />
             </LinearLayout>
 
@@ -72,6 +74,7 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <TextView
                     android:textSize="12sp"
                     android:textStyle="bold"
@@ -107,13 +110,15 @@
                         android:textStyle="bold"
                         android:textSize="16dp"
                         android:text="Pantau rekam medis Anda dari semua faskes disini"/>
+
                     <Button
-                        android:layout_gravity="end"
-                        android:textColor="@color/black"
-                        android:backgroundTint="@color/abuTua"
+                        android:id="@+id/btnResumeMedisHeader"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Buka"/>
+                        android:layout_gravity="end"
+                        android:backgroundTint="@color/abuTua"
+                        android:text="Buka"
+                        android:textColor="@color/black" />
                 </LinearLayout>
                 <TextView
                     android:layout_marginBottom="10dp"
@@ -441,35 +446,71 @@
                         android:layout_width="wrap_content"
                         android:text="Buletin Kesehatan"
                         android:layout_height="wrap_content"/>
+
                     <TextView
-                        android:layout_weight="0"
+                        android:id="@+id/btnBulletinHome"
                         android:layout_width="wrap_content"
-                        android:text="Lihat Semua"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:text="Lihat Semua" />
                 </LinearLayout>
+
                 <LinearLayout
+                    android:id="@+id/bulletinHomeOne"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
+
                     <LinearLayout
-                        android:background="@drawable/shape_home"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/shape_home">
+
                         <ImageView
-                            android:layout_weight="2"
                             android:layout_width="115dp"
-                            android:layout_height="100dp"/>
+                            android:layout_height="100dp"
+                            android:layout_weight="2" />
+
                         <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
                             android:paddingVertical="10dp"
                             android:singleLine="false"
-                            android:textStyle="normal"
-                            android:textSize="14sp"
-                            android:layout_weight="1"
                             android:text="Merokok dapat menyebabkan kanker serviks."
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
                     </LinearLayout>
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:id="@+id/bulletinHomeTwo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/shape_home">
+
+                        <ImageView
+                            android:layout_width="115dp"
+                            android:layout_height="100dp"
+                            android:layout_weight="2" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:paddingVertical="10dp"
+                            android:singleLine="false"
+                            android:text="Merokok dapat menyebabkan kanker serviks."
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+                    </LinearLayout>
+                </LinearLayout>
+
             </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

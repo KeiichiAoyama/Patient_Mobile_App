@@ -1,5 +1,6 @@
 package com.example.patientmobileapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,58 +8,125 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FiturFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class FiturFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    public FiturFragment() {}
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public FiturFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FiturFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static FiturFragment newInstance(String param1, String param2) {
         FiturFragment fragment = new FiturFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fitur, container, false);
+        View view = inflater.inflate(R.layout.fragment_fitur, container, false);
+
+        LinearLayout resumeMedis = view.findViewById(R.id.btnResumemedisFitur);
+        LinearLayout kesehatanKehamilan = view.findViewById(R.id.btnKesehatanKehamilanFitur);
+        LinearLayout kesehatanAnak = view.findViewById(R.id.btnKesehatanAnakFitur);
+        LinearLayout diariKesehatan = view.findViewById(R.id.btnDiariKesehatanFitur);
+        LinearLayout minumObat = view.findViewById(R.id.btnMinumObatFitur);
+        LinearLayout cariNakes = view.findViewById(R.id.btnCariNakesFitur);
+        LinearLayout cariobat = view.findViewById(R.id.btnCariObatFitur);
+        LinearLayout vaksinImun = view.findViewById(R.id.btnVaksinImunFitur);
+        LinearLayout hasilCovid = view.findViewById(R.id.btnCovidFitur);
+        LinearLayout rawatInap = view.findViewById(R.id.btnRawatInapFitur);
+        LinearLayout pelayananKesehatan = view.findViewById(R.id.btnPelayananKesehatanFitur);
+
+        resumeMedis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ResumeMedisActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        kesehatanKehamilan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), KesehatanKehamilan.class);
+                startActivity(intent);
+            }
+        });
+
+        kesehatanAnak.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), PertumbuhanAnak.class);
+                startActivity(intent);
+            }
+        });
+
+        diariKesehatan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), DiariKesehatan.class);
+                startActivity(intent);
+            }
+        });
+
+        minumObat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), TrackerMinumObat.class);
+                startActivity(intent);
+            }
+        });
+
+        cariNakes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), CariNakesActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        cariobat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), CariObat.class);
+                startActivity(intent);
+            }
+        });
+
+        vaksinImun.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), VaksinImunisasi.class);
+                startActivity(intent);
+            }
+        });
+
+        hasilCovid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), HasilTesCovid.class);
+                startActivity(intent);
+            }
+        });
+
+        rawatInap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });
+
+        pelayananKesehatan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), PelayananKesehatan.class);
+                startActivity(intent);
+            }
+        });
+
+        return view;
     }
 }
