@@ -113,10 +113,10 @@
     </LinearLayout>
 
     <FrameLayout
-        android:layout_marginTop="20dp"
+        android:id="@+id/resumeMedisFrameLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout8"
-        />
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout8" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

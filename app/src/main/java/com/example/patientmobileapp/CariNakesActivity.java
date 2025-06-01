@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -20,6 +22,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -50,6 +54,10 @@ public class CariNakesActivity extends AppCompatActivity {
 
             JSONArray params = new JSONArray();
             params.put(medicalRecordObjectName);
+
+            RecyclerView recyclerView = findViewById(R.id.recyclerNakes);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            List<obat_card> itemList = new ArrayList<>();
 
             client.callMultiChain("liststreamitems", params, new Callback() {
                 @Override
@@ -89,13 +97,49 @@ public class CariNakesActivity extends AppCompatActivity {
                                     in.close();
 
                                     JSONObject hospitalDoctorsResponse = new JSONObject(hospitalDoctorsRaw.toString());
+                                    Log.d("MULTICHAIN_JSON", hospitalDoctorsRaw.toString());
                                     JSONArray hospitalDoctors = hospitalDoctorsResponse.getJSONArray("data");
 
                                     for(int j = 0; j < hospitalDoctors.length(); j++) {
                                         JSONObject doctor = hospitalDoctors.getJSONObject(j);
+                                        doctor.put("hospital", hospitalRecord.getJSONObject("data").getJSONObject("json").getString("nama"));
                                         doctorRecords.put(doctor);
                                     }
+                                }
 
+                                try {
+                                    Log.d("MULTICHAIN_NAKES", doctorRecords.toString());
+
+                                    for (int i = 0; i < doctorRecords.length(); i++) {
+                                        JSONObject dokter = doctorRecords.getJSONObject(i);
+                                        String name = dokter.getJSONObject("User").getString("nama");
+                                        String role = dokter.getJSONObject("User").getString("role");
+                                        String hospital = dokter.getString("hospital");
+                                        itemList.add(new obat_card(name, role, hospital));
+                                    }
+
+                                    runOnUiThread(() -> {
+                                        obatCardAdapter adapter = new obatCardAdapter(itemList);
+                                        recyclerView.setAdapter(adapter);
+
+                                        SearchView obatSearch = findViewById(R.id.search);
+
+                                        obatSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                                            @Override
+                                            public boolean onQueryTextSubmit(String query) {
+                                                adapter.getFilter().filter(query);
+                                                return false;
+                                            }
+
+                                            @Override
+                                            public boolean onQueryTextChange(String newText) {
+                                                adapter.getFilter().filter(newText);
+                                                return false;
+                                            }
+                                        });
+                                    });
+                                } catch (JSONException e) {
+                                    Log.e("ERROR", "JSON Parsing Error: " + e.getMessage(), e);
                                 }
                             }catch(JSONException e) {
                                 e.printStackTrace();
@@ -116,43 +160,5 @@ public class CariNakesActivity extends AppCompatActivity {
         }catch(JSONException e) {
             e.printStackTrace();
         }
-
-        SearchView search = findViewById(R.id.search);
-
-        search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                JSONArray filteredDoctors = filterDoctors(query);
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                JSONArray filteredDoctors = filterDoctors(newText);
-                return false;
-            }
-        });
-    }
-
-    private JSONArray filterDoctors(String query) {
-        JSONArray filteredDoctors = new JSONArray();
-        query = query.toLowerCase();
-
-        try {
-            for (int i = 0; i < doctorRecords.length(); i++) {
-                JSONObject doctor = doctorRecords.getJSONObject(i);
-                JSONObject doctorProfile = doctor.getJSONObject("User");
-
-                String name = doctorProfile.getString("name").toLowerCase();
-
-                if (name.contains(query)) {
-                    filteredDoctors.put(doctor);
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return filteredDoctors;
     }
 }

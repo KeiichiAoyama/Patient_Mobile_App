@@ -1,9 +1,11 @@
 package com.example.patientmobileapp;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 import androidx.appcompat.widget.Toolbar;
@@ -24,7 +26,6 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 public class ResumeMedisActivity extends AppCompatActivity {
-    private ToggleButton buttonRawatJalan, buttonTesLab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +36,13 @@ public class ResumeMedisActivity extends AppCompatActivity {
 
         MyApp app = (MyApp) getApplicationContext();
         User user = app.getUser();
+        String nik_test = "3172063008850005";
+
+        JSONArray medicalRecords = new JSONArray();
 
         MultiChain client = new MultiChain();
         try {
-            String medicalRecordObjectName = "patient-" + user.nik + "-record";
+            String medicalRecordObjectName = "patient-" + nik_test + "-record";
 
             JSONArray params = new JSONArray();
             params.put(medicalRecordObjectName);
@@ -55,7 +59,12 @@ public class ResumeMedisActivity extends AppCompatActivity {
 
                         try {
                             JSONObject jsonResponse = new JSONObject(responseBody);
-                            JSONArray medicalRecords = jsonResponse.getJSONArray("result");
+                            JSONArray medicalRecordsRaw = jsonResponse.getJSONArray("result");
+
+                            for (int i = 0; i < medicalRecordsRaw.length(); i++) {
+                                JSONObject mrr = medicalRecordsRaw.getJSONObject(i);
+                                medicalRecords.put(mrr);
+                            }
                         }catch(JSONException e) {
                             e.printStackTrace();
                         }
@@ -78,28 +87,30 @@ public class ResumeMedisActivity extends AppCompatActivity {
         username.setText(user.nama);
 
         int birthYear = Integer.parseInt(user.tahun_lahir);
-        int currentYear = Year.now().getValue();
+        @SuppressLint({"NewApi", "LocalSuppress"}) int currentYear = Year.now().getValue();
 
         userAge.setText(String.valueOf(currentYear - birthYear));
 
-        buttonRawatJalan = findViewById(R.id.button_rawat_jalan);
-        buttonTesLab = findViewById(R.id.button_tes_lab);
+        Button buttonRawatJalan = findViewById(R.id.button_rawat_jalan);
+        Button buttonTesLab = findViewById(R.id.button_tes_lab);
 
-        loadFragment(new RawatJalanFragment());
-        buttonRawatJalan.setChecked(true);
+        buttonRawatJalan.setOnClickListener(v -> {
+            RawatJalanFragment fragment = new RawatJalanFragment();
 
-        buttonRawatJalan.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if (isChecked) {
-                buttonTesLab.setChecked(false);
-                loadFragment(new RawatJalanFragment());
-            }
+            Bundle args = new Bundle();
+            args.putString("medicalRecords", medicalRecords.toString());
+            fragment.setArguments(args);
+
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.resumeMedisFrameLayout, fragment)
+                    .commit();
         });
 
-        buttonTesLab.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if (isChecked) {
-                buttonRawatJalan.setChecked(false);
-                loadFragment(new TesLabFragment());
-            }
+        buttonTesLab.setOnClickListener(v -> {
+            TesLabFragment fragment = new TesLabFragment();
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.resumeMedisFrameLayout, fragment)
+                    .commit();
         });
 
         Toolbar toolbar = findViewById(R.id.toolbar3);
@@ -111,12 +122,5 @@ public class ResumeMedisActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
-
-    private void loadFragment(Fragment fragment) {
-//        FragmentManager fragmentManager = getSupportFragmentManager();
-//        fragmentManager.beginTransaction()
-//                .replace(R.id.frame_resume, fragment)
-//                .commit();
     }
 }

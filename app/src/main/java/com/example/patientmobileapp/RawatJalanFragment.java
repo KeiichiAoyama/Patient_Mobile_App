@@ -3,45 +3,25 @@ package com.example.patientmobileapp;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link RawatJalanFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class RawatJalanFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public RawatJalanFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment RawatJalanFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static RawatJalanFragment newInstance(String param1, String param2) {
         RawatJalanFragment fragment = new RawatJalanFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -49,16 +29,76 @@ public class RawatJalanFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_rawat_jalan, container, false);
+        View view = inflater.inflate(R.layout.fragment_rawat_jalan, container, false);
+
+        Bundle args = getArguments();
+
+        List<obat_reminder_card> reminderList = new ArrayList<>();
+        RecyclerView recyclerView = view.findViewById(R.id.rawat_view);
+
+        if (args != null) {
+            String medicalRecordsString = args.getString("medicalRecords");
+            Log.d("medical", medicalRecordsString);
+
+            try {
+                JSONArray medicalRecords = new JSONArray(medicalRecordsString);
+
+                for (int i = 0; i < medicalRecords.length(); i++) {
+                    JSONObject record = medicalRecords.getJSONObject(i);
+
+                    JSONObject data = record.getJSONObject("data");
+                    JSONObject json = data.getJSONObject("json");
+
+                    String origin = json.optString("origin", "");
+
+                    JSONObject medicalRecord = json.optJSONObject("medical_record");
+                    if (medicalRecord == null) continue;
+
+                    String createdAt = medicalRecord.optString("created_at", "");
+
+                    String namaPoliklinik = "";
+                    if (medicalRecord.has("Poliklinik")) {
+                        JSONObject poliklinik = medicalRecord.getJSONObject("Poliklinik");
+                        namaPoliklinik = poliklinik.optString("nama_poliklinik", "");
+                    }
+
+                    String namaDokter = "";
+                    if (medicalRecord.has("Dokter")) {
+                        JSONObject dokter = medicalRecord.getJSONObject("Dokter");
+                        namaDokter = dokter.optString("nama", "");
+                    }
+
+                    reminderList.add(new obat_reminder_card(
+                            origin,
+                            namaPoliklinik,
+                            namaDokter,
+                            createdAt,
+                            record
+                    ));
+                }
+
+                obatReminderCardAdapter adapter = new obatReminderCardAdapter(
+                        requireContext(),
+                        reminderList,
+                        new obatReminderCardAdapter.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(obat_reminder_card item) {
+                            }
+                        }
+                );
+                recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                recyclerView.setAdapter(adapter);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        return view;
     }
 }

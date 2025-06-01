@@ -67,6 +67,8 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+
+        <receiver android:name=".ReminderReceiver" />
     </application>
 
 </manifest>
