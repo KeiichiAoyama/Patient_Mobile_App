@@ -39,8 +39,24 @@
             android:textSize="16sp"
             android:textStyle="bold" />
         <HorizontalScrollView
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:padding="10dp"
+                android:background="@drawable/shape_home"
+                android:layout_width="300dp"
+                android:layout_height="125dp">
+                <TextView
+                    android:layout_gravity="bottom"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:text="Apa Itu Stress : Gejala,
+Penyebab, Pencegahan dan
+Pengobatan"/>
+            </LinearLayout>
+
+        </HorizontalScrollView>
         <TextView
             android:layout_marginTop="20dp"
             android:id="@+id/topikhangat"
@@ -51,8 +67,23 @@
             android:textSize="16sp"
             android:textStyle="bold" />
         <HorizontalScrollView
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:padding="10dp"
+                android:background="@drawable/shape_home"
+                android:layout_width="100dp"
+                android:layout_height="75dp">
+                <TextView
+                    android:textSize="16sp"
+                    android:layout_gravity="center"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Cegah"/>
+            </LinearLayout>
+
+        </HorizontalScrollView>
         <TextView
             android:layout_marginTop="20dp"
             android:id="@+id/artikelterbaru"
@@ -62,11 +93,26 @@
             android:textColor="@color/biruTua"
             android:textSize="16sp"
             android:textStyle="bold" />
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
         <ScrollView
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:background="@drawable/shape_home"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="100dp"
+                    android:background="@drawable/form_shape"
+                    android:layout_height="100dp"/>
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Apa Itu Stress : Gejala, Penyebab, Pencegahan dan Pengobatan"/>
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

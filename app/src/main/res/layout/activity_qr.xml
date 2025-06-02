@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@color/abu"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".QrActivity">
+
+    <LinearLayout
+        android:id="@+id/custom_header"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/abu"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Back Icon -->
+        <ImageView
+            android:id="@+id/header_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="Kembali"
+            android:padding="8dp"
+            android:src="@drawable/ion_chevron_back" />
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/header_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="Pindai Kode QR"
+            android:textColor="@color/biruTua"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- Right Icon -->
+        <ImageView
+            android:id="@+id/header_icon_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="Ikon kanan"
+            android:padding="8dp"
+            android:src="@drawable/help_button" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_marginTop="100dp"
+        android:id="@+id/imageView26"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:src="@drawable/shape_home"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/custom_header" />
+
+    <TextView
+        android:textStyle="normal"
+        android:layout_marginTop="50dp"
+        android:id="@+id/textView14"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="Scan kode QR untuk check-in, check-out, atau
+memberi penilaian dokter"
+        android:textAlignment="center"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView26" />
+
+    <ImageView
+        android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/flash_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="370dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@drawable/shape_home"
+    android:elevation="5dp"
+    android:gravity="center|start"
+    android:orientation="horizontal"
+    android:padding="10dp">
+    <ImageView
+        android:layout_gravity="top"
+        android:src="@drawable/shape_circle"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/nama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="dr. Daniel Hendro Pitoyo"
+            android:textSize="18sp" />
+        <TextView
+            android:layout_marginBottom="20dp"
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="danielhendropitoyo@mail.com"
+            android:textSize="15sp" />
+        <TextView
+            android:id="@+id/str"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="STR. YL00001469956020"
+            android:textSize="15sp" />
+        <TextView
+            android:id="@+id/poliklinik"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Poliklinik Bedah / PB"
+            android:textSize="15sp" />
+        <TextView
+            android:id="@+id/nohp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6282183948127"
+            android:textSize="15sp" />
+        <TextView
+            android:id="@+id/spesialis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dokter Umum"
+            android:textSize="15sp" />
+    </LinearLayout>
+</LinearLayout>
+

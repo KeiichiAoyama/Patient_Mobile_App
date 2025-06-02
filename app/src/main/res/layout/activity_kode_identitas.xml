@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@color/abu"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".KodeIdentitasActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/abu"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ion_chevron_back"/>
+
+    <TextView
+        android:textStyle="bold"
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Kode Identitas"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:padding="20dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/shape_fitur"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10">
+
+        <LinearLayout
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_marginRight="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/gg_profile" />
+
+            <TextView
+                android:textColor="@color/biruTua"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Muhammad Ilham Kurniawan" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_marginRight="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/id_card" />
+
+            <TextView
+                android:textColor="@color/biruTua"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Muhammad Ilham Kurniawan" />
+        </LinearLayout>
+        <TextView
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            android:background="@drawable/shape_blue"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:textColor="@color/biruTua"
+            android:textStyle="bold"
+            android:text="Kode QR"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@color/biruTua"
+            android:layout_width="200dp"
+            android:layout_height="200dp"/>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

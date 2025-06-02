@@ -18,6 +18,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:title="Cari Nakes"
+        app:subtitleTextAppearance="@color/abu"
+        app:subtitle="Daftar Tempat Layanan Kesehatan"
         app:navigationIcon="@drawable/ion_chevron_back" />
     <LinearLayout
         android:layout_marginHorizontal="20dp"
@@ -40,58 +42,15 @@
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:layout_weight="1"
-                android:id="@+id/spesialisasi"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Spesialisasi"
-                android:textColor="@color/biruTua"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_weight="0"
-                android:id="@+id/lihatspesialisasi"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Lihat Semua"
-                android:textColor="@color/biruNeon"
-                android:textSize="11sp"
-                android:textStyle="normal" />
-        </LinearLayout>
+            android:layout_height="wrap_content"/>
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-        <LinearLayout
-            android:layout_marginTop="20dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/dokter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Dokter di"
-                android:textColor="@color/biruTua"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_marginLeft="5dp"
-                android:id="@+id/lokasidokter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Semua Lokasi"
-                android:textColor="@color/biruNeon"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-        </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerNakes"
             android:layout_width="match_parent"
-            android:layout_height="501dp" />
+            android:layout_height="550dp" />
 
         <ScrollView
             android:layout_width="match_parent"

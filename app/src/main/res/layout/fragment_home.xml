@@ -238,7 +238,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:text="Pertumbuhan"
-                            android:textSize="10sp" />
+                            android:textSize="1sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
