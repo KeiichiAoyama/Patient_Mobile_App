@@ -19,7 +19,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:subtitle="Muhammad Ilham Kurniawan, 20 Tahun"
         app:subtitleTextColor="@color/abuMuda"
         app:title="Resume Medis Detail"/>
 
@@ -77,6 +76,12 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textStyle="bold"
+                                android:text="Muhammad Ilham Kurniawan"
+                                android:textSize="18sp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textStyle="normal"
                                 android:text="4 April 2024 | Poli Gigi"
                                 android:textSize="18sp" />
                         </LinearLayout>
@@ -146,111 +151,29 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/linearLayout7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="20dp"
                 android:layout_marginHorizontal="25dp"
-                android:layout_marginTop="10dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/shape_home"
-                    android:orientation="vertical"
-                    android:padding="20dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="54dp"
-                            android:layout_weight="0"
-                            android:gravity="center"
-                            android:background="@drawable/shape_circle"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:id="@+id/imageView27"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                app:srcCompat="@drawable/stethoscope_putih" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_weight="2"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Diagnosis"
-                                android:textSize="18sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:gravity="center_vertical">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/majesticons_clock_line" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="2dp"
-                            android:text="Diagnosis ini masih bisa berubah."
-                            android:textColor="@color/abuMuda"
-                            android:textSize="10sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Selengkapnya"
-                            android:textColor="@color/biruNeon"
-                            android:textSize="10sp" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Observasi Gigi" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_marginTop="10dp"
-                android:id="@+id/linearlayout8"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/cardDiagnosis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="25dp">
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="16dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/shape_home"
                     android:orientation="vertical"
-                    android:padding="20dp">
+                    android:padding="16dp">
 
+                    <!-- Header -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
 
                         <LinearLayout
                             android:gravity="center"
@@ -261,75 +184,116 @@
                             android:orientation="vertical">
 
                             <ImageView
-                                android:id="@+id/imageView28"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                app:srcCompat="@drawable/stethoscope_putih" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:text="Diagnosis"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Bagian detail yang disembunyikan -->
+                    <TextView
+                        android:id="@+id/textDetail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Detail: Pemeriksaan dilakukan oleh dokter A."
+                        android:textSize="14sp"
+                        android:visibility="gone" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="25dp"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/cardObat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Header -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <LinearLayout
+                            android:gravity="center"
+                            android:layout_width="50dp"
+                            android:layout_height="51dp"
+                            android:layout_weight="0"
+                            android:background="@drawable/shape_circle"
+                            android:orientation="vertical">
+
+                            <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 app:srcCompat="@drawable/obat_putih" />
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_weight="2"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Obat"
-                                android:textSize="18sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_marginTop="10dp"
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:text="120x"
-                                android:layout_height="wrap_content"/>
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:text="TAB"
-                                android:layout_height="wrap_content"/>
-                        </LinearLayout>
                         <TextView
-                            android:textColor="@color/biruNeon"
-                            android:layout_marginLeft="20dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:text="Lorem Ipsum" />
+                            android:layout_marginStart="12dp"
+                            android:text="Obat"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
+
+                    <!-- Bagian detail yang disembunyikan -->
+                    <TextView
+                        android:id="@+id/textDetail2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Detail: Pemeriksaan dilakukan oleh dokter A."
+                        android:textSize="14sp"
+                        android:visibility="gone" />
                 </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_marginTop="10dp"
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="25dp"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/cardTindakan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="25dp">
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="16dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/shape_home"
                     android:orientation="vertical"
-                    android:padding="20dp">
+                    android:padding="16dp">
 
+                    <!-- Header -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
 
                         <LinearLayout
                             android:gravity="center"
@@ -347,47 +311,50 @@
                                 app:srcCompat="@drawable/tindakan_putih" />
                         </LinearLayout>
 
-                        <LinearLayout
+                        <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_weight="2"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Tindakan"
-                                android:textSize="18sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-
+                            android:layout_marginStart="12dp"
+                            android:text="Tindakan"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
+
+                    <!-- Bagian detail yang disembunyikan -->
                     <TextView
-                        android:layout_marginTop="10dp"
+                        android:id="@+id/textDetail3"
                         android:layout_width="wrap_content"
-                        android:text="Observasi Gigi"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Detail: Pemeriksaan dilakukan oleh dokter A."
+                        android:textSize="14sp"
+                        android:visibility="gone" />
                 </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_marginTop="10dp"
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="25dp"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/cardFisik"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="25dp">
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="16dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/shape_home"
                     android:orientation="vertical"
-                    android:padding="20dp">
+                    android:padding="16dp">
 
+                    <!-- Header -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
 
                         <LinearLayout
                             android:gravity="center"
@@ -405,47 +372,49 @@
 
                         </LinearLayout>
 
-                        <LinearLayout
+                        <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_weight="2"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Observasi Fisik"
-                                android:textSize="18sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-
+                            android:layout_marginStart="12dp"
+                            android:text="Observasi Fisik"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
+
+                    <!-- Bagian detail yang disembunyikan -->
                     <TextView
-                        android:layout_marginTop="10dp"
+                        android:id="@+id/textDetail4"
                         android:layout_width="wrap_content"
-                        android:text="Observasi Gigi"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Detail: Pemeriksaan dilakukan oleh dokter A."
+                        android:textSize="14sp"
+                        android:visibility="gone" />
                 </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_marginTop="10dp"
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="25dp"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/cardFisik"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="25dp">
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="16dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/shape_home"
                     android:orientation="vertical"
-                    android:padding="20dp">
+                    android:padding="16dp">
 
+                    <!-- Header -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
 
                         <LinearLayout
                             android:gravity="center"
@@ -460,32 +429,29 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
-                                app:srcCompat="@drawable/obat_putih" />
+                                app:srcCompat="@drawable/tindakan_putih" />
                         </LinearLayout>
 
-                        <LinearLayout
+                        <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_weight="2"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Rencana Tindak Lanjut"
-                                android:textSize="18sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-
+                            android:layout_marginStart="12dp"
+                            android:text="Observasi Fisik"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
+
+                    <!-- Bagian detail yang disembunyikan -->
                     <TextView
-                        android:layout_marginTop="10dp"
+                        android:id="@+id/textDetail5"
                         android:layout_width="wrap_content"
-                        android:text="Pulang Atas Persetujuan Dokter"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Detail: Pemeriksaan dilakukan oleh dokter A."
+                        android:textSize="14sp"
+                        android:visibility="gone" />
                 </LinearLayout>
-            </LinearLayout>
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
     </ScrollView>
 
