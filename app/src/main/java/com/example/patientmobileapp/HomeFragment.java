@@ -161,10 +161,14 @@ public class HomeFragment extends Fragment {
         bulletinHomePage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getParentFragmentManager().beginTransaction()
-                        .replace(R.id.fragmentContainerView2, new BuletinFragment())
-                        .addToBackStack(null)
-                        .commit();
+                if (getActivity() instanceof MainActivity) {
+                    ((MainActivity) getActivity()).selectNavigationTab(R.id.navigation_bulletin);
+                } else {
+                    getParentFragmentManager().beginTransaction()
+                            .replace(R.id.fragmentContainerView2, new BuletinFragment())
+                            .addToBackStack(null)
+                            .commit();
+                }
             }
         });
 
@@ -187,10 +191,14 @@ public class HomeFragment extends Fragment {
         lainnya.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getParentFragmentManager().beginTransaction()
-                        .replace(R.id.fragmentContainerView2, new FiturFragment())
-                        .addToBackStack(null)
-                        .commit();
+                if (getActivity() instanceof MainActivity) {
+                    ((MainActivity) getActivity()).selectNavigationTab(R.id.navigation_fitur);
+                } else {
+                    getParentFragmentManager().beginTransaction()
+                            .replace(R.id.fragmentContainerView2, new FiturFragment())
+                            .addToBackStack(null)
+                            .commit();
+                }
             }
         });
 

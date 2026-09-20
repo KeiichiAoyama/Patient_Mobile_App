@@ -15,66 +15,54 @@ import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity extends AppCompatActivity {
 
+    private com.google.android.material.bottomnavigation.BottomNavigationView bottomNavigation;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.fragmentContainerView2, new HomeFragment());
-        transaction.commit();
+        bottomNavigation = findViewById(R.id.bottomNavigation);
+
+        if (savedInstanceState == null) {
+            loadFragment(new HomeFragment());
+        }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0);
             return insets;
         });
 
-        Button profileButton = findViewById(R.id.profileButton);
-        Button homeButton = findViewById(R.id.homeButton);
-        Button bulletinButton = findViewById(R.id.bulletinButton);
-        Button fiturButton = findViewById(R.id.fiturButton);
-
-        homeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                transaction.replace(R.id.fragmentContainerView2, new HomeFragment());
-                transaction.commit();
+        bottomNavigation.setOnItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+            if (itemId == R.id.navigation_home) {
+                loadFragment(new HomeFragment());
+                return true;
+            } else if (itemId == R.id.navigation_fitur) {
+                loadFragment(new FiturFragment());
+                return true;
+            } else if (itemId == R.id.navigation_bulletin) {
+                loadFragment(new BuletinFragment());
+                return true;
+            } else if (itemId == R.id.navigation_profile) {
+                loadFragment(new ProfileFragment());
+                return true;
             }
+            return false;
         });
+    }
 
-        profileButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                transaction.replace(R.id.fragmentContainerView2, new ProfileFragment());
-                transaction.commit();
-            }
-        });
+    public void selectNavigationTab(int navItemId) {
+        if (bottomNavigation != null) {
+            bottomNavigation.setSelectedItemId(navItemId);
+        }
+    }
 
-        fiturButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                transaction.replace(R.id.fragmentContainerView2, new FiturFragment());
-                transaction.commit();
-            }
-        });
-
-        bulletinButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                transaction.replace(R.id.fragmentContainerView2, new BuletinFragment());
-                transaction.commit();
-            }
-        });
+    private void loadFragment(Fragment fragment) {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragmentContainerView2, fragment)
+                .commit();
     }
 }
