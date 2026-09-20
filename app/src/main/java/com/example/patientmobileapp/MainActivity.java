@@ -20,20 +20,18 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        EdgeToEdge.enable(this);
         super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.activity_main);
 
         MyApp app = (MyApp) getApplicationContext();
         if (!app.isLoggedIn()) {
-            findViewById(R.id.main).post(() -> {
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(intent);
-                finish();
-            });
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
             return;
         }
+
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main);
 
         bottomNavigation = findViewById(R.id.bottomNavigation);
 

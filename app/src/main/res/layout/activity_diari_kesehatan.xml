@@ -1,221 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/abu"
-    tools:context=".DiariKesehatan">
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/diari"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/abu"
-        android:minHeight="?attr/actionBarSize"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:title="Diari Kesehatan"
-        app:titleTextColor="@color/biruTua"
-        app:navigationIcon="@drawable/ion_chevron_back" />
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:columnCount="2"
-        android:rowCount="3"
-        android:paddingHorizontal="20dp"
-        android:useDefaultMargins="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/diari">
+    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/main" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/abu" tools:context=".DiariKesehatan">
+    <androidx.appcompat.widget.Toolbar android:id="@+id/diari" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/abu" android:minHeight="?attr/actionBarSize" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:title="Diari Kesehatan" app:titleTextColor="@color/biruTua" app:navigationIcon="@drawable/ion_chevron_back" />
+    <GridLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:columnCount="2" android:rowCount="3" android:paddingHorizontal="20dp" android:useDefaultMargins="true" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/diari">
 
         <!-- Item 1 -->
-        <LinearLayout
-            android:padding="10dp"
-            android:layout_width="170dp"
-            android:layout_height="170dp"
-            android:layout_margin="8dp"
-            android:background="@drawable/shape_perfitur"
-            android:orientation="vertical">
+        <LinearLayout android:padding="10dp" android:layout_width="170dp" android:layout_height="170dp" android:layout_margin="8dp" android:background="@drawable/shape_perfitur" android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="end"
-                android:background="@drawable/shape_circle" >
+            <LinearLayout android:layout_width="100dp" android:layout_height="100dp" android:layout_gravity="end" android:background="@drawable/shape_circle">
 
-                <ImageView
-                    android:id="@+id/imageView32"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/indeks_massa_tubuh_tubuh" />
+                <ImageView android:id="@+id/imageView32" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:layout_weight="1" app:srcCompat="@drawable/indeks_massa_tubuh_tubuh" />
             </LinearLayout>
 
-            <TextView
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="Index \nMassa Tubuh"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+            <TextView android:layout_width="120dp" android:layout_height="wrap_content" android:layout_marginTop="5dp" android:text="Index \nMassa Tubuh" android:textSize="16sp" android:textStyle="bold" />
         </LinearLayout>
-        <LinearLayout
-            android:padding="10dp"
-            android:layout_width="170dp"
-            android:layout_height="170dp"
-            android:layout_margin="8dp"
-            android:background="@drawable/shape_perfitur"
-            android:orientation="vertical">
+        <LinearLayout android:padding="10dp" android:layout_width="170dp" android:layout_height="170dp" android:layout_margin="8dp" android:background="@drawable/shape_perfitur" android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="end"
-                android:background="@drawable/shape_circle" >
+            <LinearLayout android:layout_width="100dp" android:layout_height="100dp" android:layout_gravity="end" android:background="@drawable/shape_circle">
 
-                <ImageView
-                    android:id="@+id/imageView33"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/aktivitas_fisik_putih" />
+                <ImageView android:id="@+id/imageView33" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:layout_weight="1" app:srcCompat="@drawable/aktivitas_fisik_putih" />
             </LinearLayout>
 
-            <TextView
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="Aktivitas \nFisik"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+            <TextView android:layout_width="120dp" android:layout_height="wrap_content" android:layout_marginTop="5dp" android:text="Aktivitas \nFisik" android:textSize="16sp" android:textStyle="bold" />
         </LinearLayout>
-        <LinearLayout
-            android:padding="10dp"
-            android:layout_width="170dp"
-            android:layout_height="170dp"
-            android:layout_margin="8dp"
-            android:background="@drawable/shape_perfitur"
-            android:orientation="vertical">
+        <LinearLayout android:padding="10dp" android:layout_width="170dp" android:layout_height="170dp" android:layout_margin="8dp" android:background="@drawable/shape_perfitur" android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="end"
-                android:background="@drawable/shape_circle" >
+            <LinearLayout android:layout_width="100dp" android:layout_height="100dp" android:layout_gravity="end" android:background="@drawable/shape_circle">
 
-                <ImageView
-                    android:id="@+id/imageView35"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/kolesterol_putih" />
+                <ImageView android:id="@+id/imageView35" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:layout_weight="1" app:srcCompat="@drawable/kolesterol_putih" />
             </LinearLayout>
 
-            <TextView
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="Kolestrol"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+            <TextView android:layout_width="120dp" android:layout_height="wrap_content" android:layout_marginTop="5dp" android:text="Kolestrol" android:textSize="16sp" android:textStyle="bold" />
         </LinearLayout>
-        <LinearLayout
-            android:padding="10dp"
-            android:layout_width="170dp"
-            android:layout_height="170dp"
-            android:layout_margin="8dp"
-            android:background="@drawable/shape_perfitur"
-            android:orientation="vertical">
+        <LinearLayout android:padding="10dp" android:layout_width="170dp" android:layout_height="170dp" android:layout_margin="8dp" android:background="@drawable/shape_perfitur" android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="end"
-                android:background="@drawable/shape_circle" >
+            <LinearLayout android:layout_width="100dp" android:layout_height="100dp" android:layout_gravity="end" android:background="@drawable/shape_circle">
 
-                <ImageView
-                    android:id="@+id/imageView36"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/asam_urat_putih" />
+                <ImageView android:id="@+id/imageView36" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:layout_weight="1" app:srcCompat="@drawable/asam_urat_putih" />
             </LinearLayout>
 
-            <TextView
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="Asam Urat"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+            <TextView android:layout_width="120dp" android:layout_height="wrap_content" android:layout_marginTop="5dp" android:text="Asam Urat" android:textSize="16sp" android:textStyle="bold" />
         </LinearLayout>
-        <LinearLayout
-            android:padding="10dp"
-            android:layout_width="170dp"
-            android:layout_height="170dp"
-            android:layout_margin="8dp"
-            android:background="@drawable/shape_perfitur"
-            android:orientation="vertical">
+        <LinearLayout android:padding="10dp" android:layout_width="170dp" android:layout_height="170dp" android:layout_margin="8dp" android:background="@drawable/shape_perfitur" android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="end"
-                android:background="@drawable/shape_circle" >
+            <LinearLayout android:layout_width="100dp" android:layout_height="100dp" android:layout_gravity="end" android:background="@drawable/shape_circle">
 
-                <ImageView
-                    android:id="@+id/imageView37"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/gula_darah_putih" />
+                <ImageView android:id="@+id/imageView37" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:layout_weight="1" app:srcCompat="@drawable/gula_darah_putih" />
             </LinearLayout>
 
-            <TextView
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="Gula Darah"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+            <TextView android:layout_width="120dp" android:layout_height="wrap_content" android:layout_marginTop="5dp" android:text="Gula Darah" android:textSize="16sp" android:textStyle="bold" />
         </LinearLayout>
-        <LinearLayout
-            android:padding="10dp"
-            android:layout_width="170dp"
-            android:layout_height="170dp"
-            android:layout_margin="8dp"
-            android:background="@drawable/shape_perfitur"
-            android:orientation="vertical">
+        <LinearLayout android:padding="10dp" android:layout_width="170dp" android:layout_height="170dp" android:layout_margin="8dp" android:background="@drawable/shape_perfitur" android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="end"
-                android:background="@drawable/shape_circle" >
+            <LinearLayout android:layout_width="100dp" android:layout_height="100dp" android:layout_gravity="end" android:background="@drawable/shape_circle">
 
-                <ImageView
-                    android:id="@+id/imageView38"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/stethoscope_putih" />
+                <ImageView android:id="@+id/imageView38" android:layout_width="wrap_content" android:layout_height="40dp" android:layout_gravity="center_vertical" android:layout_weight="1" app:srcCompat="@drawable/stethoscope_putih" />
             </LinearLayout>
 
-            <TextView
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="Tekanan Darah"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+            <TextView android:layout_width="120dp" android:layout_height="wrap_content" android:layout_marginTop="5dp" android:text="Tekanan Darah" android:textSize="16sp" android:textStyle="bold" />
         </LinearLayout>
     </GridLayout>
 

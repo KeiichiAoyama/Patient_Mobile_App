@@ -46,14 +46,15 @@ public class LoginActivity extends AppCompatActivity {
             return insets;
         });
 
-        findViewById(R.id.main).post(() -> {
-            MyApp app = (MyApp) getApplicationContext();
-            if (app.isLoggedIn()) {
+        MyApp app = (MyApp) getApplicationContext();
+        if (app.isLoggedIn()) {
+            findViewById(android.R.id.content).post(() -> {
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
-            }
-        });
+            });
+            return;
+        }
 
         EditText emailInput = findViewById(R.id.editTextTextEmailAddress);
         EditText passwordInput = findViewById(R.id.editTextTextPassword);

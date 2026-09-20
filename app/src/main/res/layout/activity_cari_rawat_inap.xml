@@ -1,61 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/abu"
-    tools:context=".CariRawatInap">
+    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/main" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/abu" tools:context=".CariRawatInap">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/cariobat"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/abu"
-        android:minHeight="?attr/actionBarSize"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/ion_chevron_back"
-        app:title="Cari Rawat Inap"
-        app:titleTextColor="@color/biruTua" />
+    <androidx.appcompat.widget.Toolbar android:id="@+id/cariobat" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/abu" android:minHeight="?attr/actionBarSize" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:navigationIcon="@drawable/ion_chevron_back" app:title="Cari Rawat Inap" app:titleTextColor="@color/biruTua" />
 
-    <LinearLayout
-        android:layout_marginTop="100dp"
-        android:layout_width="329dp"
-        android:layout_height="394dp"
-        android:background="@drawable/shape_home"
-        android:orientation="vertical"
-        android:paddingTop="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cariobat">
+    <LinearLayout android:layout_marginTop="100dp" android:layout_width="329dp" android:layout_height="394dp" android:background="@drawable/shape_home" android:orientation="vertical" android:paddingTop="10dp" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/cariobat">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="SIRANAP"
-            android:textAlignment="center"
-            android:textSize="30sp"
-            android:textStyle="bold" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="SIRANAP" android:textAlignment="center" android:textSize="30sp" android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="25dp"
-            android:text="Sistem Informasi Rawat Inap"
-            android:textAlignment="center"
-            android:textStyle="bold" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="25dp" android:text="Sistem Informasi Rawat Inap" android:textAlignment="center" android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:text="Pilih Tempat Tidur" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="30dp" android:layout_marginRight="30dp" android:text="Pilih Tempat Tidur" />
 
         <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragmentBtnCovidContainer"
             android:name="com.example.patientmobileapp.FragmentbtnCovid"
             android:layout_width="match_parent"
             android:layout_height="37dp"
@@ -63,44 +22,15 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="30dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="30dp"
-            android:text="Pilih Provinsi" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="30dp" android:layout_marginTop="20dp" android:layout_marginRight="30dp" android:text="Pilih Provinsi" />
 
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="30dp" />
+        <Spinner android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="30dp" android:layout_marginTop="10dp" android:layout_marginRight="30dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="30dp"
-            android:text="Pilih Kabupaten/Kota" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="30dp" android:layout_marginTop="20dp" android:layout_marginRight="30dp" android:text="Pilih Kabupaten/Kota" />
 
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="30dp" />
+        <Spinner android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="30dp" android:layout_marginTop="10dp" android:layout_marginRight="30dp" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="30dp"
-            android:background="@drawable/button_submit"
-            android:text="Cari" />
+        <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="30dp" android:layout_marginTop="15dp" android:layout_marginRight="30dp" android:background="@drawable/button_submit" android:text="Cari" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

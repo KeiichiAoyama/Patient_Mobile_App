@@ -1,242 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/abu"
-    tools:context=".TrackerMinumObat">
+    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/main" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/abu" tools:context=".TrackerMinumObat">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/trackerobat"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/abu"
-        android:minHeight="?attr/actionBarSize"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/ion_chevron_back"
-        app:title="Tracker Minum Obat"
-        app:titleTextColor="@color/biruTua" />
+    <androidx.appcompat.widget.Toolbar android:id="@+id/trackerobat" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/abu" android:minHeight="?attr/actionBarSize" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:navigationIcon="@drawable/ion_chevron_back" app:title="Tracker Minum Obat" app:titleTextColor="@color/biruTua" />
 
-    <LinearLayout
-        android:layout_width="372dp"
-        android:layout_height="637dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/trackerobat">
+    <LinearLayout android:layout_width="372dp" android:layout_height="637dp" android:orientation="vertical" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/trackerobat">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
-            android:orientation="horizontal">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="15dp" android:orientation="horizontal">
 
-            <ImageButton
-                android:id="@+id/buttonprev"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/button_biru"
-                android:src="@drawable/ion_chevron_back"
-                android:contentDescription="Back"
-                app:tint="@android:color/white" />
+            <ImageButton android:id="@+id/buttonprev" android:layout_width="40dp" android:layout_height="40dp" android:background="@drawable/button_biru" android:src="@drawable/ion_chevron_back" android:contentDescription="Back" app:tint="@android:color/white" />
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="225dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Agustus 2024"
-                android:textAlignment="center" />
+            <TextView android:id="@+id/textView2" android:layout_width="225dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Agustus 2024" android:textAlignment="center" />
 
-            <ImageButton
-                android:id="@+id/buttonnext"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/button_biru"
-                android:src="@drawable/ion_chevron_back"
-                android:contentDescription="Back"
-                android:rotation="180"
-                app:tint="@android:color/white" />
+            <ImageButton android:id="@+id/buttonnext" android:layout_width="40dp" android:layout_height="40dp" android:background="@drawable/button_biru" android:src="@drawable/ion_chevron_back" android:contentDescription="Back" android:rotation="180" app:tint="@android:color/white" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
-            android:orientation="horizontal">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="15dp" android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="41dp"
-                android:layout_height="match_parent"
-                android:layout_marginRight="10dp"
-                android:orientation="vertical">
+            <LinearLayout android:layout_width="41dp" android:layout_height="match_parent" android:layout_marginRight="10dp" android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="3dp"
-                    android:text="Min"
-                    android:textAlignment="center" />
+                <TextView android:id="@+id/textView3" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="3dp" android:text="Min" android:textAlignment="center" />
 
-                <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="25"
-                    android:textAlignment="center" />
+                <TextView android:id="@+id/textView6" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="25" android:textAlignment="center" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="39dp"
-                android:layout_height="match_parent"
-                android:layout_marginRight="16dp"
-                android:orientation="vertical">
+            <LinearLayout android:layout_width="39dp" android:layout_height="match_parent" android:layout_marginRight="16dp" android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/textView20"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="3dp"
-                    android:text="Sen"
-                    android:textAlignment="center" />
+                <TextView android:id="@+id/textView20" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="3dp" android:text="Sen" android:textAlignment="center" />
 
-                <TextView
-                    android:id="@+id/textView21"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="26"
-                    android:textAlignment="center" />
+                <TextView android:id="@+id/textView21" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="26" android:textAlignment="center" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="40dp"
-                android:layout_height="match_parent"
-                android:layout_marginRight="16dp"
-                android:orientation="vertical">
+            <LinearLayout android:layout_width="40dp" android:layout_height="match_parent" android:layout_marginRight="16dp" android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/textView22"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="3dp"
-                    android:text="Sel"
-                    android:textAlignment="center" />
+                <TextView android:id="@+id/textView22" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="3dp" android:text="Sel" android:textAlignment="center" />
 
-                <TextView
-                    android:id="@+id/textView23"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="27"
-                    android:textAlignment="center" />
+                <TextView android:id="@+id/textView23" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="27" android:textAlignment="center" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="40dp"
-                android:layout_height="match_parent"
-                android:layout_marginRight="16dp"
-                android:orientation="vertical">
+            <LinearLayout android:layout_width="40dp" android:layout_height="match_parent" android:layout_marginRight="16dp" android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/textView24"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="3dp"
-                    android:text="Rab"
-                    android:textAlignment="center" />
+                <TextView android:id="@+id/textView24" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="3dp" android:text="Rab" android:textAlignment="center" />
 
-                <TextView
-                    android:id="@+id/textView25"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="28"
-                    android:textAlignment="center" />
+                <TextView android:id="@+id/textView25" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="28" android:textAlignment="center" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="40dp"
-                android:layout_height="match_parent"
-                android:layout_marginRight="16dp"
-                android:orientation="vertical">
+            <LinearLayout android:layout_width="40dp" android:layout_height="match_parent" android:layout_marginRight="16dp" android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/textView26"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="3dp"
-                    android:text="Kam"
-                    android:textAlignment="center" />
+                <TextView android:id="@+id/textView26" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="3dp" android:text="Kam" android:textAlignment="center" />
 
-                <TextView
-                    android:id="@+id/textView27"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="29"
-                    android:textAlignment="center" />
+                <TextView android:id="@+id/textView27" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="29" android:textAlignment="center" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="40dp"
-                android:layout_height="match_parent"
-                android:layout_marginRight="16dp"
-                android:orientation="vertical">
+            <LinearLayout android:layout_width="40dp" android:layout_height="match_parent" android:layout_marginRight="16dp" android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/textView28"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="3dp"
-                    android:text="Jum"
-                    android:textAlignment="center" />
+                <TextView android:id="@+id/textView28" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="3dp" android:text="Jum" android:textAlignment="center" />
 
-                <TextView
-                    android:id="@+id/textView29"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="30"
-                    android:textAlignment="center" />
+                <TextView android:id="@+id/textView29" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="30" android:textAlignment="center" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="40dp"
-                android:layout_height="match_parent"
-                android:layout_marginRight="16dp"
-                android:orientation="vertical">
+            <LinearLayout android:layout_width="40dp" android:layout_height="match_parent" android:layout_marginRight="16dp" android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/textView30"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="3dp"
-                    android:text="Sab"
-                    android:textAlignment="center" />
+                <TextView android:id="@+id/textView30" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="3dp" android:text="Sab" android:textAlignment="center" />
 
-                <TextView
-                    android:id="@+id/textView31"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="31"
-                    android:textAlignment="center" />
+                <TextView android:id="@+id/textView31" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="31" android:textAlignment="center" />
             </LinearLayout>
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/textView32"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
-            android:text="Hari ini, 28 Agustus 2024"
-            android:textAlignment="center" />
+        <TextView android:id="@+id/textView32" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="30dp" android:text="Hari ini, 28 Agustus 2024" android:textAlignment="center" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/trackerRecycler"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+        <androidx.recyclerview.widget.RecyclerView android:id="@+id/trackerRecycler" android:layout_width="match_parent" android:layout_height="match_parent" />
 
 
     </LinearLayout>
