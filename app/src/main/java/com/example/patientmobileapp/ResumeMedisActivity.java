@@ -43,13 +43,56 @@ public class ResumeMedisActivity extends AppCompatActivity {
             finish();
             return;
         }
-        String nik_test = "3172063008850005";
+        String nik = (user.nik != null && !user.nik.trim().isEmpty()) ? user.nik.trim() : "3172063008850005";
 
         JSONArray medicalRecords = new JSONArray();
 
+        TextView username = findViewById(R.id.username);
+        TextView userAge = findViewById(R.id.userAge);
+
+        username.setText(user.nama);
+
+        if (user.tahun_lahir != null && !user.tahun_lahir.trim().isEmpty()) {
+            try {
+                int birthYear = Integer.parseInt(user.tahun_lahir.trim());
+                int currentYear = java.util.Calendar.getInstance().get(java.util.Calendar.YEAR);
+                userAge.setText((currentYear - birthYear) + " Tahun");
+            } catch (Exception e) {
+                userAge.setText("-");
+            }
+        } else {
+            userAge.setText("-");
+        }
+
+        Button buttonRawatJalan = findViewById(R.id.button_rawat_jalan);
+        Button buttonTesLab = findViewById(R.id.button_tes_lab);
+
+        buttonRawatJalan.setOnClickListener(v -> {
+            RawatJalanFragment fragment = new RawatJalanFragment();
+            Bundle args = new Bundle();
+            args.putString("medicalRecords", medicalRecords.toString());
+            fragment.setArguments(args);
+
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.resumeMedisFrameLayout, fragment)
+                    .commit();
+        });
+
+        buttonTesLab.setOnClickListener(v -> {
+            TesLabFragment fragment = new TesLabFragment();
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.resumeMedisFrameLayout, fragment)
+                    .commit();
+        });
+
+        // Load initial tab
+        if (savedInstanceState == null) {
+            buttonRawatJalan.performClick();
+        }
+
         MultiChain client = new MultiChain();
         try {
-            String medicalRecordObjectName = "patient-" + nik_test + "-record";
+            String medicalRecordObjectName = "patient-" + nik + "-record";
 
             JSONArray params = new JSONArray();
             params.put(medicalRecordObjectName);
@@ -72,7 +115,14 @@ public class ResumeMedisActivity extends AppCompatActivity {
                                 JSONObject mrr = medicalRecordsRaw.getJSONObject(i);
                                 medicalRecords.put(mrr);
                             }
-                        }catch(JSONException e) {
+
+                            runOnUiThread(() -> {
+                                Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.resumeMedisFrameLayout);
+                                if (currentFragment instanceof RawatJalanFragment) {
+                                    ((RawatJalanFragment) currentFragment).updateMedicalRecords(medicalRecords.toString());
+                                }
+                            });
+                        } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
@@ -87,38 +137,6 @@ public class ResumeMedisActivity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
-        TextView username = findViewById(R.id.username);
-        TextView userAge = findViewById(R.id.userAge);
-
-        username.setText(user.nama);
-
-        int birthYear = Integer.parseInt(user.tahun_lahir);
-        @SuppressLint({"NewApi", "LocalSuppress"}) int currentYear = Year.now().getValue();
-
-        userAge.setText(String.valueOf(currentYear - birthYear));
-
-        Button buttonRawatJalan = findViewById(R.id.button_rawat_jalan);
-        Button buttonTesLab = findViewById(R.id.button_tes_lab);
-
-        buttonRawatJalan.setOnClickListener(v -> {
-            RawatJalanFragment fragment = new RawatJalanFragment();
-
-            Bundle args = new Bundle();
-            args.putString("medicalRecords", medicalRecords.toString());
-            fragment.setArguments(args);
-
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.resumeMedisFrameLayout, fragment)
-                    .commit();
-        });
-
-        buttonTesLab.setOnClickListener(v -> {
-            TesLabFragment fragment = new TesLabFragment();
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.resumeMedisFrameLayout, fragment)
-                    .commit();
-        });
 
         Toolbar toolbar = findViewById(R.id.toolbar3);
         if (toolbar != null) {
