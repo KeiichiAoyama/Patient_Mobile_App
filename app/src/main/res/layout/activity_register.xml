@@ -16,19 +16,39 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent" >
-        <TextView
-            android:textStyle="bold"
-            android:textSize="20dp"
-            android:text="Register"
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/btnHeaderBackRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:contentDescription="Kembali"
+                android:src="@drawable/ion_chevron_back" />
+
+            <TextView
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:text="Register"
+                android:textColor="@color/biruTua"
+                android:layout_marginStart="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
 
         <ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            />
+            android:max="100"
+            android:progress="50"
+            android:layout_marginTop="8dp" />
     </LinearLayout>
 
     <androidx.fragment.app.FragmentContainerView
@@ -53,17 +73,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <TextView
+        <Button
+            android:id="@+id/btnBackRegister"
+            android:background="@drawable/button_submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="5" />
+            android:text="Kembali"
+            android:visibility="gone"
+            android:layout_marginEnd="10dp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
 
         <Button
             android:id="@+id/button2"
             android:background="@drawable/button_submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="Next" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

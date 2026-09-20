@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -13,6 +15,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -43,13 +46,41 @@ public class RegisterActivity extends AppCompatActivity {
             return insets;
         });
 
+        ImageView btnHeaderBack = findViewById(R.id.btnHeaderBackRegister);
+        if (btnHeaderBack != null) {
+            btnHeaderBack.setOnClickListener(v -> {
+                if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+                    getSupportFragmentManager().popBackStack();
+                } else {
+                    finish();
+                }
+            });
+        }
+
+        Button btnBackRegister = findViewById(R.id.btnBackRegister);
+        if (btnBackRegister != null) {
+            btnBackRegister.setOnClickListener(v -> {
+                if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+                    getSupportFragmentManager().popBackStack();
+                }
+            });
+        }
+
+        getSupportFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
+            @Override
+            public void onBackStackChanged() {
+                updateStepperUI();
+            }
+        });
+
         if (savedInstanceState == null) {
             regisFragment1 = new RegisFragment1();
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragmentContainerView, regisFragment1)
                     .commit();
-
         }
+
+        updateStepperUI();
 
         Button nextButton = findViewById(R.id.button2);
         nextButton.setOnClickListener(new View.OnClickListener() {
@@ -200,7 +231,24 @@ public class RegisterActivity extends AppCompatActivity {
         if (fragment instanceof fragment_regis2) {
             this.newUser = ((fragment_regis2) fragment).collectInputData(this.newUser);
         } else {
-            Log.e("RegisterActivitxy", "fragment_regis2 not found");
+            Log.e("RegisterActivity", "fragment_regis2 not found");
+        }
+    }
+
+    private void updateStepperUI() {
+        boolean isStep2 = getSupportFragmentManager().getBackStackEntryCount() > 0;
+        Button nextButton = findViewById(R.id.button2);
+        Button btnBackRegister = findViewById(R.id.btnBackRegister);
+        ProgressBar progressBar = findViewById(R.id.progressBar);
+
+        if (isStep2) {
+            if (progressBar != null) progressBar.setProgress(100);
+            if (btnBackRegister != null) btnBackRegister.setVisibility(View.VISIBLE);
+            if (nextButton != null) nextButton.setText("Register");
+        } else {
+            if (progressBar != null) progressBar.setProgress(50);
+            if (btnBackRegister != null) btnBackRegister.setVisibility(View.GONE);
+            if (nextButton != null) nextButton.setText("Next");
         }
     }
 }
