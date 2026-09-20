@@ -36,6 +36,13 @@ public class ResumeMedisActivity extends AppCompatActivity {
 
         MyApp app = (MyApp) getApplicationContext();
         User user = app.getUser();
+        if (user == null) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
+            return;
+        }
         String nik_test = "3172063008850005";
 
         JSONArray medicalRecords = new JSONArray();

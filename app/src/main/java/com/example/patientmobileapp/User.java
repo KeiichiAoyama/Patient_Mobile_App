@@ -84,6 +84,32 @@ public class User {
         return user;
     }
 
+    public JSONObject toJSON() {
+        JSONObject json = new JSONObject();
+        try {
+            if (nik != null) json.put("nik", nik);
+            if (nama != null) json.put("nama", nama);
+            if (tempat_lahir != null) json.put("tempat_lahir", tempat_lahir);
+            if (tanggal_lahir != null) json.put("tanggal_lahir", tanggal_lahir);
+            if (bulan_lahir != null) json.put("bulan_lahir", bulan_lahir);
+            if (tahun_lahir != null) json.put("tahun_lahir", tahun_lahir);
+            if (jenis_kelamin != null) json.put("jenis_kelamin", jenis_kelamin);
+            if (golongan_darah != null) json.put("golongan_darah", golongan_darah);
+            if (alamat != null) json.put("alamat", alamat);
+            if (rt != null) json.put("rt", rt);
+            if (rw != null) json.put("rw", rw);
+            if (kelurahan != null) json.put("kelurahan", kelurahan);
+            if (kecamatan != null) json.put("kecamatan", kecamatan);
+            if (agama != null) json.put("agama", agama);
+            if (pekerjaan != null) json.put("pekerjaan", pekerjaan);
+            if (no_telp != null) json.put("no_telp", no_telp);
+            if (foto_pasien != null) json.put("foto_pasien", foto_pasien);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return json;
+    }
+
     @Override
     public String toString() {
         return "User{" +

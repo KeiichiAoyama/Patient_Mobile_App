@@ -28,6 +28,12 @@ public class ProfileFragment extends Fragment {
 
         MyApp app = (MyApp) requireActivity().getApplicationContext();
         User user = app.getUser();
+        if (user == null) {
+            android.content.Intent intent = new android.content.Intent(getActivity(), LoginActivity.class);
+            intent.setFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK | android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            return view;
+        }
 
         TextView namaPengguna = view.findViewById(R.id.profileName);
         TextView telpPengguna = view.findViewById(R.id.profilePhone);

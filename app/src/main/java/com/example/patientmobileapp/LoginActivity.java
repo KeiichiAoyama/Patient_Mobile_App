@@ -46,6 +46,14 @@ public class LoginActivity extends AppCompatActivity {
             return insets;
         });
 
+        MyApp app = (MyApp) getApplicationContext();
+        if (app.isLoggedIn()) {
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+            return;
+        }
+
         EditText emailInput = findViewById(R.id.editTextTextEmailAddress);
         EditText passwordInput = findViewById(R.id.editTextTextPassword);
 

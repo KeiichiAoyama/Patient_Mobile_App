@@ -74,6 +74,12 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         MyApp app = (MyApp) requireActivity().getApplicationContext();
         User user = app.getUser();
+        if (user == null) {
+            Intent intent = new Intent(getActivity(), LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            return view;
+        }
         Log.d("TESTING", user.toString());
 
         TextView namaPengguna = view.findViewById(R.id.namaPengguna);
