@@ -21,8 +21,12 @@ public class ReminderReceiver extends BroadcastReceiver {
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setAutoCancel(true);
 
-        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
-        notificationManager.notify((int) System.currentTimeMillis(), builder.build());
+        try {
+            NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
+            notificationManager.notify((int) System.currentTimeMillis(), builder.build());
+        } catch (Exception e) {
+            android.util.Log.e("ReminderReceiver", "Failed to show notification: " + e.getMessage());
+        }
     }
 }
 

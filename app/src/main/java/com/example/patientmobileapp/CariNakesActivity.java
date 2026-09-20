@@ -63,6 +63,25 @@ public class CariNakesActivity extends AppCompatActivity {
             RecyclerView recyclerView = findViewById(R.id.recyclerNakes);
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
             List<obat_card> itemList = new ArrayList<>();
+            obatCardAdapter adapter = new obatCardAdapter(itemList);
+            recyclerView.setAdapter(adapter);
+
+            SearchView obatSearch = findViewById(R.id.search);
+            if (obatSearch != null) {
+                obatSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                    @Override
+                    public boolean onQueryTextSubmit(String query) {
+                        adapter.getFilter().filter(query);
+                        return false;
+                    }
+
+                    @Override
+                    public boolean onQueryTextChange(String newText) {
+                        adapter.getFilter().filter(newText);
+                        return false;
+                    }
+                });
+            }
 
             client.callMultiChain("liststreamitems", params, new Callback() {
                 @Override
@@ -72,24 +91,34 @@ public class CariNakesActivity extends AppCompatActivity {
                     if (response.isSuccessful()) {
                         Log.d("TESTING", "Response Successful");
 
-                        String responseBody = response.body().string();
+                        String responseBody = response.body() != null ? response.body().string() : "";
 
                         try {
                             JSONObject jsonResponse = new JSONObject(responseBody);
                             JSONArray hospitalRecords = jsonResponse.getJSONArray("result");
 
-                            try {
-                                for (int i = 0; i < hospitalRecords.length(); i++) {
+                            for (int i = 0; i < hospitalRecords.length(); i++) {
+                                try {
                                     JSONObject hospitalRecord = hospitalRecords.getJSONObject(i);
+                                    JSONObject data = hospitalRecord.optJSONObject("data");
+                                    if (data == null) continue;
+                                    JSONObject json = data.optJSONObject("json");
+                                    if (json == null) continue;
 
-                                    String urlRaw = hospitalRecord.getJSONObject("data").getJSONObject("json").getString("url_get_dokter");
+                                    String urlRaw = json.optString("url_get_dokter", "");
+                                    String hospitalName = json.optString("nama", "");
+                                    if (urlRaw.isEmpty()) continue;
+
                                     URL url = new URL(urlRaw);
                                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                                     conn.setRequestMethod("GET");
                                     conn.setRequestProperty("Accept", "application/json");
+                                    conn.setConnectTimeout(5000);
+                                    conn.setReadTimeout(5000);
 
                                     if (conn.getResponseCode() != 200) {
-                                        throw new RuntimeException("HTTP Error: " + conn.getResponseCode());
+                                        Log.w("CariNakes", "HTTP error " + conn.getResponseCode() + " for " + urlRaw);
+                                        continue;
                                     }
 
                                     BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
@@ -102,56 +131,49 @@ public class CariNakesActivity extends AppCompatActivity {
                                     in.close();
 
                                     JSONObject hospitalDoctorsResponse = new JSONObject(hospitalDoctorsRaw.toString());
-                                    Log.d("MULTICHAIN_JSON", hospitalDoctorsRaw.toString());
-                                    JSONArray hospitalDoctors = hospitalDoctorsResponse.getJSONArray("data");
-
-                                    for(int j = 0; j < hospitalDoctors.length(); j++) {
-                                        JSONObject doctor = hospitalDoctors.getJSONObject(j);
-                                        doctor.put("hospital", hospitalRecord.getJSONObject("data").getJSONObject("json").getString("nama"));
-                                        doctorRecords.put(doctor);
+                                    JSONArray hospitalDoctors = hospitalDoctorsResponse.optJSONArray("data");
+                                    if (hospitalDoctors != null) {
+                                        for (int j = 0; j < hospitalDoctors.length(); j++) {
+                                            JSONObject doctor = hospitalDoctors.getJSONObject(j);
+                                            doctor.put("hospital", hospitalName);
+                                            doctorRecords.put(doctor);
+                                        }
                                     }
+                                } catch (Exception e) {
+                                    Log.e("CariNakes", "Error fetching doctor: " + e.getMessage());
                                 }
-
-                                try {
-                                    Log.d("MULTICHAIN_NAKES", doctorRecords.toString());
-
-                                    for (int i = 0; i < doctorRecords.length(); i++) {
-                                        JSONObject dokter = doctorRecords.getJSONObject(i);
-                                        String name = dokter.getJSONObject("User").getString("nama");
-                                        String role = dokter.getJSONObject("User").getString("role");
-                                        String hospital = dokter.getString("hospital");
-                                        itemList.add(new obat_card(name, role, hospital));
-                                    }
-
-                                    runOnUiThread(() -> {
-                                        obatCardAdapter adapter = new obatCardAdapter(itemList);
-                                        recyclerView.setAdapter(adapter);
-
-                                        SearchView obatSearch = findViewById(R.id.search);
-
-                                        obatSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-                                            @Override
-                                            public boolean onQueryTextSubmit(String query) {
-                                                adapter.getFilter().filter(query);
-                                                return false;
-                                            }
-
-                                            @Override
-                                            public boolean onQueryTextChange(String newText) {
-                                                adapter.getFilter().filter(newText);
-                                                return false;
-                                            }
-                                        });
-                                    });
-                                } catch (JSONException e) {
-                                    Log.e("ERROR", "JSON Parsing Error: " + e.getMessage(), e);
-                                }
-                            }catch(JSONException e) {
-                                e.printStackTrace();
                             }
 
-                        }catch(JSONException e) {
-                            e.printStackTrace();
+                            for (int i = 0; i < doctorRecords.length(); i++) {
+                                JSONObject dokter = doctorRecords.getJSONObject(i);
+                                JSONObject userObj = dokter.optJSONObject("User");
+                                String name = userObj != null ? userObj.optString("nama", "Dokter") : dokter.optString("nama", "Dokter");
+                                String role = userObj != null ? userObj.optString("role", "Spesialis") : dokter.optString("role", "Spesialis");
+                                String hospital = dokter.optString("hospital", "");
+                                itemList.add(new obat_card(name, role, hospital));
+                            }
+
+                            runOnUiThread(() -> {
+                                obatCardAdapter newAdapter = new obatCardAdapter(itemList);
+                                recyclerView.setAdapter(newAdapter);
+                                if (obatSearch != null) {
+                                    obatSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                                        @Override
+                                        public boolean onQueryTextSubmit(String query) {
+                                            newAdapter.getFilter().filter(query);
+                                            return false;
+                                        }
+
+                                        @Override
+                                        public boolean onQueryTextChange(String newText) {
+                                            newAdapter.getFilter().filter(newText);
+                                            return false;
+                                        }
+                                    });
+                                }
+                            });
+                        } catch (JSONException e) {
+                            Log.e("ERROR", "JSON Parsing Error: " + e.getMessage(), e);
                         }
                     }
                 }
