@@ -39,9 +39,33 @@ public class CariObat extends AppCompatActivity {
             return insets;
         });
 
+        androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
+        if (toolbar != null) {
+            toolbar.setNavigationOnClickListener(v -> finish());
+        }
+
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         List<obat_card> itemList = new ArrayList<>();
+        obatCardAdapter adapter = new obatCardAdapter(itemList);
+        recyclerView.setAdapter(adapter);
+
+        SearchView obatSearch = findViewById(R.id.obatSearch);
+        if (obatSearch != null) {
+            obatSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    adapter.getFilter().filter(query);
+                    return false;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    adapter.getFilter().filter(newText);
+                    return false;
+                }
+            });
+        }
 
         MultiChain client = new MultiChain();
 
@@ -54,7 +78,7 @@ public class CariObat extends AppCompatActivity {
                 @Override
                 public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
                     if (response.isSuccessful()) {
-                        String responseBody = response.body().string();
+                        String responseBody = response.body() != null ? response.body().string() : "";
                         Log.d("MULTICHAIN_JSON", responseBody);
 
                         try {
@@ -87,24 +111,23 @@ public class CariObat extends AppCompatActivity {
                                 }
 
                                 runOnUiThread(() -> {
-                                    obatCardAdapter adapter = new obatCardAdapter(itemList);
-                                    recyclerView.setAdapter(adapter);
+                                    obatCardAdapter newAdapter = new obatCardAdapter(itemList);
+                                    recyclerView.setAdapter(newAdapter);
+                                    if (obatSearch != null) {
+                                        obatSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                                            @Override
+                                            public boolean onQueryTextSubmit(String query) {
+                                                newAdapter.getFilter().filter(query);
+                                                return false;
+                                            }
 
-                                    SearchView obatSearch = findViewById(R.id.obatSearch);
-
-                                    obatSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-                                        @Override
-                                        public boolean onQueryTextSubmit(String query) {
-                                            adapter.getFilter().filter(query);
-                                            return false;
-                                        }
-
-                                        @Override
-                                        public boolean onQueryTextChange(String newText) {
-                                            adapter.getFilter().filter(newText);
-                                            return false;
-                                        }
-                                    });
+                                            @Override
+                                            public boolean onQueryTextChange(String newText) {
+                                                newAdapter.getFilter().filter(newText);
+                                                return false;
+                                            }
+                                        });
+                                    }
                                 });
                             }
                         } catch (JSONException e) {

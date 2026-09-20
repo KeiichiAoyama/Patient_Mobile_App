@@ -20,5 +20,10 @@ public class QrActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        android.widget.ImageView headerBack = findViewById(R.id.header_back);
+        if (headerBack != null) {
+            headerBack.setOnClickListener(v -> finish());
+        }
     }
 }

@@ -20,5 +20,10 @@ public class VaksinImunisasi extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.vaksin);
+        if (toolbar != null) {
+            toolbar.setNavigationOnClickListener(v -> finish());
+        }
     }
 }

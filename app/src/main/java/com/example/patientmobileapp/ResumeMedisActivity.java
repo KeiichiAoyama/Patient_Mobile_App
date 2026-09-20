@@ -121,13 +121,8 @@ public class ResumeMedisActivity extends AppCompatActivity {
         });
 
         Toolbar toolbar = findViewById(R.id.toolbar3);
-
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ResumeMedisActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
+        if (toolbar != null) {
+            toolbar.setNavigationOnClickListener(v -> finish());
+        }
     }
 }

@@ -25,6 +25,11 @@ public class ResumeMedisDetailActivity extends AppCompatActivity {
             return insets;
         });
 
+        androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbarRsDetail);
+        if (toolbar != null) {
+            toolbar.setNavigationOnClickListener(v -> finish());
+        }
+
         String recordDataString = getIntent().getStringExtra("reminder_record");
 
         if (recordDataString != null) {

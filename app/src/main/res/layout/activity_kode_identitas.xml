@@ -55,6 +55,7 @@
                 android:background="@drawable/gg_profile" />
 
             <TextView
+                android:id="@+id/tvKodeIdentitasNama"
                 android:textColor="@color/biruTua"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -73,10 +74,11 @@
                 android:background="@drawable/id_card" />
 
             <TextView
+                android:id="@+id/tvKodeIdentitasNik"
                 android:textColor="@color/biruTua"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Muhammad Ilham Kurniawan" />
+                android:text="3172063008850005" />
         </LinearLayout>
         <TextView
             android:layout_marginTop="20dp"

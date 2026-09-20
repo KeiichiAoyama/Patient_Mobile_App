@@ -84,11 +84,26 @@ public class HomeFragment extends Fragment {
 
         TextView namaPengguna = view.findViewById(R.id.namaPengguna);
         TextView tanggal = view.findViewById(R.id.tanggal);
+        TextView ucapan = view.findViewById(R.id.ucapan);
 
         Date today = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMM, yyyy", Locale.ENGLISH);
         String formattedDate = sdf.format(today);
         tanggal.setText(formattedDate);
+
+        if (ucapan != null) {
+            java.util.Calendar cal = java.util.Calendar.getInstance();
+            int hour = cal.get(java.util.Calendar.HOUR_OF_DAY);
+            if (hour >= 4 && hour < 11) {
+                ucapan.setText("Selamat Pagi,");
+            } else if (hour >= 11 && hour < 15) {
+                ucapan.setText("Selamat Siang,");
+            } else if (hour >= 15 && hour < 18) {
+                ucapan.setText("Selamat Sore,");
+            } else {
+                ucapan.setText("Selamat Malam,");
+            }
+        }
 
         namaPengguna.setText(user.nama);
 
@@ -114,7 +129,8 @@ public class HomeFragment extends Fragment {
         qr_scan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // qr page
+                Intent intent = new Intent(getActivity(), QrActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -145,7 +161,36 @@ public class HomeFragment extends Fragment {
         bulletinHomePage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // bulletin home page
+                getParentFragmentManager().beginTransaction()
+                        .replace(R.id.fragmentContainerView2, new BuletinFragment())
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+
+        kesehatan_kehamilan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), KesehatanKehamilan.class);
+                startActivity(intent);
+            }
+        });
+
+        pertumbuhan_anak.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), PertumbuhanAnak.class);
+                startActivity(intent);
+            }
+        });
+
+        lainnya.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getParentFragmentManager().beginTransaction()
+                        .replace(R.id.fragmentContainerView2, new FiturFragment())
+                        .addToBackStack(null)
+                        .commit();
             }
         });
 

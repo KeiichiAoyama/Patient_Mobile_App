@@ -116,6 +116,8 @@ public class FiturFragment extends Fragment {
         rawatInap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), CariRawatInap.class);
+                startActivity(intent);
             }
         });
 

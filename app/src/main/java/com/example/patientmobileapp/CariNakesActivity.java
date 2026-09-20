@@ -43,6 +43,11 @@ public class CariNakesActivity extends AppCompatActivity {
             return insets;
         });
 
+        androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.nakes);
+        if (toolbar != null) {
+            toolbar.setNavigationOnClickListener(v -> finish());
+        }
+
         Log.d("TESTING", "CariNakesActivity Started Successfully");
 
         MyApp app = (MyApp) getApplicationContext();

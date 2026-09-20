@@ -42,8 +42,26 @@ public class TrackerMinumObat extends AppCompatActivity {
             return insets;
         });
 
+        androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.trackerobat);
+        if (toolbar != null) {
+            toolbar.setNavigationOnClickListener(v -> finish());
+        }
+
+        android.widget.TextView todayText = findViewById(R.id.textView32);
+        if (todayText != null) {
+            java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("'Hari ini, 'd MMMM yyyy", new java.util.Locale("id", "ID"));
+            todayText.setText(sdf.format(new java.util.Date()));
+        }
+
         MyApp app = (MyApp) getApplicationContext();
         User user = app.getUser();
+        if (user == null) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
+            return;
+        }
 
         RecyclerView recyclerView = findViewById(R.id.trackerRecycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

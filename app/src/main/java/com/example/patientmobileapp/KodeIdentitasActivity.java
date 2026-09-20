@@ -20,5 +20,23 @@ public class KodeIdentitasActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
+        if (toolbar != null) {
+            toolbar.setNavigationOnClickListener(v -> finish());
+        }
+
+        MyApp app = (MyApp) getApplicationContext();
+        User user = app.getUser();
+        if (user != null) {
+            android.widget.TextView tvNama = findViewById(R.id.tvKodeIdentitasNama);
+            android.widget.TextView tvNik = findViewById(R.id.tvKodeIdentitasNik);
+            if (tvNama != null && user.nama != null && !user.nama.isEmpty()) {
+                tvNama.setText(user.nama);
+            }
+            if (tvNik != null && user.nik != null && !user.nik.isEmpty()) {
+                tvNik.setText(user.nik);
+            }
+        }
     }
 }
