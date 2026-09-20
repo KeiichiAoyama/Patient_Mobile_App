@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
         EditText passwordInput = findViewById(R.id.editTextTextPassword);
 
         Button loginButton = findViewById(R.id.button);
-        TextView forgotPasswordButton = findViewById(R.id.textView15);
+// TextView forgotPasswordButton = findViewById(R.id.textView15);
         TextView registerButton = findViewById(R.id.regisdulu);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -58,8 +58,19 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Log.d("TESTING", "Button Clicked");
 
-                String email = emailInput.getText().toString();
-                String password = passwordInput.getText().toString();
+                String email = emailInput.getText().toString().trim();
+                String password = passwordInput.getText().toString().trim();
+
+                if (email.isEmpty()) {
+                    emailInput.setError("Email cannot be empty");
+                    emailInput.requestFocus();
+                    return;
+                }
+                if (password.isEmpty()) {
+                    passwordInput.setError("Password cannot be empty");
+                    passwordInput.requestFocus();
+                    return;
+                }
 
                 MultiChain client = new MultiChain();
 
@@ -74,6 +85,7 @@ public class LoginActivity extends AppCompatActivity {
                         public void onFailure(@NonNull Call call, @NonNull IOException e) {
                             Log.e("TESTING", "Request failed: " + e.getMessage());
                             e.printStackTrace();
+                            runOnUiThread(() -> showAlertDialog("Connection Error", "Failed to connect to server: " + e.getMessage()));
                         }
 
                         @Override
@@ -83,7 +95,7 @@ public class LoginActivity extends AppCompatActivity {
                             if (response.isSuccessful()) {
                                 Log.d("TESTING", "Response Successful");
 
-                                String responseBody = response.body().string();
+                                String responseBody = response.body() != null ? response.body().string() : "";
 
                                 try {
                                     JSONObject jsonResponse = new JSONObject(responseBody);
@@ -107,8 +119,6 @@ public class LoginActivity extends AppCompatActivity {
 
                                         String hashedPassword = credentials.getString("password");
 
-                                        Log.d("TESTING", "Password: " + password);
-
                                         BCrypt.Result result = BCrypt.verifyer().verify(
                                                 password.toCharArray(),
                                                 hashedPassword.getBytes()
@@ -128,8 +138,11 @@ public class LoginActivity extends AppCompatActivity {
                                                 MyApp app = (MyApp) getApplicationContext();
                                                 app.setUser(currentUser);
 
-                                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                                startActivity(intent);
+                                                runOnUiThread(() -> {
+                                                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                                    startActivity(intent);
+                                                    finish();
+                                                });
                                             } else {
                                                 runOnUiThread(() -> showAlertDialog("Login Failed", "Incorrect Password"));
                                             }

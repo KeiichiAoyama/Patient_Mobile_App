@@ -13,3 +13,7 @@
 .externalNativeBuild
 .cxx
 local.properties
+*.log
+hs_err_*.log
+replay_*.log
+.idea/

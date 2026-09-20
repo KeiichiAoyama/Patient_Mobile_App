@@ -47,20 +47,58 @@ public class RegisFragment1 extends Fragment {
         return view;
     }
 
+    public boolean validateInput() {
+        if (inputNik == null) return false;
+        String nik = inputNik.getText().toString().trim();
+        if (nik.isEmpty()) {
+            inputNik.setError("NIK tidak boleh kosong");
+            inputNik.requestFocus();
+            return false;
+        }
+
+        String name = inputName.getText().toString().trim();
+        if (name.isEmpty()) {
+            inputName.setError("Nama tidak boleh kosong");
+            inputName.requestFocus();
+            return false;
+        }
+
+        String dob = inputDob.getText().toString().trim();
+        if (dob.isEmpty() || !dob.contains("/")) {
+            inputDob.setError("Format tanggal lahir: DD/MM/YYYY");
+            inputDob.requestFocus();
+            return false;
+        }
+        String[] parts = dob.split("/");
+        if (parts.length < 3 || parts[0].trim().isEmpty() || parts[1].trim().isEmpty() || parts[2].trim().isEmpty()) {
+            inputDob.setError("Format tanggal lahir harus lengkap: DD/MM/YYYY");
+            inputDob.requestFocus();
+            return false;
+        }
+
+        return true;
+    }
+
     public Map<String, Object> collectInputData(Map<String, Object> newUser) {
-        newUser.put("nik", inputNik.getText().toString());
-        newUser.put("nama", inputName.getText().toString());
-        newUser.put("tempat_lahir", inputTempat.getText().toString());
+        newUser.put("nik", inputNik.getText().toString().trim());
+        newUser.put("nama", inputName.getText().toString().trim());
+        newUser.put("tempat_lahir", inputTempat.getText().toString().trim());
 
-        String dateRaw = inputDob.getText().toString();
+        String dateRaw = inputDob.getText().toString().trim();
         String[] dateSplit = dateRaw.split("/");
-        newUser.put("tanggal_lahir", dateSplit[0]);
-        newUser.put("bulan_lahir", dateSplit[1]);
-        newUser.put("tahun_lahir", dateSplit[2]);
+        if (dateSplit.length >= 3) {
+            newUser.put("tanggal_lahir", dateSplit[0].trim());
+            newUser.put("bulan_lahir", dateSplit[1].trim());
+            newUser.put("tahun_lahir", dateSplit[2].trim());
+        } else {
+            newUser.put("tanggal_lahir", dateRaw);
+            newUser.put("bulan_lahir", "");
+            newUser.put("tahun_lahir", "");
+        }
 
-        newUser.put("jenis_kelamin", inputSex.getText().toString());
-        newUser.put("golongan_darah", inputGoldar.getText().toString());
-        newUser.put("alamat", inputAddress.getText().toString());
+        newUser.put("jenis_kelamin", inputSex.getText().toString().trim());
+        newUser.put("golongan_darah", inputGoldar.getText().toString().trim());
+        newUser.put("alamat", inputAddress.getText().toString().trim());
         return newUser;
     }
 }

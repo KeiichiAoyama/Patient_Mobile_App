@@ -58,14 +58,26 @@ public class RegisterActivity extends AppCompatActivity {
                 Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.fragmentContainerView);
 
                 if (currentFragment instanceof RegisFragment1) {
+                    RegisFragment1 f1 = (RegisFragment1) currentFragment;
+                    if (!f1.validateInput()) {
+                        return;
+                    }
                     nextButton.setText("Register");
                     collectUserDataRegisFragment1();
                     regisFragment2 = new fragment_regis2();
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.fragmentContainerView, regisFragment2)
+                            .addToBackStack(null)
                             .commit();
                 } else if (currentFragment instanceof fragment_regis2) {
+                    fragment_regis2 f2 = (fragment_regis2) currentFragment;
+                    if (!f2.validateInput()) {
+                        return;
+                    }
                     collectUserDataRegisFragment2();
+                    nextButton.setEnabled(false);
+                    nextButton.setText("Mendaftar...");
+
                     MultiChain client = new MultiChain();
 
                     try {
@@ -78,7 +90,11 @@ public class RegisterActivity extends AppCompatActivity {
                             @Override
                             public void onFailure(@NonNull Call call, @NonNull IOException e) {
                                 Log.e("TESTING", "Request failed: " + e.getMessage());
-                                e.printStackTrace();
+                                runOnUiThread(() -> {
+                                    nextButton.setEnabled(true);
+                                    nextButton.setText("Register");
+                                    android.widget.Toast.makeText(RegisterActivity.this, "Koneksi gagal: " + e.getMessage(), android.widget.Toast.LENGTH_SHORT).show();
+                                });
                             }
 
                             @Override
@@ -100,7 +116,8 @@ public class RegisterActivity extends AppCompatActivity {
                                                 try {
                                                     publishParams.put(Helper.stringToHex(User.buildPublishPayload(newUser)));
                                                 } catch (JSONException e) {
-                                                    throw new RuntimeException(e);
+                                                    Log.e("TESTING", "Payload error: " + e.getMessage());
+                                                    return;
                                                 }
 
                                                 try {
@@ -112,37 +129,55 @@ public class RegisterActivity extends AppCompatActivity {
                                                             MyApp app = (MyApp) getApplicationContext();
                                                             app.setUser(user);
 
-                                                            Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                                                            startActivity(intent);
+                                                            runOnUiThread(() -> {
+                                                                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                                                                startActivity(intent);
+                                                                finish();
+                                                            });
                                                         }
 
                                                         @Override
                                                         public void onFailure(@NonNull Call call, @NonNull IOException e) {
                                                             Log.e("TESTING", "Request failed: " + e.getMessage());
-                                                            e.printStackTrace();
+                                                            runOnUiThread(() -> {
+                                                                nextButton.setEnabled(true);
+                                                                nextButton.setText("Register");
+                                                                android.widget.Toast.makeText(RegisterActivity.this, "Gagal mempublish data", android.widget.Toast.LENGTH_SHORT).show();
+                                                            });
                                                         }
                                                     });
                                                 } catch (JSONException e) {
-                                                    throw new RuntimeException(e);
+                                                    Log.e("TESTING", "Publish error: " + e.getMessage());
                                                 }
                                             }
 
                                             @Override
                                             public void onFailure(@NonNull Call call, @NonNull IOException e) {
                                                 Log.e("TESTING", "Request failed: " + e.getMessage());
-                                                e.printStackTrace();
+                                                runOnUiThread(() -> {
+                                                    nextButton.setEnabled(true);
+                                                    nextButton.setText("Register");
+                                                    android.widget.Toast.makeText(RegisterActivity.this, "Gagal subscribe stream", android.widget.Toast.LENGTH_SHORT).show();
+                                                });
                                             }
                                         });
                                     } catch (JSONException e) {
-                                        throw new RuntimeException(e);
+                                        Log.e("TESTING", "Subscribe error: " + e.getMessage());
                                     }
                                 } else {
                                     Log.d("TESTING", "Response Failed");
+                                    runOnUiThread(() -> {
+                                        nextButton.setEnabled(true);
+                                        nextButton.setText("Register");
+                                        android.widget.Toast.makeText(RegisterActivity.this, "Registrasi gagal, akun mungkin sudah terdaftar", android.widget.Toast.LENGTH_SHORT).show();
+                                    });
                                 }
                             }
                         });
                     } catch (JSONException e) {
                         e.printStackTrace();
+                        nextButton.setEnabled(true);
+                        nextButton.setText("Register");
                     }
                 }
             }
