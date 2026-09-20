@@ -1,516 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/abu"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingHorizontal="25dp"
-    tools:context=".HomeFragment">
+    xmlns:tools="http://schemas.android.com/tools" android:background="@color/abu" android:layout_width="match_parent" android:layout_height="match_parent" android:paddingHorizontal="25dp" tools:context=".HomeFragment">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/abu"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <androidx.appcompat.widget.Toolbar android:id="@+id/toolbar3" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/abu" android:minHeight="?attr/actionBarSize" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
 
             <!-- Logo Vector Drawable -->
-            <ImageView
-                android:id="@+id/logo_toolbar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/kita_sehat"
-                android:layout_centerVertical="true"
-                android:layout_alignParentStart="true"
-                android:contentDescription="Logo Kita Sehat" />
+            <ImageView android:id="@+id/logo_toolbar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/kita_sehat" android:layout_centerVertical="true" android:layout_alignParentStart="true" android:contentDescription="Logo Kita Sehat" />
 
             <!-- Icon Buttons -->
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true">
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_alignParentEnd="true" android:layout_centerVertical="true">
 
-                <ImageButton
-                    android:id="@+id/btnQR"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:background="@drawable/fluent_scan_table_20_regular"
-                    android:contentDescription="Scan Button" />
+                <ImageButton android:id="@+id/btnQR" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="10dp" android:background="@drawable/fluent_scan_table_20_regular" android:contentDescription="Scan Button" />
 
-                <ImageButton
-                    android:id="@+id/btnNotif"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/clarity_notification_line"
-                    android:contentDescription="Notification Button" />
+                <ImageButton android:id="@+id/btnNotif" android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/clarity_notification_line" android:contentDescription="Notification Button" />
             </LinearLayout>
 
         </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
 
-    <ScrollView
-        app:layout_constraintTop_toBottomOf="@id/toolbar3"
-        android:layout_marginTop="10dp"
+    <ScrollView app:layout_constraintTop_toBottomOf="@id/toolbar3" android:layout_marginTop="10dp" app:layout_constraintStart_toStartOf="parent" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:paddingVertical="10dp" app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
 
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-            <LinearLayout
-                android:paddingVertical="10dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <TextView android:textSize="12sp" android:textStyle="bold" android:id="@+id/tanggal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="28 Aug, 2024"/>
+            <TextView android:textSize="20sp" android:textStyle="normal" android:id="@+id/ucapan" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Selamat Pagi,"/>
+            <TextView android:textStyle="bold" android:textSize="20sp" android:id="@+id/namaPengguna" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Ilham Kurniawan!" android:layout_marginBottom="20dp"/>
+            <LinearLayout android:layout_marginBottom="20dp" android:orientation="vertical" android:padding="20dp" android:background="@drawable/shape_home" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textStyle="bold" android:textSize="16dp" android:text="Pantau rekam medis Anda dari semua faskes disini"/>
 
-                <TextView
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:id="@+id/tanggal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="28 Aug, 2024"/>
-                <TextView
-                    android:textSize="20sp"
-                    android:textStyle="normal"
-                    android:id="@+id/ucapan"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Selamat Pagi,"/>
-                <TextView
-                    android:textStyle="bold"
-                    android:textSize="20sp"
-                    android:id="@+id/namaPengguna"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Ilham Kurniawan!"
-                    android:layout_marginBottom="20dp"/>
-                <LinearLayout
-                    android:layout_marginBottom="20dp"
-                    android:orientation="vertical"
-                    android:padding="20dp"
-                    android:background="@drawable/shape_home"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textStyle="bold"
-                        android:textSize="16dp"
-                        android:text="Pantau rekam medis Anda dari semua faskes disini"/>
-
-                    <Button
-                        android:id="@+id/btnResumeMedisHeader"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="end"
-                        android:backgroundTint="@color/abuTua"
-                        android:text="Buka"
-                        android:textColor="@color/black" />
-                </LinearLayout>
-                <TextView
-                    android:layout_marginBottom="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16dp"
-                    android:textStyle="bold"
-                    android:text="Fitur"
-                    />
-                <LinearLayout
-                    android:layout_marginBottom="20dp"
-                    android:layout_gravity="center_horizontal"
-                    android:orientation="horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <LinearLayout
-                        android:id="@+id/resume_medis"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
-                        android:background="@drawable/shape_fitur"
-                        android:orientation="vertical"
-                        android:padding="10dp">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:background="@drawable/shape_circle">
-
-                            <ImageView
-                                android:id="@+id/imageView4"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:layout_weight="1"
-                                android:src="@drawable/resume_medis_putih" />
-                        </LinearLayout>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:text="Resume" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:text="Medis" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/kesehatan_kehamilan"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
-                        android:background="@drawable/shape_fitur"
-                        android:orientation="vertical"
-                        android:padding="10dp">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:background="@drawable/shape_circle">
-
-                            <ImageView
-                                android:id="@+id/imageView3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:layout_weight="1"
-                                android:src="@drawable/kesehatan_kehamilan_putih" />
-                        </LinearLayout>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:text="Kesehatan" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:text="Kehamilan" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/pertumbuhan_anak"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
-                        android:background="@drawable/shape_fitur"
-                        android:orientation="vertical"
-                        android:padding="10dp">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:background="@drawable/shape_circle">
-
-                            <ImageView
-                                android:id="@+id/imageView6"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:layout_weight="1"
-                                android:src="@drawable/pertumbuhan_anak_putih" />
-                        </LinearLayout>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:text="Pertumbuhan"
-                            android:textSize="10sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:text="Anak"
-                            android:textSize="10sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/rawat_inap"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
-                        android:background="@drawable/shape_fitur"
-                        android:orientation="vertical"
-                        android:padding="10dp">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:background="@drawable/shape_circle">
-
-                            <ImageView
-                                android:id="@+id/imageView7"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:layout_weight="1"
-                                android:src="@drawable/diari_kesehatan_putih" />
-                        </LinearLayout>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:text="Cari" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:text="Rawat Inap" />
-                    </LinearLayout>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_marginBottom="20dp"
-                    android:layout_gravity="center_horizontal"
-                    android:orientation="horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <LinearLayout
-                        android:id="@+id/tracker_obat"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
-                        android:background="@drawable/shape_fitur"
-                        android:orientation="vertical"
-                        android:padding="10dp">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:background="@drawable/shape_circle">
-
-                            <ImageView
-                                android:id="@+id/imageView8"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:layout_weight="1"
-                                android:src="@drawable/pengingat_minum_obat_putih" />
-                        </LinearLayout>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:text="Pengingat" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:text="Minum Obat" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/cari_nakes"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
-                        android:background="@drawable/shape_fitur"
-                        android:orientation="vertical"
-                        android:padding="10dp">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:background="@drawable/shape_circle">
-
-                            <ImageView
-                                android:id="@+id/imageView9"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:layout_weight="1"
-                                android:src="@drawable/cari_nakes_putih" />
-                        </LinearLayout>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:text="Cari" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:text="Nakes" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/cari_obat"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
-                        android:background="@drawable/shape_fitur"
-                        android:orientation="vertical"
-                        android:padding="10dp">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:background="@drawable/shape_circle">
-
-                            <ImageView
-                                android:id="@+id/imageView10"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:layout_weight="1"
-                                android:src="@drawable/cari_obat_putih" />
-                        </LinearLayout>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:text="Cari" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:text="Obat" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/lainnya"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
-                        android:background="@drawable/shape_fitur"
-                        android:orientation="vertical"
-                        android:padding="10dp">
-
-                        <LinearLayout
-                            android:id="@+id/lai"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:background="@drawable/shape_circle">
-
-                            <ImageView
-                                android:id="@+id/imageView11"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_horizontal|center_vertical"
-                                android:layout_weight="1"
-                                android:src="@drawable/lainnya_putih" />
-                        </LinearLayout>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:text="Lainnya" />
-                    </LinearLayout>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_marginBottom="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="16sp"
-                        android:layout_width="wrap_content"
-                        android:text="Buletin Kesehatan"
-                        android:layout_height="wrap_content"/>
-
-                    <TextView
-                        android:id="@+id/btnBulletinHome"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0"
-                        android:text="Lihat Semua" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/bulletinHomeOne"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/shape_home">
-
-                        <ImageView
-                            android:layout_width="115dp"
-                            android:layout_height="100dp"
-                            android:layout_weight="2" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
-                            android:paddingVertical="10dp"
-                            android:singleLine="false"
-                            android:text="Merokok dapat menyebabkan kanker serviks."
-                            android:textSize="14sp"
-                            android:textStyle="normal" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <LinearLayout
-                        android:id="@+id/bulletinHomeTwo"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/shape_home">
-
-                        <ImageView
-                            android:layout_width="115dp"
-                            android:layout_height="100dp"
-                            android:layout_weight="2" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
-                            android:paddingVertical="10dp"
-                            android:singleLine="false"
-                            android:text="Merokok dapat menyebabkan kanker serviks."
-                            android:textSize="14sp"
-                            android:textStyle="normal" />
-                    </LinearLayout>
-                </LinearLayout>
-
+                <Button android:id="@+id/btnResumeMedisHeader" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="end" android:backgroundTint="@color/abuTua" android:text="Buka" android:textColor="@color/black" />
             </LinearLayout>
+            <TextView android:layout_marginBottom="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="16dp" android:textStyle="bold" android:text="Fitur" />
+            <LinearLayout android:layout_marginBottom="20dp" android:layout_gravity="center_horizontal" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+
+                <LinearLayout android:id="@+id/resume_medis" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10dp" android:background="@drawable/shape_fitur" android:orientation="vertical" android:padding="10dp">
+
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:background="@drawable/shape_circle">
+
+                        <ImageView android:id="@+id/imageView4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:layout_weight="1" android:src="@drawable/resume_medis_putih" />
+                    </LinearLayout>
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Resume" />
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Medis" />
+                </LinearLayout>
+
+                <LinearLayout android:id="@+id/kesehatan_kehamilan" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10dp" android:background="@drawable/shape_fitur" android:orientation="vertical" android:padding="10dp">
+
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:background="@drawable/shape_circle">
+
+                        <ImageView android:id="@+id/imageView3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:layout_weight="1" android:src="@drawable/kesehatan_kehamilan_putih" />
+                    </LinearLayout>
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Kesehatan" />
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Kehamilan" />
+                </LinearLayout>
+
+                <LinearLayout android:id="@+id/pertumbuhan_anak" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10dp" android:background="@drawable/shape_fitur" android:orientation="vertical" android:padding="10dp">
+
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:background="@drawable/shape_circle">
+
+                        <ImageView android:id="@+id/imageView6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:layout_weight="1" android:src="@drawable/pertumbuhan_anak_putih" />
+                    </LinearLayout>
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Pertumbuhan" android:textSize="10sp" />
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Anak" android:textSize="10sp" />
+                </LinearLayout>
+
+                <LinearLayout android:id="@+id/rawat_inap" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10dp" android:background="@drawable/shape_fitur" android:orientation="vertical" android:padding="10dp">
+
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:background="@drawable/shape_circle">
+
+                        <ImageView android:id="@+id/imageView7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:layout_weight="1" android:src="@drawable/diari_kesehatan_putih" />
+                    </LinearLayout>
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Cari" />
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Rawat Inap" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:layout_marginBottom="20dp" android:layout_gravity="center_horizontal" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+
+                <LinearLayout android:id="@+id/tracker_obat" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10dp" android:background="@drawable/shape_fitur" android:orientation="vertical" android:padding="10dp">
+
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:background="@drawable/shape_circle">
+
+                        <ImageView android:id="@+id/imageView8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:layout_weight="1" android:src="@drawable/pengingat_minum_obat_putih" />
+                    </LinearLayout>
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Pengingat" />
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Minum Obat" />
+                </LinearLayout>
+
+                <LinearLayout android:id="@+id/cari_nakes" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10dp" android:background="@drawable/shape_fitur" android:orientation="vertical" android:padding="10dp">
+
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:background="@drawable/shape_circle">
+
+                        <ImageView android:id="@+id/imageView9" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:layout_weight="1" android:src="@drawable/cari_nakes_putih" />
+                    </LinearLayout>
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Cari" />
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Nakes" />
+                </LinearLayout>
+
+                <LinearLayout android:id="@+id/cari_obat" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10dp" android:background="@drawable/shape_fitur" android:orientation="vertical" android:padding="10dp">
+
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:background="@drawable/shape_circle">
+
+                        <ImageView android:id="@+id/imageView10" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:layout_weight="1" android:src="@drawable/cari_obat_putih" />
+                    </LinearLayout>
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Cari" />
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Obat" />
+                </LinearLayout>
+
+                <LinearLayout android:id="@+id/lainnya" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10dp" android:background="@drawable/shape_fitur" android:orientation="vertical" android:padding="10dp">
+
+                    <LinearLayout android:id="@+id/lai" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:background="@drawable/shape_circle">
+
+                        <ImageView android:id="@+id/imageView11" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal|center_vertical" android:layout_weight="1" android:src="@drawable/lainnya_putih" />
+                    </LinearLayout>
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Lainnya" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:layout_marginBottom="10dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:layout_weight="1" android:textStyle="bold" android:textSize="16sp" android:layout_width="wrap_content" android:text="Buletin Kesehatan" android:layout_height="wrap_content"/>
+
+                <TextView android:id="@+id/btnBulletinHome" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="0" android:text="Lihat Semua" />
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/bulletinHomeOne" android:layout_width="match_parent" android:layout_height="wrap_content">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/shape_home">
+
+                    <ImageView android:layout_width="115dp" android:layout_height="100dp" android:layout_weight="2" />
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:layout_weight="1" android:paddingVertical="10dp" android:singleLine="false" android:text="Merokok dapat menyebabkan kanker serviks." android:textSize="14sp" android:textStyle="normal" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent">
+
+                <LinearLayout android:id="@+id/bulletinHomeTwo" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/shape_home">
+
+                    <ImageView android:layout_width="115dp" android:layout_height="100dp" android:layout_weight="2" />
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:layout_weight="1" android:paddingVertical="10dp" android:singleLine="false" android:text="Merokok dapat menyebabkan kanker serviks." android:textSize="14sp" android:textStyle="normal" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
