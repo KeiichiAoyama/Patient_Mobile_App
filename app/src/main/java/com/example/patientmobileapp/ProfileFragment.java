@@ -61,21 +61,30 @@ public class ProfileFragment extends Fragment {
             });
         }
 
+        View.OnClickListener logoutClickListener = v -> {
+            if (getContext() == null) return;
+            new androidx.appcompat.app.AlertDialog.Builder(requireContext())
+                    .setTitle("Keluar dari Akun")
+                    .setMessage("Apakah Anda yakin ingin keluar dari aplikasi?")
+                    .setPositiveButton("Ya, Keluar", (dialog, which) -> {
+                        app.logout();
+                        android.content.Intent intent = new android.content.Intent(requireActivity(), LoginActivity.class);
+                        intent.setFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK | android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+                        requireActivity().finish();
+                    })
+                    .setNegativeButton("Batal", (dialog, which) -> dialog.dismiss())
+                    .show();
+        };
+
         View btnLogout = view.findViewById(R.id.btnLogout);
         if (btnLogout != null) {
-            btnLogout.setOnClickListener(v -> {
-                new androidx.appcompat.app.AlertDialog.Builder(requireContext())
-                        .setTitle("Keluar dari Akun")
-                        .setMessage("Apakah Anda yakin ingin keluar dari aplikasi?")
-                        .setPositiveButton("Ya, Keluar", (dialog, which) -> {
-                            app.logout();
-                            android.content.Intent intent = new android.content.Intent(getActivity(), LoginActivity.class);
-                            intent.setFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK | android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                            startActivity(intent);
-                        })
-                        .setNegativeButton("Batal", (dialog, which) -> dialog.dismiss())
-                        .show();
-            });
+            btnLogout.setOnClickListener(logoutClickListener);
+        }
+
+        View btnLogoutRow = view.findViewById(R.id.btnLogoutRow);
+        if (btnLogoutRow != null) {
+            btnLogoutRow.setOnClickListener(logoutClickListener);
         }
 
         return view;

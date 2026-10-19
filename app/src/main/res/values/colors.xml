@@ -9,4 +9,14 @@
     <color name="biruMuda">#CFE1FF</color>
     <color name="abuline">#C7C2C9</color>
     <color name="biruNeon">#1167FE</color>
+    <color name="merah">#E53935</color>
+    <color name="merahMuda">#FFEBEE</color>
+    <color name="merahDark">#C62828</color>
+    <color name="biruBackgroundSoft">#F5F8FF</color>
+    <color name="biruPill">#EBF2FE</color>
+    <color name="textPrimary">#1E293B</color>
+    <color name="textSecondary">#64748B</color>
+    <color name="inputBorder">#E2E8F0</color>
+    <color name="inputBorderFocused">#1167FE</color>
+    <color name="inputFill">#F8FAFC</color>
 </resources>

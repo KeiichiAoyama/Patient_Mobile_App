@@ -58,10 +58,42 @@ public class LoginActivity extends AppCompatActivity {
 
         EditText emailInput = findViewById(R.id.editTextTextEmailAddress);
         EditText passwordInput = findViewById(R.id.editTextTextPassword);
+        com.google.android.material.textfield.TextInputLayout tilEmail = findViewById(R.id.tilEmail);
+        com.google.android.material.textfield.TextInputLayout tilPassword = findViewById(R.id.tilPassword);
 
         Button loginButton = findViewById(R.id.button);
-// TextView forgotPasswordButton = findViewById(R.id.textView15);
         TextView registerButton = findViewById(R.id.regisdulu);
+
+        emailInput.addTextChangedListener(new android.text.TextWatcher() {
+            @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (tilEmail != null) tilEmail.setError(null);
+            }
+            @Override public void afterTextChanged(android.text.Editable s) {}
+        });
+
+        passwordInput.addTextChangedListener(new android.text.TextWatcher() {
+            @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (tilPassword != null) tilPassword.setError(null);
+            }
+            @Override public void afterTextChanged(android.text.Editable s) {}
+        });
+
+        passwordInput.setOnEditorActionListener((v, actionId, event) -> {
+            if (actionId == android.view.inputmethod.EditorInfo.IME_ACTION_DONE ||
+                actionId == android.view.inputmethod.EditorInfo.IME_ACTION_GO ||
+                (event != null && event.getKeyCode() == android.view.KeyEvent.KEYCODE_ENTER && event.getAction() == android.view.KeyEvent.ACTION_DOWN)) {
+                loginButton.performClick();
+                return true;
+            }
+            return false;
+        });
+
+        Runnable resetLoginButton = () -> {
+            loginButton.setEnabled(true);
+            loginButton.setText("Masuk ke Akun");
+        };
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,15 +104,26 @@ public class LoginActivity extends AppCompatActivity {
                 String password = passwordInput.getText().toString().trim();
 
                 if (email.isEmpty()) {
-                    emailInput.setError("Email cannot be empty");
+                    if (tilEmail != null) {
+                        tilEmail.setError("Email tidak boleh kosong");
+                    } else {
+                        emailInput.setError("Email cannot be empty");
+                    }
                     emailInput.requestFocus();
                     return;
                 }
                 if (password.isEmpty()) {
-                    passwordInput.setError("Password cannot be empty");
+                    if (tilPassword != null) {
+                        tilPassword.setError("Kata sandi tidak boleh kosong");
+                    } else {
+                        passwordInput.setError("Password cannot be empty");
+                    }
                     passwordInput.requestFocus();
                     return;
                 }
+
+                loginButton.setEnabled(false);
+                loginButton.setText("Memproses...");
 
                 MultiChain client = new MultiChain();
 
@@ -95,7 +138,10 @@ public class LoginActivity extends AppCompatActivity {
                         public void onFailure(@NonNull Call call, @NonNull IOException e) {
                             Log.e("TESTING", "Request failed: " + e.getMessage());
                             e.printStackTrace();
-                            runOnUiThread(() -> showAlertDialog("Connection Error", "Failed to connect to server: " + e.getMessage()));
+                            runOnUiThread(() -> {
+                                resetLoginButton.run();
+                                showAlertDialog("Koneksi Bermasalah", "Gagal terhubung ke server: " + e.getMessage());
+                            });
                         }
 
                         @Override
@@ -154,24 +200,36 @@ public class LoginActivity extends AppCompatActivity {
                                                     finish();
                                                 });
                                             } else {
-                                                runOnUiThread(() -> showAlertDialog("Login Failed", "Incorrect Password"));
+                                                runOnUiThread(() -> {
+                                                    resetLoginButton.run();
+                                                    showAlertDialog("Gagal Masuk", "Kata sandi yang Anda masukkan salah");
+                                                });
                                             }
                                         } catch (JSONException e) {
                                             Log.e("ERROR", "JSON Parsing Error: " + e.getMessage(), e);
+                                            runOnUiThread(resetLoginButton::run);
                                         }
                                     } else {
-                                        runOnUiThread(() -> showAlertDialog("Login Failed", "Your Data is Missing"));
+                                        runOnUiThread(() -> {
+                                            resetLoginButton.run();
+                                            showAlertDialog("Gagal Masuk", "Data akun tidak ditemukan");
+                                        });
                                     }
                                 } catch (JSONException e) {
                                     Log.e("ERROR", "JSON Parsing Error: " + e.getMessage(), e);
+                                    runOnUiThread(resetLoginButton::run);
                                 }
                             } else {
-                                runOnUiThread(() -> showAlertDialog("Login Failed", "Your Account Doesn't Exist"));
+                                runOnUiThread(() -> {
+                                    resetLoginButton.run();
+                                    showAlertDialog("Gagal Masuk", "Akun Anda belum terdaftar");
+                                });
                             }
                         }
                     });
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    resetLoginButton.run();
                 }
             }
         });

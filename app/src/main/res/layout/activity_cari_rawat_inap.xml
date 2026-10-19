@@ -13,14 +13,7 @@
 
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="30dp" android:layout_marginRight="30dp" android:text="Pilih Tempat Tidur" />
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fragmentBtnCovidContainer"
-            android:name="com.example.patientmobileapp.FragmentbtnCovid"
-            android:layout_width="match_parent"
-            android:layout_height="37dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="30dp" />
+        <androidx.fragment.app.FragmentContainerView android:id="@+id/fragmentBtnCovidContainer" android:name="com.example.patientmobileapp.FragmentbtnCovid" android:layout_width="match_parent" android:layout_height="37dp" android:layout_marginLeft="30dp" android:layout_marginTop="10dp" android:layout_marginRight="30dp" />
 
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="30dp" android:layout_marginTop="20dp" android:layout_marginRight="30dp" android:text="Pilih Provinsi" />
 

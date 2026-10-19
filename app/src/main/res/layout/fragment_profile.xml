@@ -2,8 +2,16 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:background="@color/abu" android:layout_height="match_parent" tools:context=".ProfileFragment">
-    <ScrollView android:scrollbars="none" android:paddingHorizontal="25dp" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" android:layout_width="match_parent" android:layout_height="wrap_content">
-        <LinearLayout android:id="@+id/linearLayout3" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:orientation="vertical">
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scrollbars="none"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <LinearLayout android:id="@+id/linearLayout3" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:paddingHorizontal="25dp" android:paddingBottom="50dp" android:orientation="vertical">
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Profile" android:textColor="@color/biruTua" android:textSize="32sp" android:textStyle="bold" />
             <LinearLayout android:layout_marginTop="20dp" android:background="@drawable/profile_bg" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
                 <LinearLayout android:layout_marginVertical="10dp" android:layout_marginHorizontal="10dp" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
@@ -46,13 +54,13 @@
                 <ImageView android:paddingVertical="10dp" android:layout_width="match_parent" android:background="@drawable/separator" android:layout_height="wrap_content"/>
                 <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
                     <ImageView android:layout_marginRight="10dp" android:src="@drawable/mdi_comment_help_outline" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                    <TextView android:layout_weight="1" android:textColor="@color/biruTua" android:layout_width="wrap_content" android:text="Pusat Bantuan" android:layout_height="wrap_content"/>
+                    <TextView android:layout_weight="1" android:textColor="@color/biruTua" android:layout_width="wrap_content" android:text="Syarat dan Ketentuan" android:layout_height="wrap_content"/>
                     <ImageView android:rotation="180" android:src="@drawable/ion_chevron_back" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
                 </LinearLayout>
                 <ImageView android:paddingVertical="10dp" android:layout_width="match_parent" android:background="@drawable/separator" android:layout_height="wrap_content"/>
                 <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
                     <ImageView android:layout_marginRight="10dp" android:src="@drawable/mdi_comment_help_outline" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                    <TextView android:layout_weight="1" android:textColor="@color/biruTua" android:layout_width="wrap_content" android:text="Pusat Bantuan" android:layout_height="wrap_content"/>
+                    <TextView android:layout_weight="1" android:textColor="@color/biruTua" android:layout_width="wrap_content" android:text="Kebijakan Privasi" android:layout_height="wrap_content"/>
                     <ImageView android:rotation="180" android:src="@drawable/ion_chevron_back" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
                 </LinearLayout>
 
@@ -60,26 +68,41 @@
             <TextView android:layout_marginBottom="10dp" android:layout_marginTop="20dp" android:id="@+id/topikhangat" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Pengaturan" android:textColor="@color/biruTua" android:textSize="16sp" android:textStyle="bold" />
             <LinearLayout android:paddingVertical="15dp" android:paddingHorizontal="20dp" android:orientation="vertical" android:background="@drawable/profile_bg" android:layout_width="match_parent" android:layout_height="wrap_content">
                 <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
-                    <ImageView android:layout_marginRight="10dp" android:src="@drawable/mdi_comment_help_outline" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                    <TextView android:layout_weight="1" android:textColor="@color/biruTua" android:layout_width="wrap_content" android:text="Pusat Bantuan" android:layout_height="wrap_content"/>
+                    <ImageView android:layout_marginRight="10dp" android:src="@drawable/clarity_notification_line" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <TextView android:layout_weight="1" android:textColor="@color/biruTua" android:layout_width="wrap_content" android:text="Notifikasi" android:layout_height="wrap_content"/>
                     <ImageView android:rotation="180" android:src="@drawable/ion_chevron_back" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
                 </LinearLayout>
                 <ImageView android:paddingVertical="10dp" android:layout_width="match_parent" android:background="@drawable/separator" android:layout_height="wrap_content"/>
                 <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
                     <ImageView android:layout_marginRight="10dp" android:src="@drawable/mdi_comment_help_outline" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                    <TextView android:layout_weight="1" android:textColor="@color/biruTua" android:layout_width="wrap_content" android:text="Pusat Bantuan" android:layout_height="wrap_content"/>
+                    <TextView android:layout_weight="1" android:textColor="@color/biruTua" android:layout_width="wrap_content" android:text="Keamanan Akun" android:layout_height="wrap_content"/>
                     <ImageView android:rotation="180" android:src="@drawable/ion_chevron_back" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
                 </LinearLayout>
                 <ImageView android:paddingVertical="10dp" android:layout_width="match_parent" android:background="@drawable/separator" android:layout_height="wrap_content"/>
-                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
-                    <ImageView android:layout_marginRight="10dp" android:src="@drawable/mdi_comment_help_outline" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                    <TextView android:layout_weight="1" android:textColor="@color/biruTua" android:layout_width="wrap_content" android:text="Pusat Bantuan" android:layout_height="wrap_content"/>
+                <LinearLayout android:id="@+id/btnLogoutRow" android:clickable="true" android:focusable="true" android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <ImageView android:layout_marginRight="10dp" android:src="@drawable/ic_logout_red" android:layout_width="20dp" android:layout_height="20dp"/>
+                    <TextView android:layout_weight="1" android:textColor="@color/merah" android:textStyle="bold" android:layout_width="wrap_content" android:text="Keluar dari Akun" android:layout_height="wrap_content"/>
                     <ImageView android:rotation="180" android:src="@drawable/ion_chevron_back" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
                 </LinearLayout>
 
             </LinearLayout>
 
-            <Button android:id="@+id/btnLogout" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="25dp" android:layout_marginBottom="35dp" android:background="@drawable/button_submit" android:text="Keluar (Logout)" android:textColor="@color/white" android:textSize="16sp" android:textStyle="bold" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogout"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="35dp"
+                android:background="@drawable/button_logout"
+                app:backgroundTint="@null"
+                android:text="Keluar dari Akun"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:icon="@drawable/ic_logout"
+                app:iconGravity="textStart"
+                app:iconPadding="10dp"
+                app:iconTint="@color/white" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
