@@ -237,10 +237,44 @@ public class LoginActivity extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                v.animate().scaleX(0.95f).scaleY(0.95f).setDuration(80).withEndAction(() -> {
+                    v.animate().scaleX(1.0f).scaleY(1.0f).setDuration(120).start();
+                }).start();
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
             }
         });
+
+        playEntranceAnimations();
+    }
+
+    private void playEntranceAnimations() {
+        View brand = findViewById(R.id.loginBrandRow);
+        View headline = findViewById(R.id.loginHeadlineSection);
+        View card = findViewById(R.id.loginCardContainer);
+        View registerRow = findViewById(R.id.loginRegisterRow);
+
+        if (brand != null) {
+            brand.setAlpha(0f);
+            brand.setTranslationY(-20f);
+            brand.animate().alpha(1f).translationY(0f).setDuration(400).start();
+        }
+        if (headline != null) {
+            headline.setAlpha(0f);
+            headline.setTranslationY(-20f);
+            headline.animate().alpha(1f).translationY(0f).setStartDelay(100).setDuration(400).start();
+        }
+        if (card != null) {
+            card.setAlpha(0f);
+            card.setScaleX(0.94f);
+            card.setScaleY(0.94f);
+            card.animate().alpha(1f).scaleX(1f).scaleY(1f).setStartDelay(180).setDuration(450)
+                    .setInterpolator(new android.view.animation.OvershootInterpolator(1.2f)).start();
+        }
+        if (registerRow != null) {
+            registerRow.setAlpha(0f);
+            registerRow.animate().alpha(1f).setStartDelay(300).setDuration(350).start();
+        }
     }
 
     private void showAlertDialog(String title, String message) {

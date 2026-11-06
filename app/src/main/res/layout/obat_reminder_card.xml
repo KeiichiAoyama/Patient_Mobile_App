@@ -1,28 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    card_view:cardElevation="4dp"
-    card_view:cardCornerRadius="8dp"
-    android:layout_margin="8dp">
+    android:layout_marginHorizontal="4dp"
+    android:layout_marginVertical="6dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginBottom="15dp"
-        android:background="@drawable/shape_fitur"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="10dp">
+        android:padding="16dp">
 
-        <!-- Icon Lingkaran -->
+        <!-- Medicine Icon Circle -->
+        <FrameLayout
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/shape_circle_amber">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:src="@drawable/obat_putih" />
+        </FrameLayout>
 
         <!-- Deskripsi Obat -->
         <LinearLayout
-            android:layout_gravity="center_vertical"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -31,30 +42,66 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="SISTENOL"
-                android:textStyle="bold"
+                android:textColor="@color/biruTua"
                 android:textSize="16sp"
-                android:layout_marginBottom="2dp" />
+                android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/dosisReminder"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="2dp"
-                android:text="1 Tablet"
-                android:textSize="14sp" />
+                android:layout_marginTop="5dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/waktuReminder"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Setelah Makan" />
+                <TextView
+                    android:id="@+id/dosisReminder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_tag_info"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="3dp"
+                    android:text="1 Tablet"
+                    android:textColor="@color/accent_blue"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/timeReminder"
+                <TextView
+                    android:id="@+id/waktuReminder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:background="@drawable/shape_tag_tips"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="3dp"
+                    android:text="Setelah Makan"
+                    android:textColor="#D97706"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="07.20"
-                android:textSize="12sp" />
+                android:layout_marginTop="6dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:src="@drawable/majesticons_clock_line"
+                    app:tint="@color/text_muted" />
+
+                <TextView
+                    android:id="@+id/timeReminder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="07:20 WIB"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
         </LinearLayout>
 
         <!-- Checkbox -->
@@ -62,8 +109,8 @@
             android:id="@+id/checkboxReminder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="10dp" />
+            android:layout_marginStart="8dp"
+            android:buttonTint="@color/accent_blue" />
 
     </LinearLayout>
 

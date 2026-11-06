@@ -1,153 +1,575 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/main" android:background="@color/abu" android:layout_width="match_parent" android:layout_height="match_parent" tools:context=".ResumeMedisDetailActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_main"
+    tools:context=".ResumeMedisDetailActivity">
 
-    <androidx.appcompat.widget.Toolbar android:id="@+id/toolbarRsDetail" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/abu" android:minHeight="?attr/actionBarSize" app:navigationIcon="@drawable/ion_chevron_back" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:title="Resume Medis Detail" app:titleTextColor="@color/biruTua" app:subtitleTextColor="@color/abuMuda"/>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarRsDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_main"
+        android:minHeight="?attr/actionBarSize"
+        app:navigationIcon="@drawable/ion_chevron_back"
+        app:title="Detail Resume Medis"
+        app:titleTextColor="@color/biruTua"
+        app:subtitle="Rekam Medis Terverifikasi"
+        app:subtitleTextColor="@color/text_muted"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ScrollView android:layout_marginTop="10dp" android:overScrollMode="ifContentScrolls" app:layout_constraintTop_toBottomOf="@+id/toolbarRsDetail" android:layout_width="match_parent" android:layout_height="wrap_content">
-        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
-            <LinearLayout android:id="@+id/linearLayout4" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginHorizontal="25dp" tools:layout_editor_absoluteX="25dp">
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:clipToPadding="false"
+        android:paddingBottom="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarRsDetail">
 
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/shape_home" android:orientation="vertical" android:padding="20dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="10dp">
 
-                    <LinearLayout android:gravity="center_vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <!-- Patient & Visit Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="@color/white">
 
-                        <LinearLayout android:layout_width="52dp" android:layout_height="54dp" android:layout_weight="0" android:gravity="center" android:background="@drawable/shape_circle" android:orientation="horizontal">
-                            <ImageView android:id="@+id/imageView25" android:layout_width="27dp" android:layout_height="26dp" app:srcCompat="@drawable/sertifikat_imunisasi_putih" />
+                <LinearLayout
+                    android:id="@+id/linearLayout4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <FrameLayout
+                            android:layout_width="52dp"
+                            android:layout_height="52dp"
+                            android:background="@drawable/shape_circle_blue">
+
+                            <ImageView
+                                android:id="@+id/imageView25"
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/sertifikat_imunisasi_putih" />
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvDetailPatientName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Muhammad Ilham Kurniawan"
+                                android:textColor="@color/biruTua"
+                                android:textSize="17sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvDetailDatePoli"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="3dp"
+                                android:text="4 April 2024 • Poli Gigi"
+                                android:textColor="@color/accent_blue"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
                         </LinearLayout>
 
-                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10dp" android:layout_weight="2" android:orientation="vertical">
-                            <TextView android:id="@+id/tvDetailPatientName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textStyle="bold" android:text="Muhammad Ilham Kurniawan" android:textSize="18sp" />
-                            <TextView android:id="@+id/tvDetailDatePoli" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textStyle="normal" android:text="4 April 2024 | Poli Gigi" android:textSize="18sp" />
-                        </LinearLayout>
-
+                        <!-- Status Pill -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/shape_tag_tips"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="4dp"
+                            android:text="Selesai"
+                            android:textColor="#D97706"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
 
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:background="@drawable/shape_blue" android:gravity="center_vertical" android:orientation="horizontal" android:paddingHorizontal="10dp" android:paddingVertical="10dp">
+                    <!-- Doctor Info Pill -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:background="@drawable/shape_info_banner"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="12dp">
 
-                        <TextView android:id="@+id/tvDetailDoctorName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10dp" android:layout_weight="2" android:text="Dr. dr. Nella Suhuyanly, Sp.PD - KGEH, FINASIM" android:textSize="14sp" />
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/cari_nakes_putih"
+                            app:tint="#2563EB" />
 
+                        <TextView
+                            android:id="@+id/tvDetailDoctorName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="Dr. dr. Nella Suhuyanly, Sp.PD - KGEH, FINASIM"
+                            android:textColor="#1D4ED8"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
                 </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Section Title -->
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Hasil Pemeriksaan"
+                android:textColor="@color/biruTua"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <!-- Lab Test Suggestion Banner -->
+            <LinearLayout
+                android:id="@+id/linearLayout5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/shape_card_white"
+                android:elevation="2dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <FrameLayout
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@drawable/shape_circle_cyan">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/entypo_lab_flask"
+                        app:tint="@color/white" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tes Lab yang disarankan:"
+                        android:textColor="@color/text_muted"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="0 Tes Lab Diperlukan"
+                        android:textColor="@color/biruTua"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_tag_info"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+                    android:text="Normal"
+                    android:textColor="@color/accent_blue"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
-            <TextView android:textSize="16dp" android:textStyle="bold" android:textColor="@color/biruTua" android:layout_marginTop="20dp" android:layout_marginHorizontal="25dp" android:id="@+id/textView9" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Hasil Pemeriksaan" />
+            <!-- Expandable Card: Diagnosis -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardDiagnosis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp">
 
-            <LinearLayout android:layout_marginTop="20dp" android:padding="10dp" android:gravity="center_vertical" android:orientation="horizontal" android:id="@+id/linearLayout5" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginHorizontal="25dp" android:background="@drawable/shape_blue">
-                <ImageView android:src="@drawable/entypo_lab_flask" android:layout_width="24dp" android:layout_height="24dp"/>
-                <LinearLayout android:layout_marginLeft="10dp" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Tes Lab yang disarankan untuk dilakukan:" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0 Tes Lab" />
-                </LinearLayout>
-            </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-            <androidx.cardview.widget.CardView android:layout_marginTop="20dp" android:layout_marginHorizontal="25dp"
-                xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/cardDiagnosis" android:layout_width="match_parent" android:layout_height="wrap_content" android:clickable="true" android:focusable="true" app:cardCornerRadius="16dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
 
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+                        <FrameLayout
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:background="@drawable/shape_circle_emerald">
 
-                    <!-- Header -->
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/stethoscope_putih" />
+                        </FrameLayout>
 
-                        <LinearLayout android:gravity="center" android:layout_width="50dp" android:layout_height="51dp" android:layout_weight="0" android:background="@drawable/shape_circle" android:orientation="vertical">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_weight="1"
+                            android:text="Diagnosis"
+                            android:textColor="@color/biruTua"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
 
-                            <ImageView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_gravity="center_vertical" app:srcCompat="@drawable/stethoscope_putih" />
-                        </LinearLayout>
-
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="12dp" android:text="Diagnosis" android:textSize="18sp" android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Buka ▼"
+                            android:textColor="@color/accent_blue"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
 
-                    <!-- Bagian detail yang disembunyikan -->
-                    <TextView android:id="@+id/textDetail" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="Detail: Pemeriksaan dilakukan oleh dokter A." android:textSize="14sp" android:visibility="gone" />
+                    <TextView
+                        android:id="@+id/textDetail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/shape_info_banner"
+                        android:padding="12dp"
+                        android:text="Detail: Pasien dalam kondisi baik, tidak ditemukan gejala abnormal."
+                        android:textColor="#334155"
+                        android:textSize="14sp"
+                        android:visibility="gone" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView android:layout_marginTop="20dp" android:layout_marginHorizontal="25dp"
-                xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/cardObat" android:layout_width="match_parent" android:layout_height="wrap_content" android:clickable="true" android:focusable="true" app:cardCornerRadius="16dp">
+            <!-- Expandable Card: Obat -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardObat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp">
 
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-                    <!-- Header -->
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
 
-                        <LinearLayout android:gravity="center" android:layout_width="50dp" android:layout_height="51dp" android:layout_weight="0" android:background="@drawable/shape_circle" android:orientation="vertical">
+                        <FrameLayout
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:background="@drawable/shape_circle_amber">
 
-                            <ImageView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_gravity="center_vertical" app:srcCompat="@drawable/obat_putih" />
-                        </LinearLayout>
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/obat_putih" />
+                        </FrameLayout>
 
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="12dp" android:text="Obat" android:textSize="18sp" android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_weight="1"
+                            android:text="Resep Obat"
+                            android:textColor="@color/biruTua"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Buka ▼"
+                            android:textColor="@color/accent_blue"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
 
-                    <!-- Bagian detail yang disembunyikan -->
-                    <TextView android:id="@+id/textDetail2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="Detail: Pemeriksaan dilakukan oleh dokter A." android:textSize="14sp" android:visibility="gone" />
+                    <TextView
+                        android:id="@+id/textDetail2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/shape_info_banner"
+                        android:padding="12dp"
+                        android:text="Detail resep obat belum tersedia."
+                        android:textColor="#334155"
+                        android:textSize="14sp"
+                        android:visibility="gone" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView android:layout_marginTop="20dp" android:layout_marginHorizontal="25dp"
-                xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/cardTindakan" android:layout_width="match_parent" android:layout_height="wrap_content" android:clickable="true" android:focusable="true" app:cardCornerRadius="16dp">
+            <!-- Expandable Card: Tindakan -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardTindakan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp">
 
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-                    <!-- Header -->
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
 
-                        <LinearLayout android:gravity="center" android:layout_width="50dp" android:layout_height="51dp" android:layout_weight="0" android:background="@drawable/shape_circle" android:orientation="vertical">
+                        <FrameLayout
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:background="@drawable/shape_circle_blue">
 
-                            <ImageView android:id="@+id/imageView29" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_gravity="center_vertical" app:srcCompat="@drawable/tindakan_putih" />
-                        </LinearLayout>
+                            <ImageView
+                                android:id="@+id/imageView29"
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/tindakan_putih" />
+                        </FrameLayout>
 
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="12dp" android:text="Tindakan" android:textSize="18sp" android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_weight="1"
+                            android:text="Tindakan Medis"
+                            android:textColor="@color/biruTua"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Buka ▼"
+                            android:textColor="@color/accent_blue"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
 
-                    <!-- Bagian detail yang disembunyikan -->
-                    <TextView android:id="@+id/textDetail3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="Detail: Pemeriksaan dilakukan oleh dokter A." android:textSize="14sp" android:visibility="gone" />
+                    <TextView
+                        android:id="@+id/textDetail3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/shape_info_banner"
+                        android:padding="12dp"
+                        android:text="Detail tindakan belum tersedia."
+                        android:textColor="#334155"
+                        android:textSize="14sp"
+                        android:visibility="gone" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView android:layout_marginTop="20dp" android:layout_marginHorizontal="25dp"
-                xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/cardFisik" android:layout_width="match_parent" android:layout_height="wrap_content" android:clickable="true" android:focusable="true" app:cardCornerRadius="16dp">
+            <!-- Expandable Card: Observasi Fisik -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardFisik"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp">
 
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-                    <!-- Header -->
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
 
-                        <LinearLayout android:gravity="center" android:layout_width="50dp" android:layout_height="51dp" android:layout_weight="0" android:background="@drawable/shape_circle" android:orientation="vertical">
+                        <FrameLayout
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:background="@drawable/shape_circle_purple">
 
-                            <ImageView android:id="@+id/imageView23" android:layout_width="27dp" android:layout_height="26dp" app:srcCompat="@drawable/sertifikat_imunisasi_putih" />
+                            <ImageView
+                                android:id="@+id/imageView23"
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/observasi_fisik_putih" />
+                        </FrameLayout>
 
-                        </LinearLayout>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_weight="1"
+                            android:text="Observasi Fisik"
+                            android:textColor="@color/biruTua"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
 
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="12dp" android:text="Observasi Fisik" android:textSize="18sp" android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Buka ▼"
+                            android:textColor="@color/accent_blue"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
 
-                    <!-- Bagian detail yang disembunyikan -->
-                    <TextView android:id="@+id/textDetail4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="Detail: Pemeriksaan dilakukan oleh dokter A." android:textSize="14sp" android:visibility="gone" />
+                    <TextView
+                        android:id="@+id/textDetail4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/shape_info_banner"
+                        android:padding="12dp"
+                        android:text="Detail observasi fisik belum tersedia."
+                        android:textColor="#334155"
+                        android:textSize="14sp"
+                        android:visibility="gone" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView android:layout_marginTop="20dp" android:layout_marginHorizontal="25dp"
-                xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/cardtindakanakhir" android:layout_width="match_parent" android:layout_height="wrap_content" android:clickable="true" android:focusable="true" app:cardCornerRadius="16dp">
 
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+            <!-- Expandable Card: Tindakan Akhir -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardtindakanakhir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp">
 
-                    <!-- Header -->
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-                        <LinearLayout android:gravity="center" android:layout_width="50dp" android:layout_height="51dp" android:layout_weight="0" android:background="@drawable/shape_circle" android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
 
-                            <ImageView android:id="@+id/imageView31" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_gravity="center_vertical" app:srcCompat="@drawable/tindakan_putih" />
-                        </LinearLayout>
+                        <FrameLayout
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:background="@drawable/shape_circle_rose">
 
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="12dp" android:text="Tindakan Akhir" android:textSize="18sp" android:textStyle="bold" />
+                            <ImageView
+                                android:id="@+id/imageView31"
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/tindakan_putih" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_weight="1"
+                            android:text="Tindakan Akhir &amp; Saran"
+                            android:textColor="@color/biruTua"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Buka ▼"
+                            android:textColor="@color/accent_blue"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
 
-                    <!-- Bagian detail yang disembunyikan -->
-                    <TextView android:id="@+id/textDetail5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="Detail: Pemeriksaan dilakukan oleh dokter A." android:textSize="14sp" android:visibility="gone" />
+                    <TextView
+                        android:id="@+id/textDetail5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/shape_info_banner"
+                        android:padding="12dp"
+                        android:text="Detail tindakan akhir belum tersedia."
+                        android:textColor="#334155"
+                        android:textSize="14sp"
+                        android:visibility="gone" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
         </LinearLayout>
-    </ScrollView>
-
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

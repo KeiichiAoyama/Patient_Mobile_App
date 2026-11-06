@@ -1,149 +1,216 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:id="@+id/main"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:background="@color/white"
-android:padding="25dp"
-tools:context=".RegisFragment1">
-
-
-
-<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent">
+    android:layout_height="match_parent"
+    android:background="@color/bg_main"
+    tools:context=".RegisFragment1">
 
-    <TextView
-        android:id="@+id/txtnik"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="NIK" />
-
-    <EditText
-        android:id="@+id/inputNIK"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/form_shape"
-        android:ems="10"
-        android:layout_marginBottom="15dp"
-        android:inputType="text" />
-
-    <TextView
-        android:id="@+id/txtnama"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Nama" />
-
-    <EditText
-        android:id="@+id/inputnama"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/form_shape"
-        android:ems="10"
-        android:layout_marginBottom="15dp"
-        android:inputType="text" />
-    <TextView
-        android:id="@+id/txtlahir"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Tempat, Tanggal lahir" />
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <EditText
-            android:id="@+id/inputtempat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/form_shape"
-            android:ems="10"
-            android:layout_weight="1"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="15dp"
-            android:inputType="textEmailAddress" />
-
-        <EditText
-            android:id="@+id/inputtanggal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
-            android:layout_weight="1"
-            android:background="@drawable/form_shape"
-            android:ems="10"
-            android:hint="use dd/mm/yyyy"
-            android:inputType="date" />
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_marginBottom="15dp"
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/txtkelamin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Jenis Kelamin" />
-            <EditText
-                android:id="@+id/inputkelamin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/form_shape"
-                android:ems="10"
-                android:inputType="text" />
-        </LinearLayout>
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:overScrollMode="ifContentScrolls"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/txtdarah"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="24dp">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Golongan Darah" />
-            <EditText
-                android:id="@+id/inputdarah"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/form_shape"
-                android:ems="10"
-                android:inputType="text" />
+                android:background="@drawable/shape_bulletin_card"
+                android:elevation="3dp"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/txtnik"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="Nomor Induk Kependudukan (NIK)"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/inputNIK"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/shape_header_action_btn"
+                    android:hint="16 digit NIK sesuai KTP"
+                    android:inputType="number"
+                    android:paddingHorizontal="14dp"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/txtnama"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="Nama Lengkap Pasien"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/inputnama"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/shape_header_action_btn"
+                    android:hint="Nama lengkap sesuai KTP"
+                    android:inputType="textPersonName"
+                    android:paddingHorizontal="14dp"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/txtlahir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="Tempat, Tanggal Lahir"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/inputtempat"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shape_header_action_btn"
+                        android:hint="Kota lahir"
+                        android:inputType="text"
+                        android:paddingHorizontal="14dp"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/inputtanggal"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shape_header_action_btn"
+                        android:hint="dd/mm/yyyy"
+                        android:inputType="date"
+                        android:paddingHorizontal="14dp"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txtkelamin"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="6dp"
+                            android:text="Jenis Kelamin"
+                            android:textColor="@color/textPrimary"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/inputkelamin"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:background="@drawable/shape_header_action_btn"
+                            android:hint="L / P"
+                            android:inputType="text"
+                            android:paddingHorizontal="14dp"
+                            android:textColor="@color/textPrimary"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txtdarah"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="6dp"
+                            android:text="Golongan Darah"
+                            android:textColor="@color/textPrimary"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/inputdarah"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:background="@drawable/shape_header_action_btn"
+                            android:hint="A / B / AB / O"
+                            android:inputType="text"
+                            android:paddingHorizontal="14dp"
+                            android:textColor="@color/textPrimary"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/txtalamat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="Alamat Domisili"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/inputalamat"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:background="@drawable/shape_header_action_btn"
+                    android:gravity="top|start"
+                    android:hint="Jalan, No Rumah, Kelurahan, Kecamatan"
+                    android:inputType="textMultiLine"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="10dp"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
         </LinearLayout>
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/txtalamat"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Alamat" />
-
-    <EditText
-        android:id="@+id/inputalamat"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:background="@drawable/form_shape"
-        android:ems="10"
-        android:layout_marginBottom="15dp"
-        android:inputType="text" />
-
-</LinearLayout>
-
-
-
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,22 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/main" android:background="@color/abu" android:layout_width="match_parent" android:layout_height="match_parent" tools:context=".NotificationActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_main"
+    tools:context=".NotificationActivity">
 
-    <androidx.appcompat.widget.Toolbar android:id="@+id/notif" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/abu" android:minHeight="?attr/actionBarSize" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:title="Notifikasi" app:titleTextColor="@color/biruTua" app:navigationIcon="@drawable/ion_chevron_back" />
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/notif"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_main"
+        android:minHeight="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ion_chevron_back"
+        app:title="Notifikasi"
+        app:titleTextColor="@color/textPrimary" />
 
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/notif">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingHorizontal="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/notif">
 
-        <ImageView android:layout_gravity="center_horizontal" android:id="@+id/imageView5" android:layout_width="350dp" android:layout_height="230dp" tools:srcCompat="@drawable/rafiki_notif" />
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="260dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="Ilustrasi Notifikasi"
+            android:src="@drawable/rafiki_notif" />
 
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="30dp" android:textSize="16dp" android:layout_marginTop="10dp" android:layout_marginRight="30dp" android:text="Tidak ada notifikasi saat ini." android:textAlignment="center" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Belum Ada Notifikasi Baru"
+            android:textAlignment="center"
+            android:textColor="@color/textPrimary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="30dp" android:layout_marginTop="10dp" android:layout_marginRight="30dp" android:text="Anda akan mendapatkan notifikasi untuk
-riwayat check-in dan check-out, sertifikat
-vaksin, hasil tes lab, dan hasil kunjungan ke
-fasilitas kesehatan" android:textAlignment="center" />
-
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:lineSpacingExtra="3dp"
+            android:text="Anda akan menerima notifikasi otomatis terkait jadwal minum obat, resume medis faskes, dan hasil pemeriksaan lab."
+            android:textAlignment="center"
+            android:textColor="@color/textSecondary"
+            android:textSize="13sp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

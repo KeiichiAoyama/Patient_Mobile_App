@@ -2,9 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="abu">#F0F4F8</color>
+    <color name="abu">#F6F8FC</color>
     <color name="abuTua">#DCE1E7</color>
-    <color name="biruTua">#252F4A</color>
+    <color name="biruTua">#1E293B</color>
     <color name="abuMuda">#8B8B8B</color>
     <color name="biruMuda">#CFE1FF</color>
     <color name="abuline">#C7C2C9</color>
@@ -14,9 +14,116 @@
     <color name="merahDark">#C62828</color>
     <color name="biruBackgroundSoft">#F5F8FF</color>
     <color name="biruPill">#EBF2FE</color>
-    <color name="textPrimary">#1E293B</color>
+    <color name="accent_blue">#1167FE</color>
+    <color name="textPrimary">#0F172A</color>
     <color name="textSecondary">#64748B</color>
+    <color name="textMuted">#94A3B8</color>
+    <color name="text_primary">#0F172A</color>
+    <color name="text_secondary">#64748B</color>
+    <color name="text_muted">#94A3B8</color>
     <color name="inputBorder">#E2E8F0</color>
     <color name="inputBorderFocused">#1167FE</color>
     <color name="inputFill">#F8FAFC</color>
+
+    <!-- 2020s Vibrant Palette -->
+    <color name="bg_main">#F6F8FC</color>
+    <color name="card_bg_pure">#FFFFFF</color>
+    <color name="card_stroke">#E6ECF5</color>
+    <color name="card_stroke_subtle">#F0F4FA</color>
+
+    <!-- Hero Card Modern Gradient -->
+    <color name="hero_gradient_start">#1D4ED8</color>
+    <color name="hero_gradient_mid">#2563EB</color>
+    <color name="hero_gradient_end">#7C3AED</color>
+    <color name="hero_overlay_circle">#25FFFFFF</color>
+    <color name="hero_tag_bg">#33FFFFFF</color>
+
+    <!-- Dynamic Colorful Feature Categories -->
+    <!-- Feature 1: Resume Medis (Azure Blue) -->
+    <color name="feature_blue_start">#2563EB</color>
+    <color name="feature_blue_end">#3B82F6</color>
+    <color name="feature_blue_bg">#EFF6FF</color>
+    <color name="feature_blue_border">#DBEAFE</color>
+
+    <!-- Feature 2: Kesehatan Kehamilan (Rose Pink) -->
+    <color name="feature_rose_start">#F43F5E</color>
+    <color name="feature_rose_end">#FB7185</color>
+    <color name="feature_rose_bg">#FFF1F2</color>
+    <color name="feature_rose_border">#FFE4E6</color>
+
+    <!-- Feature 3: Pertumbuhan Anak (Amber Orange) -->
+    <color name="feature_amber_start">#F59E0B</color>
+    <color name="feature_amber_end">#FB923C</color>
+    <color name="feature_amber_bg">#FFFBEB</color>
+    <color name="feature_amber_border">#FEF3C7</color>
+
+    <!-- Feature 4: Rawat Inap (Violet Purple) -->
+    <color name="feature_purple_start">#8B5CF6</color>
+    <color name="feature_purple_end">#A855F7</color>
+    <color name="feature_purple_bg">#F5F3FF</color>
+    <color name="feature_purple_border">#EDE9FE</color>
+
+    <!-- Feature 5: Pengingat Minum Obat (Cyan Teal) -->
+    <color name="feature_cyan_start">#06B6D4</color>
+    <color name="feature_cyan_end">#14B8A6</color>
+    <color name="feature_cyan_bg">#ECFEFF</color>
+    <color name="feature_cyan_border">#CFFAFE</color>
+
+    <!-- Feature 6: Cari Tenaga Kesehatan (Emerald Mint) -->
+    <color name="feature_emerald_start">#10B981</color>
+    <color name="feature_emerald_end">#34D399</color>
+    <color name="feature_emerald_bg">#ECFDF5</color>
+    <color name="feature_emerald_border">#D1FAE5</color>
+
+    <!-- Feature 7: Cari Obat (Indigo Cobalt) -->
+    <color name="feature_indigo_start">#4F46E5</color>
+    <color name="feature_indigo_end">#6366F1</color>
+    <color name="feature_indigo_bg">#EEF2FF</color>
+    <color name="feature_indigo_border">#E0E7FF</color>
+
+    <!-- Feature 8: Lainnya (Modern Slate / Magenta) -->
+    <color name="feature_slate_start">#6366F1</color>
+    <color name="feature_slate_end">#EC4899</color>
+    <color name="feature_slate_bg">#FDF2F8</color>
+    <color name="feature_slate_border">#FCE7F3</color>
+
+    <!-- Feature 9: Diari Kesehatan (Orange Sunset) -->
+    <color name="feature_orange_start">#F97316</color>
+    <color name="feature_orange_end">#FB923C</color>
+    <color name="feature_orange_bg">#FFF7ED</color>
+    <color name="feature_orange_border">#FFEDD5</color>
+
+    <!-- Feature 10: Pelayanan Kesehatan (Teal Mint) -->
+    <color name="feature_teal_start">#0D9488</color>
+    <color name="feature_teal_end">#14B8A6</color>
+    <color name="feature_teal_bg">#F0FDFA</color>
+    <color name="feature_teal_border">#CCFBF1</color>
+
+    <!-- Feature 11: Hasil Tes COVID-19 (Coral Red) -->
+    <color name="feature_red_start">#EF4444</color>
+    <color name="feature_red_end">#F87171</color>
+    <color name="feature_red_bg">#FEF2F2</color>
+    <color name="feature_red_border">#FEE2E2</color>
+
+    <!-- Status & Notification Badges -->
+    <color name="status_green">#10B981</color>
+    <color name="status_green_bg">#D1FAE5</color>
+    <color name="status_orange">#F59E0B</color>
+    <color name="status_orange_bg">#FEF3C7</color>
+    <color name="badge_notification">#EF4444</color>
+    <color name="badge_notification_glow">#40EF4444</color>
+
+    <!-- Navbar 2020s -->
+    <color name="nav_indicator">#E0EAFF</color>
+    <color name="nav_indicator_active">#1167FE</color>
+    <color name="nav_inactive">#94A3B8</color>
+    <color name="nav_ripple">#151167FE</color>
+    <color name="nav_floating_bg">#FFFFFFFF</color>
+    <color name="nav_floating_border">#E6ECF5</color>
+
+    <!-- Bulletin Category Tags -->
+    <color name="tag_tips_bg">#D1FAE5</color>
+    <color name="tag_tips_text">#065F46</color>
+    <color name="tag_info_bg">#E0E7FF</color>
+    <color name="tag_info_text">#3730A3</color>
 </resources>

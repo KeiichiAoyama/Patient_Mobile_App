@@ -1,17 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/main" android:background="@color/abu" android:layout_width="match_parent" android:layout_height="match_parent" tools:context=".CariNakesActivity">
-    <androidx.appcompat.widget.Toolbar android:id="@+id/nakes" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/abu" android:minHeight="?attr/actionBarSize" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:title="Cari Nakes" app:titleTextColor="@color/biruTua" app:subtitleTextAppearance="@color/abu" app:subtitle="Daftar Tempat Layanan Kesehatan" app:navigationIcon="@drawable/ion_chevron_back" />
-    <LinearLayout android:layout_marginHorizontal="20dp" android:id="@+id/linearLayout3" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:orientation="vertical" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/nakes">
-        <SearchView android:id="@+id/search" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:background="@drawable/search_bar" tools:layout_editor_absoluteX="25dp" />
-        <LinearLayout android:layout_marginTop="20dp" android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content"/>
-        <HorizontalScrollView android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_main"
+    tools:context=".CariNakesActivity">
 
-        <androidx.recyclerview.widget.RecyclerView android:id="@+id/recyclerNakes" android:layout_width="match_parent" android:layout_height="550dp" />
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/nakes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_main"
+        android:minHeight="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ion_chevron_back"
+        app:subtitle="Daftar Tempat Layanan &amp; Tenaga Medis"
+        app:subtitleTextColor="@color/textSecondary"
+        app:title="Cari Tenaga Kesehatan"
+        app:titleTextColor="@color/textPrimary" />
 
-        <ScrollView android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:id="@+id/searchFilterContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nakes">
+
+        <!-- Modern Search Bar -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/shape_header_action_btn">
+
+            <SearchView
+                android:id="@+id/search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:iconifiedByDefault="false"
+                android:queryBackground="@android:color/transparent"
+                android:queryHint="Cari dokter, spesialisasi, atau rumah sakit..." />
+        </FrameLayout>
+
+        <!-- Quick Filter Pills -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:overScrollMode="never"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/shape_hero_card"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="6dp"
+                    android:text="✨ Semua Nakes"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/shape_tag_tips"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="6dp"
+                    android:text="🩺 Dokter Umum"
+                    android:textColor="@color/tag_tips_text"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/shape_tag_info"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="6dp"
+                    android:text="🏥 Rumah Sakit"
+                    android:textColor="@color/tag_info_text"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_status_card_green"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="6dp"
+                    android:text="🛡️ BPJS Aktif"
+                    android:textColor="#065F46"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </HorizontalScrollView>
     </LinearLayout>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerNakes"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="4dp"
+        android:overScrollMode="ifContentScrolls"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchFilterContainer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

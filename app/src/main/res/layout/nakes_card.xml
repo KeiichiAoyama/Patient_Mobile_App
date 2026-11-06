@@ -1,65 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="370dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    android:background="@drawable/shape_home"
-    android:elevation="5dp"
-    android:gravity="center|start"
-    android:orientation="horizontal"
-    android:padding="10dp">
-    <ImageView
-        android:layout_gravity="top"
-        android:src="@drawable/shape_circle"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
+    android:layout_marginHorizontal="4dp"
+    android:layout_marginVertical="6dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="18dp"
+    app:cardElevation="2dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:orientation="vertical">
+        android:orientation="horizontal"
+        android:padding="16dp">
 
-        <TextView
-            android:id="@+id/nama"
-            android:layout_width="wrap_content"
+        <!-- Doctor Avatar Icon -->
+        <FrameLayout
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:background="@drawable/shape_circle_blue">
+
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_gravity="center"
+                android:src="@drawable/cari_nakes_putih" />
+        </FrameLayout>
+
+        <!-- Information Column -->
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:text="dr. Daniel Hendro Pitoyo"
-            android:textSize="18sp" />
-        <TextView
-            android:layout_marginBottom="20dp"
-            android:id="@+id/email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="danielhendropitoyo@mail.com"
-            android:textSize="15sp" />
-        <TextView
-            android:id="@+id/str"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="STR. YL00001469956020"
-            android:textSize="15sp" />
-        <TextView
-            android:id="@+id/poliklinik"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Poliklinik Bedah / PB"
-            android:textSize="15sp" />
-        <TextView
-            android:id="@+id/nohp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="6282183948127"
-            android:textSize="15sp" />
-        <TextView
-            android:id="@+id/spesialis"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Dokter Umum"
-            android:textSize="15sp" />
+            android:layout_marginStart="14dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!-- Name -->
+            <TextView
+                android:id="@+id/nama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="dr. Daniel Hendro Pitoyo"
+                android:textColor="@color/biruTua"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <!-- Specialist & Clinic Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/spesialis"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_tag_info"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="3dp"
+                    android:text="Dokter Umum"
+                    android:textColor="@color/accent_blue"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/poliklinik"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:text="Poliklinik Bedah"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- STR Number -->
+            <TextView
+                android:id="@+id/str"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="STR: YL00001469956020"
+                android:textColor="@color/text_muted"
+                android:textSize="11sp" />
+
+            <!-- Email & Phone Details -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/shape_info_banner"
+                android:orientation="vertical"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="8dp">
+
+                <TextView
+                    android:id="@+id/email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="danielhendropitoyo@mail.com"
+                    android:textColor="#334155"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/nohp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="+62 821-8394-8127"
+                    android:textColor="@color/accent_blue"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
-
+</androidx.cardview.widget.CardView>

@@ -1,156 +1,608 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_gravity="center_vertical" android:background="@color/abu" tools:context=".FiturFragment">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_main"
+    tools:context=".FiturFragment">
 
-    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent" android:scrollbars="none" android:fillViewport="true" app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent">
+    <!-- Sticky Modern Header -->
+    <LinearLayout
+        android:id="@+id/fiturHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_main"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="18dp"
+        android:paddingBottom="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_horizontal" android:layout_marginTop="10dp" android:orientation="vertical" android:paddingHorizontal="25dp" android:paddingBottom="80dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Layanan &amp; Fitur"
+            android:textColor="@color/textPrimary"
+            android:textSize="26sp"
+            android:textStyle="bold" />
 
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="30dp" android:text="Fitur" android:textSize="32sp" android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Akses lengkap seluruh modul kesehatan Anda"
+            android:textColor="@color/textSecondary"
+            android:textSize="13sp" />
+    </LinearLayout>
 
-            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:layout_marginBottom="20dp" android:orientation="horizontal">
+    <!-- Scrollable Content -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:overScrollMode="ifContentScrolls"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fiturHeader">
 
-                <LinearLayout android:id="@+id/btnResumemedisFitur" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="10dp" android:background="@drawable/shape_fitur" android:orientation="vertical" android:padding="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="18dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="100dp">
 
-                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:background="@drawable/shape_circle">
+            <!-- Section 1: Pemeriksaan & Ibu Anak -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="Pemeriksaan &amp; Keluarga"
+                android:textColor="@color/textPrimary"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
-                        <ImageView android:id="@+id/imageView12" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:layout_weight="1" android:src="@drawable/resume_medis_putih" />
-                    </LinearLayout>
+            <LinearLayout
+                android:id="@+id/sectionRow1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="22dp"
+                android:orientation="horizontal">
 
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Resume" />
+                <!-- 1. Resume Medis -->
+                <LinearLayout
+                    android:id="@+id/btnResumemedisFitur"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_card_feature_blue"
+                    android:clickable="true"
+                    android:elevation="2dp"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:minHeight="102dp"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="4dp"
+                    android:paddingVertical="10dp">
 
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Medis" />
+                    <FrameLayout
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/shape_circle_blue">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="Resume Medis"
+                            android:src="@drawable/resume_medis_putih" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:minLines="2"
+                        android:text="Resume\nMedis"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
-                <LinearLayout android:id="@+id/btnKesehatanKehamilanFitur" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="10dp" android:background="@drawable/shape_fitur" android:orientation="vertical" android:padding="10dp">
+                <!-- 2. Kesehatan Kehamilan -->
+                <LinearLayout
+                    android:id="@+id/btnKesehatanKehamilanFitur"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_card_feature_rose"
+                    android:clickable="true"
+                    android:elevation="2dp"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:minHeight="102dp"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="4dp"
+                    android:paddingVertical="10dp">
 
-                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:background="@drawable/shape_circle">
+                    <FrameLayout
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/shape_circle_rose">
 
-                        <ImageView android:id="@+id/imageView13" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:layout_weight="1" android:src="@drawable/kesehatan_kehamilan_putih" />
-                    </LinearLayout>
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="Kesehatan Kehamilan"
+                            android:src="@drawable/kesehatan_kehamilan_putih" />
+                    </FrameLayout>
 
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Kesehatan" />
-
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Kehamilan" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:minLines="2"
+                        android:text="Kesehatan\nKehamilan"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
-                <LinearLayout android:id="@+id/btnKesehatanAnakFitur" android:layout_width="74dp" android:layout_height="wrap_content" android:layout_marginEnd="10dp" android:background="@drawable/shape_fitur" android:orientation="vertical" android:padding="10dp">
+                <!-- 3. Pertumbuhan Anak -->
+                <LinearLayout
+                    android:id="@+id/btnKesehatanAnakFitur"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_card_feature_amber"
+                    android:clickable="true"
+                    android:elevation="2dp"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:minHeight="102dp"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="4dp"
+                    android:paddingVertical="10dp">
 
-                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:background="@drawable/shape_circle">
+                    <FrameLayout
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/shape_circle_amber">
 
-                        <ImageView android:id="@+id/imageView14" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:layout_weight="1" android:src="@drawable/pertumbuhan_anak_putih" />
-                    </LinearLayout>
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="Pertumbuhan Anak"
+                            android:src="@drawable/pertumbuhan_anak_putih" />
+                    </FrameLayout>
 
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Pertumbuhan" android:textSize="8sp" />
-
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Anak" android:textSize="12sp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:minLines="2"
+                        android:text="Tumbuh\nKembang"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
-                <LinearLayout android:id="@+id/btnDiariKesehatanFitur" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="10dp" android:background="@drawable/shape_fitur" android:orientation="vertical" android:padding="10dp">
+                <!-- 4. Diari Kesehatan -->
+                <LinearLayout
+                    android:id="@+id/btnDiariKesehatanFitur"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_card_feature_orange"
+                    android:clickable="true"
+                    android:elevation="2dp"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:minHeight="102dp"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="4dp"
+                    android:paddingVertical="10dp">
 
-                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:background="@drawable/shape_circle">
+                    <FrameLayout
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/shape_circle_orange">
 
-                        <ImageView android:id="@+id/imageView15" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:layout_weight="1" android:src="@drawable/diari_kesehatan_putih" />
-                    </LinearLayout>
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="Diari Kesehatan"
+                            android:src="@drawable/diari_kesehatan_putih" />
+                    </FrameLayout>
 
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Diari" android:textSize="12sp" />
-
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Kesehatan" android:textSize="10sp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:minLines="2"
+                        android:text="Diari\nKesehatan"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
 
-            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:layout_marginBottom="20dp" android:orientation="horizontal">
+            <!-- Section 2: Obat & Layanan Kesehatan -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="Obat &amp; Konsultasi Dokter"
+                android:textColor="@color/textPrimary"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
-                <LinearLayout android:id="@+id/btnMinumObatFitur" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="10dp" android:background="@drawable/shape_fitur" android:orientation="vertical" android:padding="10dp">
+            <LinearLayout
+                android:id="@+id/sectionRow2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="22dp"
+                android:orientation="horizontal">
 
-                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:background="@drawable/shape_circle">
+                <!-- 5. Minum Obat -->
+                <LinearLayout
+                    android:id="@+id/btnMinumObatFitur"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_card_feature_cyan"
+                    android:clickable="true"
+                    android:elevation="2dp"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:minHeight="102dp"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="4dp"
+                    android:paddingVertical="10dp">
 
-                        <ImageView android:id="@+id/imageView16" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:layout_weight="1" android:src="@drawable/pengingat_minum_obat_putih" />
-                    </LinearLayout>
+                    <FrameLayout
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/shape_circle_cyan">
 
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Minum" />
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="Minum Obat"
+                            android:src="@drawable/pengingat_minum_obat_putih" />
+                    </FrameLayout>
 
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Obat" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:minLines="2"
+                        android:text="Minum\nObat"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
-                <LinearLayout android:id="@+id/btnCariNakesFitur" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="10dp" android:background="@drawable/shape_fitur" android:orientation="vertical" android:padding="10dp">
+                <!-- 6. Cari Nakes -->
+                <LinearLayout
+                    android:id="@+id/btnCariNakesFitur"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_card_feature_emerald"
+                    android:clickable="true"
+                    android:elevation="2dp"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:minHeight="102dp"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="4dp"
+                    android:paddingVertical="10dp">
 
-                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:background="@drawable/shape_circle">
+                    <FrameLayout
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/shape_circle_emerald">
 
-                        <ImageView android:id="@+id/imageView17" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:layout_weight="1" android:src="@drawable/cari_nakes_putih" />
-                    </LinearLayout>
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="Cari Nakes"
+                            android:src="@drawable/cari_nakes_putih" />
+                    </FrameLayout>
 
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Cari" />
-
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Nakes" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:minLines="2"
+                        android:text="Cari\nNakes"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
-                <LinearLayout android:id="@+id/btnCariObatFitur" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="10dp" android:background="@drawable/shape_fitur" android:orientation="vertical" android:padding="10dp">
+                <!-- 7. Cari Obat -->
+                <LinearLayout
+                    android:id="@+id/btnCariObatFitur"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_card_feature_indigo"
+                    android:clickable="true"
+                    android:elevation="2dp"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:minHeight="102dp"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="4dp"
+                    android:paddingVertical="10dp">
 
-                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:background="@drawable/shape_circle">
+                    <FrameLayout
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/shape_circle_indigo">
 
-                        <ImageView android:id="@+id/imageView18" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:layout_weight="1" android:src="@drawable/cari_obat_putih" />
-                    </LinearLayout>
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="Cari Obat"
+                            android:src="@drawable/cari_obat_putih" />
+                    </FrameLayout>
 
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Cari" />
-
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Obat" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:minLines="2"
+                        android:text="Cari\nObat"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
-                <LinearLayout android:id="@+id/btnVaksinImunFitur" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="10dp" android:background="@drawable/shape_fitur" android:orientation="vertical" android:padding="10dp">
+                <!-- 8. Pelayanan Kesehatan -->
+                <LinearLayout
+                    android:id="@+id/btnPelayananKesehatanFitur"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_card_feature_teal"
+                    android:clickable="true"
+                    android:elevation="2dp"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:minHeight="102dp"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="4dp"
+                    android:paddingVertical="10dp">
 
-                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:background="@drawable/shape_circle">
+                    <FrameLayout
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/shape_circle_teal">
 
-                        <ImageView android:id="@+id/imageView19" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:layout_weight="1" android:src="@drawable/vaksin_imunisasi_putih" />
-                    </LinearLayout>
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="Pelayanan Kesehatan"
+                            android:src="@drawable/stethoscope_putih" />
+                    </FrameLayout>
 
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Vaksin dan" android:textSize="12sp" />
-
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Imunisasi" android:textSize="12sp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:minLines="2"
+                        android:text="Pelayanan\nMedis"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
 
-            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:layout_marginBottom="20dp" android:orientation="horizontal">
+            <!-- Section 3: Rawat & Vaksinasi -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="Rawat Inap &amp; Imunisasi"
+                android:textColor="@color/textPrimary"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
-                <LinearLayout android:id="@+id/btnCovidFitur" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="10dp" android:background="@drawable/shape_fitur" android:orientation="vertical" android:padding="10dp">
+            <LinearLayout
+                android:id="@+id/sectionRow3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:background="@drawable/shape_circle">
+                <!-- 9. Rawat Inap -->
+                <LinearLayout
+                    android:id="@+id/btnRawatInapFitur"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_card_feature_purple"
+                    android:clickable="true"
+                    android:elevation="2dp"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:minHeight="102dp"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="4dp"
+                    android:paddingVertical="10dp">
 
-                        <ImageView android:id="@+id/imageView20" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:layout_weight="1" android:src="@drawable/hasil_tes_covid_putih" />
-                    </LinearLayout>
+                    <FrameLayout
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/shape_circle_purple">
 
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Hasil Tes" />
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="Rawat Inap"
+                            android:src="@drawable/cari_rawat_inap_putih" />
+                    </FrameLayout>
 
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Covid-19" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:minLines="2"
+                        android:text="Rawat\nInap"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
-                <LinearLayout android:id="@+id/btnRawatInapFitur" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="10dp" android:background="@drawable/shape_fitur" android:orientation="vertical" android:padding="10dp">
+                <!-- 10. Vaksin & Imunisasi -->
+                <LinearLayout
+                    android:id="@+id/btnVaksinImunFitur"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_card_feature_slate"
+                    android:clickable="true"
+                    android:elevation="2dp"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:minHeight="102dp"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="4dp"
+                    android:paddingVertical="10dp">
 
-                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:background="@drawable/shape_circle">
+                    <FrameLayout
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/shape_circle_slate">
 
-                        <ImageView android:id="@+id/imageView21" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:layout_weight="1" android:src="@drawable/cari_rawat_inap_putih" />
-                    </LinearLayout>
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="Vaksin &amp; Imunisasi"
+                            android:src="@drawable/vaksin_imunisasi_putih" />
+                    </FrameLayout>
 
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Rawat" />
-
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Inap" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:minLines="2"
+                        android:text="Vaksin &amp;\nImunisasi"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
-                <LinearLayout android:id="@+id/btnPelayananKesehatanFitur" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="10dp" android:background="@drawable/shape_fitur" android:orientation="vertical" android:padding="10dp">
+                <!-- 11. Hasil Tes COVID -->
+                <LinearLayout
+                    android:id="@+id/btnCovidFitur"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_card_feature_red"
+                    android:clickable="true"
+                    android:elevation="2dp"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:minHeight="102dp"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="4dp"
+                    android:paddingVertical="10dp">
 
-                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:background="@drawable/shape_circle">
+                    <FrameLayout
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/shape_circle_red">
 
-                        <ImageView android:id="@+id/imageView22" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:layout_weight="1" android:src="@drawable/stethoscope_putih" />
-                    </LinearLayout>
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="Hasil Tes COVID-19"
+                            android:src="@drawable/hasil_tes_covid_putih" />
+                    </FrameLayout>
 
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Pelayanan" />
-
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Kesehatan" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:minLines="2"
+                        android:text="Tes Lab &amp;\nCOVID-19"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
-                <LinearLayout android:layout_width="80dp" android:layout_height="match_parent" android:layout_marginEnd="10dp" android:background="@android:color/transparent" android:orientation="vertical" android:padding="10dp" />
+                <!-- Placeholder spacer for balanced 4th column -->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="4dp"
+                    android:layout_weight="1" />
             </LinearLayout>
+
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

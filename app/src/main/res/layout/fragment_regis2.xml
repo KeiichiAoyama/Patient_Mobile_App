@@ -1,162 +1,264 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:id="@+id/main"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:background="@color/white"
-android:padding="25dp"
-tools:context=".fragment_regis2">
-
-
-
-<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent">
+    android:layout_height="match_parent"
+    android:background="@color/bg_main"
+    tools:context=".fragment_regis2">
 
-    <LinearLayout
-        android:layout_marginBottom="15dp"
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/txtrtrw"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="RT/RW" />
-
-            <EditText
-                android:id="@+id/inputrtrw"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/form_shape"
-                android:ems="10"
-                android:hint="Please use rt/rw"
-                android:inputType="text" />
-        </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:overScrollMode="ifContentScrolls"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:paddingHorizontal="20dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="24dp">
 
-            <TextView
-                android:id="@+id/txtdesakel"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Kelurahan" />
-            <EditText
-                android:id="@+id/inputdesakel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/form_shape"
-                android:ems="10"
-                android:inputType="text" />
+                android:background="@drawable/shape_bulletin_card"
+                android:elevation="3dp"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!-- RT/RW & Kelurahan -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txtrtrw"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="6dp"
+                            android:text="RT / RW"
+                            android:textColor="@color/textPrimary"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/inputrtrw"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:background="@drawable/shape_header_action_btn"
+                            android:hint="001/002"
+                            android:inputType="text"
+                            android:paddingHorizontal="14dp"
+                            android:textColor="@color/textPrimary"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txtdesakel"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="6dp"
+                            android:text="Kelurahan / Desa"
+                            android:textColor="@color/textPrimary"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/inputdesakel"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:background="@drawable/shape_header_action_btn"
+                            android:hint="Nama kelurahan"
+                            android:inputType="text"
+                            android:paddingHorizontal="14dp"
+                            android:textColor="@color/textPrimary"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Kecamatan -->
+                <TextView
+                    android:id="@+id/txtkecamatan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="Kecamatan"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/inputkecamatan"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/shape_header_action_btn"
+                    android:hint="Nama kecamatan"
+                    android:inputType="text"
+                    android:paddingHorizontal="14dp"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="14sp" />
+
+                <!-- Agama & Pekerjaan -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txtagama"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="6dp"
+                            android:text="Agama"
+                            android:textColor="@color/textPrimary"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/inputagama"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:background="@drawable/shape_header_action_btn"
+                            android:hint="Agama"
+                            android:inputType="text"
+                            android:paddingHorizontal="14dp"
+                            android:textColor="@color/textPrimary"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txtpekerjaan"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="6dp"
+                            android:text="Pekerjaan"
+                            android:textColor="@color/textPrimary"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/inputpekerjaan"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:background="@drawable/shape_header_action_btn"
+                            android:hint="Pekerjaan"
+                            android:inputType="text"
+                            android:paddingHorizontal="14dp"
+                            android:textColor="@color/textPrimary"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- No Telp -->
+                <TextView
+                    android:id="@+id/txtnotelp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="Nomor Telepon / WhatsApp"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/inputnotelp"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/shape_header_action_btn"
+                    android:hint="08xxxxxxxxxx"
+                    android:inputType="phone"
+                    android:paddingHorizontal="14dp"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="14sp" />
+
+                <!-- Email -->
+                <TextView
+                    android:id="@+id/txtemail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="Alamat Email"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/inputemail"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/shape_header_action_btn"
+                    android:hint="nama@email.com"
+                    android:inputType="textEmailAddress"
+                    android:paddingHorizontal="14dp"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="14sp" />
+
+                <!-- Password -->
+                <TextView
+                    android:id="@+id/txtpassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="Buat Kata Sandi"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/inputpassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/shape_header_action_btn"
+                    android:hint="Minimal 8 karakter"
+                    android:inputType="textPassword"
+                    android:paddingHorizontal="14dp"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
         </LinearLayout>
+    </ScrollView>
 
-    </LinearLayout>
-    <TextView
-        android:id="@+id/txtkecamatan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Kecamatan" />
-
-    <EditText
-        android:id="@+id/inputkecamatan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/form_shape"
-        android:ems="10"
-        android:layout_marginBottom="15dp"
-        android:inputType="text" />
-
-    <TextView
-        android:id="@+id/txtagama"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Agama" />
-
-    <EditText
-        android:id="@+id/inputagama"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/form_shape"
-        android:ems="10"
-        android:layout_marginBottom="15dp"
-        android:inputType="text" />
-
-
-    <TextView
-        android:id="@+id/txtpekerjaan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Pekerjaan" />
-
-    <EditText
-        android:id="@+id/inputpekerjaan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/form_shape"
-        android:ems="10"
-        android:layout_marginBottom="15dp"
-        android:inputType="text" />
-
-    <TextView
-        android:id="@+id/txtnotelp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="No Telp" />
-
-    <EditText
-        android:id="@+id/inputnotelp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:background="@drawable/form_shape"
-        android:ems="10"
-        android:inputType="text" />
-
-    <TextView
-        android:id="@+id/txtemail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Email" />
-
-    <EditText
-        android:id="@+id/inputemail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:background="@drawable/form_shape"
-        android:ems="10"
-        android:inputType="text" />
-
-    <TextView
-        android:id="@+id/txtpassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Password" />
-
-    <EditText
-        android:id="@+id/inputpassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:background="@drawable/form_shape"
-        android:ems="10"
-        android:inputType="text" />
-
-</LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

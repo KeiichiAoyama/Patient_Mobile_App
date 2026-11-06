@@ -1,17 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/main" android:background="@color/abu" android:layout_width="match_parent" android:layout_height="match_parent" tools:context=".BuletinDetail">
-    <androidx.appcompat.widget.Toolbar android:id="@+id/detailartikel" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/abu" android:minHeight="?attr/actionBarSize" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:titleTextColor="@color/biruTua" app:navigationIcon="@drawable/ion_chevron_back" />
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_main"
+    tools:context=".BuletinDetail">
 
-    <LinearLayout android:layout_width="409dp" android:layout_height="704dp" android:layout_marginStart="1dp" android:layout_marginTop="10dp" android:layout_marginEnd="1dp" android:layout_marginBottom="1dp" android:orientation="vertical" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/detailartikel">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/detailartikel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_main"
+        android:minHeight="?attr/actionBarSize"
+        app:navigationIcon="@drawable/ion_chevron_back"
+        app:title="Detail Artikel"
+        app:titleTextColor="@color/biruTua"
+        app:subtitle="Buletin Kesehatan"
+        app:subtitleTextColor="@color/text_muted"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView android:id="@+id/textView4" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15dp" android:layout_marginRight="15dp" android:layout_marginBottom="20dp" android:text="Lorem Ipsum" android:textSize="25sp" android:textStyle="bold" />
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:clipToPadding="false"
+        android:paddingBottom="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detailartikel">
 
-        <TextView android:id="@+id/textView5" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15dp" android:layout_marginRight="15dp" android:layout_marginBottom="10dp" android:text="Ditulis Oleh Lorem Ipsum" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="12dp">
 
-        <ImageView android:id="@+id/imageView" android:layout_width="match_parent" android:layout_height="209dp" android:layout_marginBottom="15dp" tools:srcCompat="@tools:sample/backgrounds/scenic" />
+            <!-- Category Tag -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_tag_tips"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp"
+                android:text="TIPS KESEHATAN"
+                android:textColor="#D97706"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.05" />
 
-        <TextView android:id="@+id/textView7" android:layout_width="match_parent" android:layout_height="346dp" android:layout_marginLeft="15dp" android:layout_marginRight="15dp" android:text="TextView" android:textAlignment="textStart" tools:text="@tools:sample/lorem/random" />
-    </LinearLayout>
+            <!-- Article Title -->
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Pentingnya Menjaga Kebugaran dan Pola Hidup Sehat di Era Digital"
+                android:textColor="@color/biruTua"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:lineSpacingExtra="4dp" />
+
+            <!-- Author & Metadata Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/shape_circle_blue">
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/gg_profile"
+                        app:tint="@color/white" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ditulis Oleh Tim Medis Kemenkes"
+                        android:textColor="@color/biruTua"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dipublikasikan hari ini • 4 mnt baca"
+                        android:textColor="@color/text_muted"
+                        android:textSize="11sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Featured Image Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:layout_marginTop="18dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="3dp">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/shape_bulletin_thumb_1" />
+            </androidx.cardview.widget.CardView>
+
+            <!-- Verified Badge -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/shape_info_banner"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="10dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_shield_check"
+                    app:tint="#2563EB" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="Konten ini telah ditinjau dan diverifikasi oleh dokter spesialis."
+                    android:textColor="#1D4ED8"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Article Body -->
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:lineSpacingMultiplier="1.5"
+                android:text="Menjaga kesehatan tubuh adalah investasi terbaik untuk masa depan. Pola makan seimbang, olahraga teratur minimal 30 menit sehari, serta tidur yang cukup sangat krusial dalam memperkuat imunitas tubuh terhadap berbagai jenis penyakit.\n\nJangan lupa untuk rutin melakukan pemeriksaan kesehatan berkala, mengonsumsi air putih minimal 2 liter per hari, dan mengelola stres dengan baik."
+                android:textAlignment="textStart"
+                android:textColor="#334155"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

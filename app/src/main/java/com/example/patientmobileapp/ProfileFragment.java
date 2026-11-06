@@ -1,19 +1,24 @@
 package com.example.patientmobileapp;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
+
 public class ProfileFragment extends Fragment {
+
+    public ProfileFragment() {}
+
     public static ProfileFragment newInstance(String param1, String param2) {
-        ProfileFragment fragment = new ProfileFragment();
-        Bundle args = new Bundle();
-        return fragment;
+        return new ProfileFragment();
     }
 
     @Override
@@ -22,15 +27,15 @@ public class ProfileFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
         MyApp app = (MyApp) requireActivity().getApplicationContext();
         User user = app.getUser();
         if (user == null) {
-            android.content.Intent intent = new android.content.Intent(getActivity(), LoginActivity.class);
-            intent.setFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK | android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            Intent intent = new Intent(getActivity(), LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             return view;
         }
@@ -39,8 +44,12 @@ public class ProfileFragment extends Fragment {
         TextView telpPengguna = view.findViewById(R.id.profilePhone);
         TextView cardNama = view.findViewById(R.id.profileCardName);
 
-        namaPengguna.setText(user.nama);
-        telpPengguna.setText(user.no_telp);
+        if (namaPengguna != null && user.nama != null) {
+            namaPengguna.setText(user.nama);
+        }
+        if (telpPengguna != null && user.no_telp != null) {
+            telpPengguna.setText(user.no_telp);
+        }
         if (cardNama != null && user.nama != null) {
             cardNama.setText(user.nama.toUpperCase());
         }
@@ -48,7 +57,7 @@ public class ProfileFragment extends Fragment {
         View btnKodeIdentitas = view.findViewById(R.id.btnKodeIdentitasProfile);
         if (btnKodeIdentitas != null) {
             btnKodeIdentitas.setOnClickListener(v -> {
-                android.content.Intent intent = new android.content.Intent(getActivity(), KodeIdentitasActivity.class);
+                Intent intent = new Intent(getActivity(), KodeIdentitasActivity.class);
                 startActivity(intent);
             });
         }
@@ -56,20 +65,20 @@ public class ProfileFragment extends Fragment {
         View btnKartuVaksin = view.findViewById(R.id.btnKartuVaksinProfile);
         if (btnKartuVaksin != null) {
             btnKartuVaksin.setOnClickListener(v -> {
-                android.content.Intent intent = new android.content.Intent(getActivity(), HasilTesCovid.class);
+                Intent intent = new Intent(getActivity(), HasilTesCovid.class);
                 startActivity(intent);
             });
         }
 
         View.OnClickListener logoutClickListener = v -> {
             if (getContext() == null) return;
-            new androidx.appcompat.app.AlertDialog.Builder(requireContext())
+            new AlertDialog.Builder(requireContext())
                     .setTitle("Keluar dari Akun")
                     .setMessage("Apakah Anda yakin ingin keluar dari aplikasi?")
                     .setPositiveButton("Ya, Keluar", (dialog, which) -> {
                         app.logout();
-                        android.content.Intent intent = new android.content.Intent(requireActivity(), LoginActivity.class);
-                        intent.setFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK | android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        Intent intent = new Intent(requireActivity(), LoginActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);
                         requireActivity().finish();
                     })
@@ -85,6 +94,19 @@ public class ProfileFragment extends Fragment {
         View btnLogoutRow = view.findViewById(R.id.btnLogoutRow);
         if (btnLogoutRow != null) {
             btnLogoutRow.setOnClickListener(logoutClickListener);
+        }
+
+        // Entrance animation
+        View profileScroll = view.findViewById(R.id.profileScroll);
+        if (profileScroll != null) {
+            profileScroll.setAlpha(0f);
+            profileScroll.setTranslationY(25f);
+            profileScroll.animate()
+                    .alpha(1f)
+                    .translationY(0f)
+                    .setDuration(350)
+                    .setInterpolator(new DecelerateInterpolator())
+                    .start();
         }
 
         return view;

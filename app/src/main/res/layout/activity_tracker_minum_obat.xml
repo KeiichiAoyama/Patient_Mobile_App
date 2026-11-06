@@ -1,77 +1,314 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/main" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/abu" tools:context=".TrackerMinumObat">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_main"
+    tools:context=".TrackerMinumObat">
 
-    <androidx.appcompat.widget.Toolbar android:id="@+id/trackerobat" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/abu" android:minHeight="?attr/actionBarSize" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:navigationIcon="@drawable/ion_chevron_back" app:title="Tracker Minum Obat" app:titleTextColor="@color/biruTua" />
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/trackerobat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_main"
+        android:minHeight="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ion_chevron_back"
+        app:title="Pengingat Minum Obat"
+        app:titleTextColor="@color/textPrimary" />
 
-    <LinearLayout android:layout_width="372dp" android:layout_height="637dp" android:orientation="vertical" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/trackerobat">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/trackerobat">
 
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="15dp" android:orientation="horizontal">
+        <!-- Month Navigation Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            android:background="@drawable/shape_bulletin_card"
+            android:elevation="2dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="14dp"
+            android:paddingVertical="10dp">
 
-            <ImageButton android:id="@+id/buttonprev" android:layout_width="40dp" android:layout_height="40dp" android:background="@drawable/button_biru" android:src="@drawable/ion_chevron_back" android:contentDescription="Back" app:tint="@android:color/white" />
+            <ImageButton
+                android:id="@+id/buttonprev"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="@drawable/shape_header_action_btn"
+                android:contentDescription="Bulan Sebelumnya"
+                android:padding="8dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ion_chevron_back"
+                app:tint="@color/textPrimary" />
 
-            <TextView android:id="@+id/textView2" android:layout_width="225dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Agustus 2024" android:textAlignment="center" />
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Agustus 2024"
+                android:textAlignment="center"
+                android:textColor="@color/textPrimary"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
-            <ImageButton android:id="@+id/buttonnext" android:layout_width="40dp" android:layout_height="40dp" android:background="@drawable/button_biru" android:src="@drawable/ion_chevron_back" android:contentDescription="Back" android:rotation="180" app:tint="@android:color/white" />
+            <ImageButton
+                android:id="@+id/buttonnext"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="@drawable/shape_header_action_btn"
+                android:contentDescription="Bulan Berikutnya"
+                android:padding="8dp"
+                android:rotation="180"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ion_chevron_back"
+                app:tint="@color/textPrimary" />
         </LinearLayout>
 
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="15dp" android:orientation="horizontal">
+        <!-- Weekly Date Strip -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/shape_bulletin_card"
+            android:elevation="2dp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="6dp"
+            android:paddingVertical="10dp">
 
-            <LinearLayout android:layout_width="41dp" android:layout_height="match_parent" android:layout_marginRight="10dp" android:orientation="vertical">
+            <!-- Min -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingVertical="6dp">
 
-                <TextView android:id="@+id/textView3" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="3dp" android:text="Min" android:textAlignment="center" />
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Min"
+                    android:textColor="@color/textSecondary"
+                    android:textSize="11sp" />
 
-                <TextView android:id="@+id/textView6" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="25" android:textAlignment="center" />
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="25"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
-            <LinearLayout android:layout_width="39dp" android:layout_height="match_parent" android:layout_marginRight="16dp" android:orientation="vertical">
+            <!-- Sen -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingVertical="6dp">
 
-                <TextView android:id="@+id/textView20" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="3dp" android:text="Sen" android:textAlignment="center" />
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sen"
+                    android:textColor="@color/textSecondary"
+                    android:textSize="11sp" />
 
-                <TextView android:id="@+id/textView21" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="26" android:textAlignment="center" />
+                <TextView
+                    android:id="@+id/textView21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="26"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
-            <LinearLayout android:layout_width="40dp" android:layout_height="match_parent" android:layout_marginRight="16dp" android:orientation="vertical">
+            <!-- Sel -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingVertical="6dp">
 
-                <TextView android:id="@+id/textView22" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="3dp" android:text="Sel" android:textAlignment="center" />
+                <TextView
+                    android:id="@+id/textView22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sel"
+                    android:textColor="@color/textSecondary"
+                    android:textSize="11sp" />
 
-                <TextView android:id="@+id/textView23" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="27" android:textAlignment="center" />
+                <TextView
+                    android:id="@+id/textView23"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="27"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
-            <LinearLayout android:layout_width="40dp" android:layout_height="match_parent" android:layout_marginRight="16dp" android:orientation="vertical">
+            <!-- Rab (Active Day Highlight) -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/shape_hero_card"
+                android:elevation="3dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingVertical="6dp">
 
-                <TextView android:id="@+id/textView24" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="3dp" android:text="Rab" android:textAlignment="center" />
+                <TextView
+                    android:id="@+id/textView24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rab"
+                    android:textColor="#E0EAFF"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
 
-                <TextView android:id="@+id/textView25" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="28" android:textAlignment="center" />
+                <TextView
+                    android:id="@+id/textView25"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="28"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
-            <LinearLayout android:layout_width="40dp" android:layout_height="match_parent" android:layout_marginRight="16dp" android:orientation="vertical">
+            <!-- Kam -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingVertical="6dp">
 
-                <TextView android:id="@+id/textView26" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="3dp" android:text="Kam" android:textAlignment="center" />
+                <TextView
+                    android:id="@+id/textView26"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kam"
+                    android:textColor="@color/textSecondary"
+                    android:textSize="11sp" />
 
-                <TextView android:id="@+id/textView27" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="29" android:textAlignment="center" />
+                <TextView
+                    android:id="@+id/textView27"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="29"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
-            <LinearLayout android:layout_width="40dp" android:layout_height="match_parent" android:layout_marginRight="16dp" android:orientation="vertical">
+            <!-- Jum -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingVertical="6dp">
 
-                <TextView android:id="@+id/textView28" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="3dp" android:text="Jum" android:textAlignment="center" />
+                <TextView
+                    android:id="@+id/textView28"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jum"
+                    android:textColor="@color/textSecondary"
+                    android:textSize="11sp" />
 
-                <TextView android:id="@+id/textView29" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="30" android:textAlignment="center" />
+                <TextView
+                    android:id="@+id/textView29"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="30"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
-            <LinearLayout android:layout_width="40dp" android:layout_height="match_parent" android:layout_marginRight="16dp" android:orientation="vertical">
+            <!-- Sab -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingVertical="6dp">
 
-                <TextView android:id="@+id/textView30" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="3dp" android:text="Sab" android:textAlignment="center" />
+                <TextView
+                    android:id="@+id/textView30"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sab"
+                    android:textColor="@color/textSecondary"
+                    android:textSize="11sp" />
 
-                <TextView android:id="@+id/textView31" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="31" android:textAlignment="center" />
+                <TextView
+                    android:id="@+id/textView31"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="31"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
 
-        <TextView android:id="@+id/textView32" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="30dp" android:text="Hari ini, 28 Agustus 2024" android:textAlignment="center" />
+        <!-- Today's Label -->
+        <TextView
+            android:id="@+id/textView32"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text="Jadwal Hari Ini, 28 Agustus 2024"
+            android:textColor="@color/textPrimary"
+            android:textSize="15sp"
+            android:textStyle="bold" />
 
-        <androidx.recyclerview.widget.RecyclerView android:id="@+id/trackerRecycler" android:layout_width="match_parent" android:layout_height="match_parent" />
-
+        <!-- Recycler List -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/trackerRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:overScrollMode="ifContentScrolls" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

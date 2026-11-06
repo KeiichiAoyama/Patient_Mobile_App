@@ -1,64 +1,114 @@
 package com.example.patientmobileapp;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FragmentbtnCovid#newInstance} factory method to
- * create an instance of this fragment.
- */
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+
 public class FragmentbtnCovid extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    public interface OnBedTypeSelectedListener {
+        void onBedTypeSelected(boolean isCovid);
+    }
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private TextView buttonCovid;
+    private TextView buttonNonCovid;
+    private boolean isCovidSelected = false; // default NON COVID-19
+    private OnBedTypeSelectedListener listener;
 
     public FragmentbtnCovid() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentbtnCovid.
-     */
-    // TODO: Rename and change types and number of parameters
     public static FragmentbtnCovid newInstance(String param1, String param2) {
         FragmentbtnCovid fragment = new FragmentbtnCovid();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    public void setOnBedTypeSelectedListener(OnBedTypeSelectedListener listener) {
+        this.listener = listener;
+    }
+
+    public boolean isCovidSelected() {
+        return isCovidSelected;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_fragmentbtn_covid, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        buttonCovid = view.findViewById(R.id.buttoncovid);
+        buttonNonCovid = view.findViewById(R.id.buttonnoncovid);
+
+        if (buttonCovid != null) {
+            buttonCovid.setOnClickListener(v -> selectOption(true));
+        }
+
+        if (buttonNonCovid != null) {
+            buttonNonCovid.setOnClickListener(v -> selectOption(false));
+        }
+
+        updateUI();
+    }
+
+    public void selectOption(boolean covid) {
+        isCovidSelected = covid;
+        updateUI();
+
+        if (listener != null) {
+            listener.onBedTypeSelected(isCovidSelected);
+        }
+    }
+
+    private void updateUI() {
+        if (getContext() == null || buttonCovid == null || buttonNonCovid == null) return;
+
+        int activeBg = R.drawable.shape_segment_pill_active;
+        int inactiveBg = R.drawable.shape_segment_pill_inactive;
+        int activeColor = ContextCompat.getColor(getContext(), R.color.white);
+        int inactiveColor = ContextCompat.getColor(getContext(), R.color.text_secondary);
+
+        if (isCovidSelected) {
+            buttonCovid.setBackgroundResource(activeBg);
+            buttonCovid.setTextColor(activeColor);
+
+            buttonNonCovid.setBackgroundResource(inactiveBg);
+            buttonNonCovid.setTextColor(inactiveColor);
+
+            animateSelect(buttonCovid);
+        } else {
+            buttonNonCovid.setBackgroundResource(activeBg);
+            buttonNonCovid.setTextColor(activeColor);
+
+            buttonCovid.setBackgroundResource(inactiveBg);
+            buttonCovid.setTextColor(inactiveColor);
+
+            animateSelect(buttonNonCovid);
+        }
+    }
+
+    private void animateSelect(View view) {
+        if (view == null) return;
+        view.setScaleX(0.96f);
+        view.setScaleY(0.96f);
+        view.animate()
+                .scaleX(1.0f)
+                .scaleY(1.0f)
+                .setDuration(180)
+                .start();
     }
 }

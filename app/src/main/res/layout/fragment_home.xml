@@ -1,162 +1,954 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" android:background="@color/abu" android:layout_width="match_parent" android:layout_height="match_parent" android:paddingHorizontal="25dp" tools:context=".HomeFragment">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/homeRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_main"
+    tools:context=".HomeFragment">
 
-    <androidx.appcompat.widget.Toolbar android:id="@+id/toolbar3" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/abu" android:minHeight="?attr/actionBarSize" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent">
+    <!-- 2020s Modern Sticky Header Area -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/headerArea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_main"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="14dp"
+        android:paddingBottom="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+        <!-- User Avatar with colorful gradient ring & initial -->
+        <FrameLayout
+            android:id="@+id/avatarContainer"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/shape_avatar_ring"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <!-- Logo Vector Drawable -->
-            <ImageView android:id="@+id/logo_toolbar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/kita_sehat" android:layout_centerVertical="true" android:layout_alignParentStart="true" android:contentDescription="Logo Kita Sehat" />
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:contentDescription="User Avatar"
+                android:src="@drawable/user_outline_putih" />
 
-            <!-- Icon Buttons -->
-            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_alignParentEnd="true" android:layout_centerVertical="true">
+            <!-- Online / Active Status Dot -->
+            <View
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_gravity="bottom|end"
+                android:background="@drawable/shape_notification_badge"
+                android:backgroundTint="@color/status_green" />
+        </FrameLayout>
 
-                <ImageButton android:id="@+id/btnQR" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="10dp" android:background="@drawable/fluent_scan_table_20_regular" android:contentDescription="Scan Button" />
+        <!-- Greeting & Name -->
+        <LinearLayout
+            android:id="@+id/greetingContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginEnd="12dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/headerActionButtons"
+            app:layout_constraintStart_toEndOf="@id/avatarContainer"
+            app:layout_constraintTop_toTopOf="parent">
 
-                <ImageButton android:id="@+id/btnNotif" android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/clarity_notification_line" android:contentDescription="Notification Button" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/ucapan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Selamat Pagi,"
+                    android:textColor="@color/textSecondary"
+                    android:textSize="13sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:text="•"
+                    android:textColor="@color/textMuted"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:id="@+id/tanggal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:text="28 Aug, 2024"
+                    android:textColor="@color/textSecondary"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
-        </RelativeLayout>
-    </androidx.appcompat.widget.Toolbar>
+            <TextView
+                android:id="@+id/namaPengguna"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="Ilham Kurniawan 👋"
+                android:textColor="@color/textPrimary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
-    <ScrollView app:layout_constraintTop_toBottomOf="@id/toolbar3" android:layout_marginTop="10dp" app:layout_constraintStart_toStartOf="parent" android:layout_width="match_parent" android:layout_height="wrap_content">
-        <LinearLayout android:paddingVertical="10dp" app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+        <!-- Action Buttons: QR Scan and Notification with Badge -->
+        <LinearLayout
+            android:id="@+id/headerActionButtons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <TextView android:textSize="12sp" android:textStyle="bold" android:id="@+id/tanggal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="28 Aug, 2024"/>
-            <TextView android:textSize="20sp" android:textStyle="normal" android:id="@+id/ucapan" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Selamat Pagi,"/>
-            <TextView android:textStyle="bold" android:textSize="20sp" android:id="@+id/namaPengguna" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Ilham Kurniawan!" android:layout_marginBottom="20dp"/>
-            <LinearLayout android:layout_marginBottom="20dp" android:orientation="vertical" android:padding="20dp" android:background="@drawable/shape_home" android:layout_width="match_parent" android:layout_height="wrap_content">
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textStyle="bold" android:textSize="16dp" android:text="Pantau rekam medis Anda dari semua faskes disini"/>
+            <!-- QR Scanner Action Button -->
+            <FrameLayout
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginEnd="10dp">
 
-                <Button android:id="@+id/btnResumeMedisHeader" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="end" android:backgroundTint="@color/abuTua" android:text="Buka" android:textColor="@color/black" />
+                <ImageButton
+                    android:id="@+id/btnQR"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/shape_header_action_btn"
+                    android:contentDescription="Scan QR"
+                    android:padding="11dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/fluent_scan_table_20_regular"
+                    app:tint="@color/biruNeon" />
+            </FrameLayout>
+
+            <!-- Notification Action Button with Dynamic Badge -->
+            <FrameLayout
+                android:layout_width="44dp"
+                android:layout_height="44dp">
+
+                <ImageButton
+                    android:id="@+id/btnNotif"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/shape_header_action_btn"
+                    android:contentDescription="Notification"
+                    android:padding="11dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/clarity_notification_line"
+                    app:tint="@color/textPrimary" />
+
+                <!-- Dynamic Animated Notification Badge Dot -->
+                <View
+                    android:id="@+id/notifBadgeDot"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:layout_gravity="top|end"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/shape_notification_badge" />
+            </FrameLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Scrollable Main Content -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/mainScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:overScrollMode="ifContentScrolls"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerArea">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="18dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="100dp">
+
+            <!-- 1. HERO BANNER: E-Rekam Medis (Vibrant Gradient + Depth) -->
+            <FrameLayout
+                android:id="@+id/heroCardContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+
+                <!-- Gradient Card Surface -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/heroCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_hero_card"
+                    android:elevation="6dp"
+                    android:padding="18dp">
+
+                    <!-- Decorative Background Overlay Circles -->
+                    <View
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_marginTop="-30dp"
+                        android:layout_marginEnd="-30dp"
+                        android:background="@drawable/shape_circle_overlay"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <!-- Translucent Pill Tag -->
+                    <LinearLayout
+                        android:id="@+id/heroTag"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/shape_hero_tag"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="5dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="✨ E-REKAM MEDIS SATUSEHAT"
+                            android:textColor="@color/white"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Hero Title -->
+                    <TextView
+                        android:id="@+id/heroTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Pantau Rekam Medis Terintegrasi"
+                        android:textColor="@color/white"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/heroTag" />
+
+                    <!-- Hero Subtitle -->
+                    <TextView
+                        android:id="@+id/heroSubtitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:lineSpacingExtra="2dp"
+                        android:text="Akses riwayat diagnosis, resep obat &amp; faskes rujukan dari seluruh fasilitas kesehatan."
+                        android:textColor="#E0EAFF"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/heroTitle" />
+
+                    <!-- Modern Elevated CTA Button -->
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnResumeMedisHeader"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="14dp"
+                        android:background="@drawable/button_hero_cta"
+                        android:elevation="4dp"
+                        android:paddingHorizontal="18dp"
+                        android:text="Lihat Rekam Medis  ➔"
+                        android:textAllCaps="false"
+                        android:textColor="@color/biruNeon"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/heroSubtitle" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </FrameLayout>
+
+            <!-- 2. QUICK HEALTH STATUS HIGHLIGHTS -->
+            <LinearLayout
+                android:id="@+id/statusStripContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
+
+                <!-- Status 1: BPJS & Faskes -->
+                <LinearLayout
+                    android:id="@+id/statusCardBpjs"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_status_card_green"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🛡️"
+                        android:textSize="16sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="BPJS &amp; Faskes"
+                            android:textColor="#065F46"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Terhubung Aktif"
+                            android:textColor="#047857"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Status 2: Pengingat Obat -->
+                <LinearLayout
+                    android:id="@+id/statusCardReminder"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_status_card_orange"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="⏰"
+                        android:textSize="16sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Jadwal Obat"
+                            android:textColor="#92400E"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2 Jadwal Hari Ini"
+                            android:textColor="#B45309"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </LinearLayout>
             </LinearLayout>
-            <TextView android:layout_marginBottom="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="16dp" android:textStyle="bold" android:text="Fitur" />
-            <LinearLayout android:layout_marginBottom="20dp" android:layout_gravity="center_horizontal" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
 
-                <LinearLayout android:id="@+id/resume_medis" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10dp" android:background="@drawable/shape_fitur" android:orientation="vertical" android:padding="10dp">
+            <!-- 3. SERVICES SECTION HEADER -->
+            <LinearLayout
+                android:id="@+id/servicesHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:background="@drawable/shape_circle">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-                        <ImageView android:id="@+id/imageView4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:layout_weight="1" android:src="@drawable/resume_medis_putih" />
-                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Layanan Kesehatan"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
 
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Resume" />
-
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Medis" />
-                </LinearLayout>
-
-                <LinearLayout android:id="@+id/kesehatan_kehamilan" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10dp" android:background="@drawable/shape_fitur" android:orientation="vertical" android:padding="10dp">
-
-                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:background="@drawable/shape_circle">
-
-                        <ImageView android:id="@+id/imageView3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:layout_weight="1" android:src="@drawable/kesehatan_kehamilan_putih" />
-                    </LinearLayout>
-
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Kesehatan" />
-
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Kehamilan" />
-                </LinearLayout>
-
-                <LinearLayout android:id="@+id/pertumbuhan_anak" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10dp" android:background="@drawable/shape_fitur" android:orientation="vertical" android:padding="10dp">
-
-                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:background="@drawable/shape_circle">
-
-                        <ImageView android:id="@+id/imageView6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:layout_weight="1" android:src="@drawable/pertumbuhan_anak_putih" />
-                    </LinearLayout>
-
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Pertumbuhan" android:textSize="10sp" />
-
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Anak" android:textSize="10sp" />
-                </LinearLayout>
-
-                <LinearLayout android:id="@+id/rawat_inap" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10dp" android:background="@drawable/shape_fitur" android:orientation="vertical" android:padding="10dp">
-
-                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:background="@drawable/shape_circle">
-
-                        <ImageView android:id="@+id/imageView7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:layout_weight="1" android:src="@drawable/diari_kesehatan_putih" />
-                    </LinearLayout>
-
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Cari" />
-
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Rawat Inap" />
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout android:layout_marginBottom="20dp" android:layout_gravity="center_horizontal" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
-
-                <LinearLayout android:id="@+id/tracker_obat" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10dp" android:background="@drawable/shape_fitur" android:orientation="vertical" android:padding="10dp">
-
-                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:background="@drawable/shape_circle">
-
-                        <ImageView android:id="@+id/imageView8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:layout_weight="1" android:src="@drawable/pengingat_minum_obat_putih" />
-                    </LinearLayout>
-
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Pengingat" />
-
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Minum Obat" />
-                </LinearLayout>
-
-                <LinearLayout android:id="@+id/cari_nakes" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10dp" android:background="@drawable/shape_fitur" android:orientation="vertical" android:padding="10dp">
-
-                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:background="@drawable/shape_circle">
-
-                        <ImageView android:id="@+id/imageView9" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:layout_weight="1" android:src="@drawable/cari_nakes_putih" />
-                    </LinearLayout>
-
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Cari" />
-
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Nakes" />
-                </LinearLayout>
-
-                <LinearLayout android:id="@+id/cari_obat" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10dp" android:background="@drawable/shape_fitur" android:orientation="vertical" android:padding="10dp">
-
-                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:background="@drawable/shape_circle">
-
-                        <ImageView android:id="@+id/imageView10" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:layout_weight="1" android:src="@drawable/cari_obat_putih" />
-                    </LinearLayout>
-
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Cari" />
-
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Obat" />
-                </LinearLayout>
-
-                <LinearLayout android:id="@+id/lainnya" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10dp" android:background="@drawable/shape_fitur" android:orientation="vertical" android:padding="10dp">
-
-                    <LinearLayout android:id="@+id/lai" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:background="@drawable/shape_circle">
-
-                        <ImageView android:id="@+id/imageView11" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal|center_vertical" android:layout_weight="1" android:src="@drawable/lainnya_putih" />
-                    </LinearLayout>
-
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="Lainnya" />
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout android:layout_marginBottom="10dp" android:layout_width="match_parent" android:layout_height="wrap_content">
-                <TextView android:layout_weight="1" android:textStyle="bold" android:textSize="16sp" android:layout_width="wrap_content" android:text="Buletin Kesehatan" android:layout_height="wrap_content"/>
-
-                <TextView android:id="@+id/btnBulletinHome" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="0" android:text="Lihat Semua" />
-            </LinearLayout>
-
-            <LinearLayout android:id="@+id/bulletinHomeOne" android:layout_width="match_parent" android:layout_height="wrap_content">
-
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/shape_home">
-
-                    <ImageView android:layout_width="115dp" android:layout_height="100dp" android:layout_weight="2" />
-
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:layout_weight="1" android:paddingVertical="10dp" android:singleLine="false" android:text="Merokok dapat menyebabkan kanker serviks." android:textSize="14sp" android:textStyle="normal" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Akses cepat seluruh fasilitas medis Anda"
+                        android:textColor="@color/textSecondary"
+                        android:textSize="12sp" />
                 </LinearLayout>
             </LinearLayout>
 
-            <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent">
+            <!-- 4. SERVICES GRID (ROW 1: 4 ITEMS) -->
+            <LinearLayout
+                android:id="@+id/featureRow1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
 
-                <LinearLayout android:id="@+id/bulletinHomeTwo" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/shape_home">
+                <!-- 1. Resume Medis (Azure Blue) -->
+                <LinearLayout
+                    android:id="@+id/resume_medis"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_card_feature_blue"
+                    android:clickable="true"
+                    android:elevation="2dp"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:minHeight="102dp"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="4dp"
+                    android:paddingVertical="10dp">
 
-                    <ImageView android:layout_width="115dp" android:layout_height="100dp" android:layout_weight="2" />
+                    <FrameLayout
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/shape_circle_blue">
 
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:layout_weight="1" android:paddingVertical="10dp" android:singleLine="false" android:text="Merokok dapat menyebabkan kanker serviks." android:textSize="14sp" android:textStyle="normal" />
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="Resume Medis"
+                            android:src="@drawable/resume_medis_putih" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:minLines="2"
+                        android:text="Resume\nMedis"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- 2. Kesehatan Kehamilan (Rose Pink) -->
+                <LinearLayout
+                    android:id="@+id/kesehatan_kehamilan"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_card_feature_rose"
+                    android:clickable="true"
+                    android:elevation="2dp"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:minHeight="102dp"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="4dp"
+                    android:paddingVertical="10dp">
+
+                    <FrameLayout
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/shape_circle_rose">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="Kesehatan Kehamilan"
+                            android:src="@drawable/kesehatan_kehamilan_putih" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:minLines="2"
+                        android:text="Kesehatan\nKehamilan"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- 3. Pertumbuhan Anak (Amber Orange) -->
+                <LinearLayout
+                    android:id="@+id/pertumbuhan_anak"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_card_feature_amber"
+                    android:clickable="true"
+                    android:elevation="2dp"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:minHeight="102dp"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="4dp"
+                    android:paddingVertical="10dp">
+
+                    <FrameLayout
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/shape_circle_amber">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="Pertumbuhan Anak"
+                            android:src="@drawable/pertumbuhan_anak_putih" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:minLines="2"
+                        android:text="Tumbuh\nKembang"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- 4. Cari Rawat Inap (Violet Purple) -->
+                <LinearLayout
+                    android:id="@+id/rawat_inap"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_card_feature_purple"
+                    android:clickable="true"
+                    android:elevation="2dp"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:minHeight="102dp"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="4dp"
+                    android:paddingVertical="10dp">
+
+                    <FrameLayout
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/shape_circle_purple">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="Rawat Inap"
+                            android:src="@drawable/diari_kesehatan_putih" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:minLines="2"
+                        android:text="Rawat\nInap"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 4. SERVICES GRID (ROW 2: 4 ITEMS) -->
+            <LinearLayout
+                android:id="@+id/featureRow2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="22dp"
+                android:orientation="horizontal">
+
+                <!-- 5. Pengingat Minum Obat (Cyan Teal) -->
+                <LinearLayout
+                    android:id="@+id/tracker_obat"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_card_feature_cyan"
+                    android:clickable="true"
+                    android:elevation="2dp"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:minHeight="102dp"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="4dp"
+                    android:paddingVertical="10dp">
+
+                    <FrameLayout
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/shape_circle_cyan">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="Pengingat Obat"
+                            android:src="@drawable/pengingat_minum_obat_putih" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:minLines="2"
+                        android:text="Minum\nObat"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- 6. Cari Nakes (Emerald Mint) -->
+                <LinearLayout
+                    android:id="@+id/cari_nakes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_card_feature_emerald"
+                    android:clickable="true"
+                    android:elevation="2dp"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:minHeight="102dp"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="4dp"
+                    android:paddingVertical="10dp">
+
+                    <FrameLayout
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/shape_circle_emerald">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="Cari Nakes"
+                            android:src="@drawable/cari_nakes_putih" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:minLines="2"
+                        android:text="Cari\nNakes"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- 7. Cari Obat (Indigo Cobalt) -->
+                <LinearLayout
+                    android:id="@+id/cari_obat"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_card_feature_indigo"
+                    android:clickable="true"
+                    android:elevation="2dp"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:minHeight="102dp"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="4dp"
+                    android:paddingVertical="10dp">
+
+                    <FrameLayout
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/shape_circle_indigo">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="Cari Obat"
+                            android:src="@drawable/cari_obat_putih" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:minLines="2"
+                        android:text="Cari\nObat"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- 8. Lainnya (Magenta / Slate) -->
+                <LinearLayout
+                    android:id="@+id/lainnya"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_card_feature_slate"
+                    android:clickable="true"
+                    android:elevation="2dp"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:minHeight="102dp"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="4dp"
+                    android:paddingVertical="10dp">
+
+                    <FrameLayout
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/shape_circle_slate">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="Lainnya"
+                            android:src="@drawable/lainnya_putih" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:minLines="2"
+                        android:text="Semua\nFitur"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 5. BULETIN & EDUKASI KESEHATAN SECTION -->
+            <LinearLayout
+                android:id="@+id/bulletinHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Buletin &amp; Edukasi"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <!-- Action Button: Lihat Semua -->
+                <TextView
+                    android:id="@+id/btnBulletinHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="6dp"
+                    android:text="Lihat Semua ➔"
+                    android:textColor="@color/biruNeon"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Bulletin Article Card 1 -->
+            <LinearLayout
+                android:id="@+id/bulletinHomeOne"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/shape_bulletin_card"
+                android:clickable="true"
+                android:elevation="3dp"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="14dp">
+
+                <!-- Gradient Thumbnail with medical icon -->
+                <FrameLayout
+                    android:layout_width="68dp"
+                    android:layout_height="68dp"
+                    android:background="@drawable/shape_bulletin_thumb_1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="🌱"
+                        android:textSize="26sp" />
+                </FrameLayout>
+
+                <!-- Article Content -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/shape_tag_tips"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="3dp"
+                        android:text="TIPS KESEHATAN"
+                        android:textColor="@color/tag_tips_text"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:text="Pola Hidup Bersih &amp; Deteksi Dini Kanker Serviks"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="⏱ 3 mnt baca • Edukasi Dokter"
+                        android:textColor="@color/textSecondary"
+                        android:textSize="11sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Bulletin Article Card 2 -->
+            <LinearLayout
+                android:id="@+id/bulletinHomeTwo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_bulletin_card"
+                android:clickable="true"
+                android:elevation="3dp"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="14dp">
+
+                <!-- Gradient Thumbnail with vaccine icon -->
+                <FrameLayout
+                    android:layout_width="68dp"
+                    android:layout_height="68dp"
+                    android:background="@drawable/shape_bulletin_thumb_2">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="💉"
+                        android:textSize="26sp" />
+                </FrameLayout>
+
+                <!-- Article Content -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/shape_tag_info"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="3dp"
+                        android:text="INFO VAKSINASI"
+                        android:textColor="@color/tag_info_text"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:text="Jadwal Imunisasi Lengkap untuk Perlindungan Keluarga"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="⏱ 5 mnt baca • Info Faskes"
+                        android:textColor="@color/textSecondary"
+                        android:textSize="11sp" />
                 </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

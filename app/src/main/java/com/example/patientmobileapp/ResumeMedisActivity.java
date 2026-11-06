@@ -68,6 +68,11 @@ public class ResumeMedisActivity extends AppCompatActivity {
         Button buttonTesLab = findViewById(R.id.button_tes_lab);
 
         buttonRawatJalan.setOnClickListener(v -> {
+            buttonRawatJalan.setBackgroundResource(R.drawable.button_login_modern);
+            buttonRawatJalan.setTextColor(androidx.core.content.ContextCompat.getColor(this, R.color.white));
+            buttonTesLab.setBackgroundResource(android.R.color.transparent);
+            buttonTesLab.setTextColor(androidx.core.content.ContextCompat.getColor(this, R.color.textSecondary));
+
             RawatJalanFragment fragment = new RawatJalanFragment();
             Bundle args = new Bundle();
             args.putString("medicalRecords", medicalRecords.toString());
@@ -79,6 +84,11 @@ public class ResumeMedisActivity extends AppCompatActivity {
         });
 
         buttonTesLab.setOnClickListener(v -> {
+            buttonTesLab.setBackgroundResource(R.drawable.button_login_modern);
+            buttonTesLab.setTextColor(androidx.core.content.ContextCompat.getColor(this, R.color.white));
+            buttonRawatJalan.setBackgroundResource(android.R.color.transparent);
+            buttonRawatJalan.setTextColor(androidx.core.content.ContextCompat.getColor(this, R.color.textSecondary));
+
             TesLabFragment fragment = new TesLabFragment();
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.resumeMedisFrameLayout, fragment)

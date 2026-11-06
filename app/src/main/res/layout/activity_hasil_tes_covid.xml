@@ -1,17 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/main" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/abu" tools:context=".KesehatanKehamilan">
-    <androidx.appcompat.widget.Toolbar android:id="@+id/covid" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/abu" android:minHeight="?attr/actionBarSize" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:title="Hasil Tes COVID-19" app:titleTextColor="@color/biruTua" app:navigationIcon="@drawable/ion_chevron_back" />
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_main"
+    tools:context=".HasilTesCovid">
 
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" app:layout_constraintBottom_toTopOf="@+id/button3" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/covid">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/covid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_main"
+        android:minHeight="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ion_chevron_back"
+        app:title="Hasil Tes Lab &amp; COVID-19"
+        app:titleTextColor="@color/textPrimary" />
 
-        <ImageView android:layout_gravity="center_horizontal" android:id="@+id/imageView5" android:layout_width="350dp" android:layout_height="230dp" tools:srcCompat="@drawable/rafiki" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingHorizontal="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/covid">
 
-        <TextView android:id="@+id/textView12" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="30dp" android:layout_marginTop="10dp" android:layout_marginRight="30dp" android:text="Anda belum memiliki riwayat hasil tes COVID-19. Pastikan Anda melakukan tes COVID-19 di lab yang terafilias." android:textAlignment="center" />
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="260dp"
+            android:layout_height="190dp"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="Ilustrasi Tes COVID-19"
+            android:src="@drawable/rafiki" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Belum Ada Hasil Tes"
+            android:textAlignment="center"
+            android:textColor="@color/textPrimary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:lineSpacingExtra="3dp"
+            android:text="Anda belum memiliki riwayat hasil tes COVID-19. Pastikan Anda melakukan tes di lab atau fasilitas kesehatan yang terafiliasi dengan Kemenkes."
+            android:textAlignment="center"
+            android:textColor="@color/textSecondary"
+            android:textSize="13sp" />
     </LinearLayout>
 
-    <Button android:id="@+id/button3" android:background="@drawable/button_biru" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginHorizontal="20dp" android:layout_marginBottom="20dp" android:text="Unggah Hasil Antigen Mandiri" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/button_login_modern"
+        android:elevation="3dp"
+        android:text="Unggah Hasil Antigen Mandiri ➔"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:backgroundTint="@null"
+        app:cornerRadius="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,108 +1,619 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:background="@color/abu" android:layout_height="match_parent" tools:context=".ProfileFragment">
-    <ScrollView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:scrollbars="none"
-        android:fillViewport="true"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_main"
+    tools:context=".ProfileFragment">
+
+    <!-- Sticky Header -->
+    <LinearLayout
+        android:id="@+id/profileHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_main"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="18dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-        <LinearLayout android:id="@+id/linearLayout3" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:paddingHorizontal="25dp" android:paddingBottom="50dp" android:orientation="vertical">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Profile" android:textColor="@color/biruTua" android:textSize="32sp" android:textStyle="bold" />
-            <LinearLayout android:layout_marginTop="20dp" android:background="@drawable/profile_bg" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
-                <LinearLayout android:layout_marginVertical="10dp" android:layout_marginHorizontal="10dp" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
-                    <ImageView android:layout_marginRight="15dp" android:background="@drawable/profile_circle" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                    <LinearLayout android:layout_weight="1" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        app:layout_constraintTop_toTopOf="parent">
 
-                        <TextView android:id="@+id/profileName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Muhammad Ilham Kurniawan" android:textSize="18sp" />
-                        <LinearLayout android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
-                            <ImageView android:background="@drawable/ic_round_call" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profil Saya"
+            android:textColor="@color/textPrimary"
+            android:textSize="26sp"
+            android:textStyle="bold" />
 
-                            <TextView android:id="@+id/profilePhone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Muhammad Ilham Kurniawan" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Kelola identitas, kartu vaksin, dan keamanan akun"
+            android:textColor="@color/textSecondary"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+    <!-- Scrollable Profile Content -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/profileScroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:overScrollMode="ifContentScrolls"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profileHeader">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="100dp">
+
+            <!-- Profile Info Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/shape_bulletin_card"
+                android:elevation="3dp"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <!-- Avatar Ring -->
+                    <FrameLayout
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:background="@drawable/shape_avatar_ring">
+
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/user_outline_putih" />
+
+                        <View
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:layout_gravity="bottom|end"
+                            android:background="@drawable/shape_notification_badge"
+                            android:backgroundTint="@color/status_green" />
+                    </FrameLayout>
+
+                    <!-- User Name & Phone -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/profileName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="Muhammad Ilham Kurniawan"
+                            android:textColor="@color/textPrimary"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="14dp"
+                                android:layout_height="14dp"
+                                android:src="@drawable/ic_round_call"
+                                app:tint="@color/textSecondary" />
+
+                            <TextView
+                                android:id="@+id/profilePhone"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="6dp"
+                                android:text="+62 812-3456-7890"
+                                android:textColor="@color/textSecondary"
+                                android:textSize="12sp" />
                         </LinearLayout>
 
-                        <LinearLayout android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-
+                        <!-- Verified Pill Badge -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:background="@drawable/shape_tag_tips"
+                            android:paddingHorizontal="8dp"
+                            android:paddingVertical="2dp"
+                            android:text="✓ Akun Terverifikasi SatuSehat"
+                            android:textColor="@color/tag_tips_text"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
-                    <ImageView android:layout_marginStart="10dp" android:background="@drawable/tabler_edit" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                </LinearLayout>
-                <LinearLayout android:id="@+id/btnKodeIdentitasProfile" android:clickable="true" android:focusable="true" android:gravity="center_vertical" android:paddingHorizontal="20dp" android:paddingVertical="10dp" android:background="@drawable/profile_identitas" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
-                    <ImageView android:layout_weight="0" android:background="@drawable/barcode" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                    <TextView android:layout_weight="2" android:layout_marginStart="20dp" android:textSize="15sp" android:textStyle="bold" android:textColor="@color/biruTua" android:text="Kode Identitas" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                    <ImageView android:layout_weight="0" android:rotation="180" android:background="@drawable/ion_chevron_back" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout android:id="@+id/btnKartuVaksinProfile" android:clickable="true" android:focusable="true" android:layout_marginTop="20dp" android:gravity="center_vertical" android:padding="20dp" android:orientation="horizontal" android:background="@drawable/profile_bg2" android:layout_width="match_parent" android:layout_height="wrap_content">
-                <LinearLayout android:layout_weight="1" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
-                    <TextView android:text="Kartu Status Vaksin dan Hasil Tes COVID-19" android:layout_width="wrap_content" android:textSize="18sp" android:textColor="@color/white" android:layout_height="wrap_content"/>
-                    <TextView android:id="@+id/profileCardName" android:fontFamily="@font/quantico_regular" android:layout_marginTop="20dp" android:textSize="18sp" android:textColor="@color/white" android:text="MUHAMMAD ILHAM KURNIAWAN" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                </LinearLayout>
-                <ImageView android:rotation="180" android:src="@drawable/ion_chevron_back_white" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-
-            </LinearLayout>
-            <TextView android:layout_marginTop="20dp" android:layout_marginBottom="10dp" android:id="@+id/informasi" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Informasi Umum" android:textColor="@color/biruTua" android:textSize="16sp" android:textStyle="bold" />
-            <LinearLayout android:paddingVertical="15dp" android:paddingHorizontal="20dp" android:orientation="vertical" android:background="@drawable/profile_bg" android:layout_width="match_parent" android:layout_height="wrap_content">
-                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
-                    <ImageView android:layout_marginRight="10dp" android:src="@drawable/mdi_comment_help_outline" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                    <TextView android:layout_weight="1" android:textColor="@color/biruTua" android:layout_width="wrap_content" android:text="Pusat Bantuan" android:layout_height="wrap_content"/>
-                    <ImageView android:rotation="180" android:src="@drawable/ion_chevron_back" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                </LinearLayout>
-                <ImageView android:paddingVertical="10dp" android:layout_width="match_parent" android:background="@drawable/separator" android:layout_height="wrap_content"/>
-                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
-                    <ImageView android:layout_marginRight="10dp" android:src="@drawable/mdi_comment_help_outline" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                    <TextView android:layout_weight="1" android:textColor="@color/biruTua" android:layout_width="wrap_content" android:text="Syarat dan Ketentuan" android:layout_height="wrap_content"/>
-                    <ImageView android:rotation="180" android:src="@drawable/ion_chevron_back" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                </LinearLayout>
-                <ImageView android:paddingVertical="10dp" android:layout_width="match_parent" android:background="@drawable/separator" android:layout_height="wrap_content"/>
-                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
-                    <ImageView android:layout_marginRight="10dp" android:src="@drawable/mdi_comment_help_outline" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                    <TextView android:layout_weight="1" android:textColor="@color/biruTua" android:layout_width="wrap_content" android:text="Kebijakan Privasi" android:layout_height="wrap_content"/>
-                    <ImageView android:rotation="180" android:src="@drawable/ion_chevron_back" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
                 </LinearLayout>
 
+                <!-- Separator -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="14dp"
+                    android:background="@color/card_stroke" />
+
+                <!-- Kode Identitas Barcode Row -->
+                <LinearLayout
+                    android:id="@+id/btnKodeIdentitasProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingVertical="4dp">
+
+                    <FrameLayout
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:background="@drawable/shape_card_feature_blue">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/barcode"
+                            app:tint="@color/biruNeon" />
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Kode Identitas &amp; Barcode Pasien"
+                            android:textColor="@color/textPrimary"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tunjukkan saat registrasi di rumah sakit"
+                            android:textColor="@color/textSecondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:rotation="180"
+                        android:src="@drawable/ion_chevron_back"
+                        app:tint="@color/textMuted" />
+                </LinearLayout>
             </LinearLayout>
-            <TextView android:layout_marginBottom="10dp" android:layout_marginTop="20dp" android:id="@+id/topikhangat" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Pengaturan" android:textColor="@color/biruTua" android:textSize="16sp" android:textStyle="bold" />
-            <LinearLayout android:paddingVertical="15dp" android:paddingHorizontal="20dp" android:orientation="vertical" android:background="@drawable/profile_bg" android:layout_width="match_parent" android:layout_height="wrap_content">
-                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
-                    <ImageView android:layout_marginRight="10dp" android:src="@drawable/clarity_notification_line" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                    <TextView android:layout_weight="1" android:textColor="@color/biruTua" android:layout_width="wrap_content" android:text="Notifikasi" android:layout_height="wrap_content"/>
-                    <ImageView android:rotation="180" android:src="@drawable/ion_chevron_back" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                </LinearLayout>
-                <ImageView android:paddingVertical="10dp" android:layout_width="match_parent" android:background="@drawable/separator" android:layout_height="wrap_content"/>
-                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
-                    <ImageView android:layout_marginRight="10dp" android:src="@drawable/mdi_comment_help_outline" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                    <TextView android:layout_weight="1" android:textColor="@color/biruTua" android:layout_width="wrap_content" android:text="Keamanan Akun" android:layout_height="wrap_content"/>
-                    <ImageView android:rotation="180" android:src="@drawable/ion_chevron_back" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                </LinearLayout>
-                <ImageView android:paddingVertical="10dp" android:layout_width="match_parent" android:background="@drawable/separator" android:layout_height="wrap_content"/>
-                <LinearLayout android:id="@+id/btnLogoutRow" android:clickable="true" android:focusable="true" android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
-                    <ImageView android:layout_marginRight="10dp" android:src="@drawable/ic_logout_red" android:layout_width="20dp" android:layout_height="20dp"/>
-                    <TextView android:layout_weight="1" android:textColor="@color/merah" android:textStyle="bold" android:layout_width="wrap_content" android:text="Keluar dari Akun" android:layout_height="wrap_content"/>
-                    <ImageView android:rotation="180" android:src="@drawable/ion_chevron_back" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+            <!-- Kartu Vaksin & Tes COVID Hero Card -->
+            <LinearLayout
+                android:id="@+id/btnKartuVaksinProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="22dp"
+                android:background="@drawable/shape_hero_card"
+                android:clickable="true"
+                android:elevation="4dp"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="18dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/shape_hero_tag"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="3dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🛡️ SERTIFIKAT DIGITAL"
+                            android:textColor="@color/white"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Kartu Vaksin &amp; Hasil Lab COVID-19"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/profileCardName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:letterSpacing="0.05"
+                        android:text="MUHAMMAD ILHAM KURNIAWAN"
+                        android:textColor="#E0EAFF"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_marginStart="10dp"
+                    android:rotation="180"
+                    android:src="@drawable/ion_chevron_back_white" />
             </LinearLayout>
 
+            <!-- Informasi Umum Grouped Section -->
+            <TextView
+                android:id="@+id/informasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="Informasi Umum"
+                android:textColor="@color/textPrimary"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="22dp"
+                android:background="@drawable/shape_bulletin_card"
+                android:elevation="2dp"
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp">
+
+                <!-- Pusat Bantuan -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingVertical="12dp">
+
+                    <FrameLayout
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:background="@drawable/shape_card_feature_teal">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/mdi_comment_help_outline"
+                            app:tint="@color/feature_teal_start" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_weight="1"
+                        android:text="Pusat Bantuan &amp; FAQ"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:rotation="180"
+                        android:src="@drawable/ion_chevron_back"
+                        app:tint="@color/textMuted" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/card_stroke_subtle" />
+
+                <!-- Syarat & Ketentuan -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingVertical="12dp">
+
+                    <FrameLayout
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:background="@drawable/shape_card_feature_blue">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/bi_file_medical"
+                            app:tint="@color/biruNeon" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_weight="1"
+                        android:text="Syarat dan Ketentuan"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:rotation="180"
+                        android:src="@drawable/ion_chevron_back"
+                        app:tint="@color/textMuted" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/card_stroke_subtle" />
+
+                <!-- Kebijakan Privasi -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingVertical="12dp">
+
+                    <FrameLayout
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:background="@drawable/shape_card_feature_emerald">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_shield_check"
+                            app:tint="@color/feature_emerald_start" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_weight="1"
+                        android:text="Kebijakan Privasi Data Medis"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:rotation="180"
+                        android:src="@drawable/ion_chevron_back"
+                        app:tint="@color/textMuted" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Pengaturan Grouped Section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="Pengaturan &amp; Keamanan"
+                android:textColor="@color/textPrimary"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/shape_bulletin_card"
+                android:elevation="2dp"
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp">
+
+                <!-- Notifikasi -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingVertical="12dp">
+
+                    <FrameLayout
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:background="@drawable/shape_card_feature_orange">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/clarity_notification_line"
+                            app:tint="@color/feature_orange_start" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_weight="1"
+                        android:text="Pengaturan Notifikasi"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:rotation="180"
+                        android:src="@drawable/ion_chevron_back"
+                        app:tint="@color/textMuted" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/card_stroke_subtle" />
+
+                <!-- Keamanan Akun -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingVertical="12dp">
+
+                    <FrameLayout
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:background="@drawable/shape_card_feature_purple">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_lock_outline"
+                            app:tint="@color/feature_purple_start" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_weight="1"
+                        android:text="Keamanan &amp; Kata Sandi"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:rotation="180"
+                        android:src="@drawable/ion_chevron_back"
+                        app:tint="@color/textMuted" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/card_stroke_subtle" />
+
+                <!-- Logout Row -->
+                <LinearLayout
+                    android:id="@+id/btnLogoutRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingVertical="12dp">
+
+                    <FrameLayout
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:background="@drawable/shape_card_feature_red">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_logout_red" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_weight="1"
+                        android:text="Keluar dari Akun"
+                        android:textColor="@color/merah"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:rotation="180"
+                        android:src="@drawable/ion_chevron_back"
+                        app:tint="@color/merah" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Modern Logout Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnLogout"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_marginTop="25dp"
+                android:layout_height="52dp"
                 android:layout_marginBottom="35dp"
-                android:background="@drawable/button_logout"
-                app:backgroundTint="@null"
+                android:backgroundTint="@color/merahMuda"
+                android:elevation="0dp"
                 android:text="Keluar dari Akun"
-                android:textColor="@color/white"
-                android:textSize="16sp"
+                android:textAllCaps="false"
+                android:textColor="@color/merah"
+                android:textSize="15sp"
                 android:textStyle="bold"
-                app:icon="@drawable/ic_logout"
+                app:cornerRadius="14dp"
+                app:icon="@drawable/ic_logout_red"
                 app:iconGravity="textStart"
                 app:iconPadding="10dp"
-                app:iconTint="@color/white" />
+                app:iconTint="@color/merah"
+                app:strokeColor="@color/merah"
+                app:strokeWidth="1dp" />
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
